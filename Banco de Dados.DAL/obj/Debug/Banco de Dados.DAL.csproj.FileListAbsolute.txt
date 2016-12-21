@@ -1,0 +1,6 @@
+d:\documentos\visual studio 2015\Projects\Banco de Dados\Banco de Dados.DAL\bin\Debug\Banco de Dados.DAL.dll.config
+d:\documentos\visual studio 2015\Projects\Banco de Dados\Banco de Dados.DAL\bin\Debug\Banco de Dados.DAL.dll
+d:\documentos\visual studio 2015\Projects\Banco de Dados\Banco de Dados.DAL\bin\Debug\Banco de Dados.DAL.pdb
+d:\documentos\visual studio 2015\Projects\Banco de Dados\Banco de Dados.DAL\obj\Debug\Banco de Dados.DAL.csprojResolveAssemblyReference.cache
+d:\documentos\visual studio 2015\Projects\Banco de Dados\Banco de Dados.DAL\obj\Debug\Banco de Dados.DAL.dll
+d:\documentos\visual studio 2015\Projects\Banco de Dados\Banco de Dados.DAL\obj\Debug\Banco de Dados.DAL.pdb
