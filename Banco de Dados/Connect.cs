@@ -8,7 +8,7 @@ namespace Banco_de_Dados
 {
     class Connect
     {
-        public static string sqlCon = (@"Data Source=.\SQLEXPRESS;Initial Catalog=db_ARS;User ID=sa;Password=Lucas123");
+        public static string sqlCon = (@"Data Source=.\SQLEXPRESS;Initial Catalog=db_ARS;User ID=sa;Password=Lucas1234");
         //"Data Source=.\SQLEXPRESS;Initial Catalog=db_ARS;User ID=sa;Password=Lucas123"
     }
 }

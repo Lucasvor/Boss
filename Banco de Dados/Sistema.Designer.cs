@@ -60,12 +60,12 @@
             this.Baixa = new System.Windows.Forms.Panel();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.PHistorico = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.PesqBaixa = new System.Windows.Forms.Panel();
-            this.PdirBaixa = new System.Windows.Forms.Panel();
+            this.PbackHist = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.PbackHist = new System.Windows.Forms.Panel();
+            this.PdirBaixa = new System.Windows.Forms.Panel();
+            this.PesqBaixa = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -421,6 +421,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(615, 29);
             this.textBox2.TabIndex = 9;
+            this.textBox2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox2_KeyDown);
             // 
             // PHistorico
             // 
@@ -432,32 +433,14 @@
             this.PHistorico.Size = new System.Drawing.Size(615, 369);
             this.PHistorico.TabIndex = 10;
             // 
-            // label4
+            // PbackHist
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(103)))), ((int)(((byte)(130)))));
-            this.label4.Location = new System.Drawing.Point(314, 23);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(56, 24);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Baixa";
-            // 
-            // PesqBaixa
-            // 
-            this.PesqBaixa.Dock = System.Windows.Forms.DockStyle.Left;
-            this.PesqBaixa.Location = new System.Drawing.Point(0, 0);
-            this.PesqBaixa.Name = "PesqBaixa";
-            this.PesqBaixa.Size = new System.Drawing.Size(30, 673);
-            this.PesqBaixa.TabIndex = 11;
-            // 
-            // PdirBaixa
-            // 
-            this.PdirBaixa.Dock = System.Windows.Forms.DockStyle.Right;
-            this.PdirBaixa.Location = new System.Drawing.Point(645, 0);
-            this.PdirBaixa.Name = "PdirBaixa";
-            this.PdirBaixa.Size = new System.Drawing.Size(30, 673);
-            this.PdirBaixa.TabIndex = 12;
+            this.PbackHist.Controls.Add(this.label5);
+            this.PbackHist.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PbackHist.Location = new System.Drawing.Point(0, 0);
+            this.PbackHist.Name = "PbackHist";
+            this.PbackHist.Size = new System.Drawing.Size(615, 51);
+            this.PbackHist.TabIndex = 15;
             // 
             // label5
             // 
@@ -475,20 +458,41 @@
             // 
             this.richTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(46)))), ((int)(((byte)(58)))));
             this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBox1.ForeColor = System.Drawing.Color.Silver;
             this.richTextBox1.Location = new System.Drawing.Point(0, 51);
             this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.ReadOnly = true;
             this.richTextBox1.Size = new System.Drawing.Size(615, 318);
             this.richTextBox1.TabIndex = 14;
             this.richTextBox1.Text = "";
             // 
-            // PbackHist
+            // PdirBaixa
             // 
-            this.PbackHist.Controls.Add(this.label5);
-            this.PbackHist.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PbackHist.Location = new System.Drawing.Point(0, 0);
-            this.PbackHist.Name = "PbackHist";
-            this.PbackHist.Size = new System.Drawing.Size(615, 51);
-            this.PbackHist.TabIndex = 15;
+            this.PdirBaixa.Dock = System.Windows.Forms.DockStyle.Right;
+            this.PdirBaixa.Location = new System.Drawing.Point(645, 0);
+            this.PdirBaixa.Name = "PdirBaixa";
+            this.PdirBaixa.Size = new System.Drawing.Size(30, 673);
+            this.PdirBaixa.TabIndex = 12;
+            // 
+            // PesqBaixa
+            // 
+            this.PesqBaixa.Dock = System.Windows.Forms.DockStyle.Left;
+            this.PesqBaixa.Location = new System.Drawing.Point(0, 0);
+            this.PesqBaixa.Name = "PesqBaixa";
+            this.PesqBaixa.Size = new System.Drawing.Size(30, 673);
+            this.PesqBaixa.TabIndex = 11;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(103)))), ((int)(((byte)(130)))));
+            this.label4.Location = new System.Drawing.Point(314, 23);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(56, 24);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Baixa";
             // 
             // Sistema
             // 

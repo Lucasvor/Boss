@@ -273,5 +273,14 @@ namespace Banco_de_Dados
             }
             textBox1.AppendText(value);
         }
+
+        private void textBox2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                richTextBox1.Text += textBox2.Text+System.Environment.NewLine;
+                textBox2.Clear();
+            }
+        }
     }
 }
