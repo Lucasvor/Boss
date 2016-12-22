@@ -58,6 +58,7 @@
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.button5 = new System.Windows.Forms.Button();
             this.Baixa = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.PHistorico = new System.Windows.Forms.Panel();
             this.PbackHist = new System.Windows.Forms.Panel();
@@ -399,6 +400,7 @@
             // 
             // Baixa
             // 
+            this.Baixa.Controls.Add(this.label6);
             this.Baixa.Controls.Add(this.textBox2);
             this.Baixa.Controls.Add(this.PHistorico);
             this.Baixa.Controls.Add(this.PdirBaixa);
@@ -411,6 +413,17 @@
             this.Baixa.TabIndex = 8;
             this.Baixa.Visible = false;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(103)))), ((int)(((byte)(130)))));
+            this.label6.Location = new System.Drawing.Point(30, 248);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(190, 24);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "Numero da Intimação";
+            // 
             // textBox2
             // 
             this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(46)))), ((int)(((byte)(58)))));
@@ -422,6 +435,7 @@
             this.textBox2.Size = new System.Drawing.Size(615, 29);
             this.textBox2.TabIndex = 9;
             this.textBox2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox2_KeyDown);
+            this.textBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox2_KeyPress);
             // 
             // PHistorico
             // 
@@ -459,13 +473,14 @@
             this.richTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(46)))), ((int)(((byte)(58)))));
             this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox1.ForeColor = System.Drawing.Color.Silver;
+            this.richTextBox1.ForeColor = System.Drawing.Color.White;
             this.richTextBox1.Location = new System.Drawing.Point(0, 51);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;
             this.richTextBox1.Size = new System.Drawing.Size(615, 318);
             this.richTextBox1.TabIndex = 14;
             this.richTextBox1.Text = "";
+            this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
             // PdirBaixa
             // 
@@ -580,6 +595,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel PbackHist;
         private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Label label6;
     }
 }
 
