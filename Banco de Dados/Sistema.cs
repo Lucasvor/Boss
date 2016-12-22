@@ -58,7 +58,7 @@ namespace Banco_de_Dados
             button3.BackColor = System.Drawing.Color.Transparent;
             button4.BackColor = System.Drawing.Color.Transparent;
 
-            Consulta Consulta = new Consulta();
+            var Consulta = new Consulta();
             Consulta.ShowDialog();
             Consulta.Dispose();
         }
@@ -78,6 +78,7 @@ namespace Banco_de_Dados
             button3.BackColor = System.Drawing.Color.Transparent;
             button4.BackColor = System.Drawing.Color.FromArgb(0, 102, 204);
 
+            richTextBox1.Clear();
             BackImporta.Visible = false;
             Baixa.Visible = true;
         }
@@ -115,131 +116,144 @@ namespace Banco_de_Dados
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {  /// Connect database
-            sqlCon.Open();
-            tran = sqlCon.BeginTransaction();
-
-        
-            // Váriavel
-            string s;
-            int flag = 0, contador = 2, contador_Error = 0;
-            var lengths = new[] { 2, 4, 8, 45, 14, 45, 20, 20, 20, 2, 8, 13 , 8 };
-            string dataentrada, erroTexto = null, fim = null;
-            var parts = new string[lengths.Length];
-            var files = File.ReadAllLines((string)e.Argument);
-            //
-
-
-            using (var reader = new StreamReader((string)e.Argument,Encoding.UTF7))
+            //sqlCon.Open();
+            if (connectBanco())
             {
 
-               dataentrada = reader.ReadLine();
-               dataentrada = dataentrada.Substring(0, 8);
-               fim = dataentrada;
-                while (!reader.EndOfStream)
-                {
-                    s = reader.ReadLine();
-                    AppendTextBox("Importando Linha: " + (contador));
-                    //textBox1.AppendText("Importando Linha: " + (contador++));
-                    var startPos = 0;
+                tran = sqlCon.BeginTransaction();
 
-                    try{
-                        if (s.Trim().Length < 210)
+
+                // Váriavel
+                string s;
+                int flag = 0, contador = 2, contador_Error = 0;
+                var lengths = new[] { 2, 4, 8, 45, 14, 45, 20, 20, 20, 2, 8, 13, 8 };
+                string dataentrada, erroTexto = null, fim = null;
+                var parts = new string[lengths.Length];
+                var files = File.ReadAllLines((string)e.Argument);
+                //
+
+
+                using (var reader = new StreamReader((string)e.Argument, Encoding.UTF7))
+                {
+
+                    dataentrada = reader.ReadLine();
+                    dataentrada = dataentrada.Substring(0, 8);
+                    fim = dataentrada;
+                    while (!reader.EndOfStream)
+                    {
+                        s = reader.ReadLine();
+                        AppendTextBox("Importando Linha: " + (contador));
+                        //textBox1.AppendText("Importando Linha: " + (contador++));
+                        var startPos = 0;
+
+                        try
                         {
-                            if(fim == s.Substring(0, 8))
+                            if (s.Trim().Length < 210)
                             {
-                                if (flag == 0)
+                                if (fim == s.Substring(0, 8))
                                 {
-                                    AppendTextBox("  Operação Concluída com Sucesso!");
-                                    break;
-                                }else
+                                    if (flag == 0)
+                                    {
+                                        AppendTextBox("  Operação Concluída com Sucesso!");
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        AppendTextBox("  Operação Concluída com Falha!");
+                                        break;
+                                    }
+                                }
+                                else
                                 {
-                                    AppendTextBox("  Operação Concluída com Falha!");
-                                    break;
+                                    flag_error = 1;
+                                    erroTexto = "Falta dados necessários para importação! Linha: " + contador;
+                                    throw new Exception(erroTexto);
                                 }
                             }
-                            else{
-                                flag_error = 1;
-                                erroTexto = "Falta dados necessários para importação! Linha: " + contador;
-                                throw new Exception(erroTexto); }
-                        }
 
-                         for (int i = 0; i < lengths.Length; i++){
-                            parts[i] = s.Substring(startPos, lengths[i]);
-                            startPos += lengths[i];
-                        }
-                        if (parts[0].Trim().Length < 2 && parts[11].Trim().Length < 13)
-                        {
-                            flag_error = 2;
-                            erroTexto = "Dado inválido para chave Primária do Banco!";
-                            throw new Exception(erroTexto);
-                        }
-
-                        cmd = new SqlCommand(queryInsert, sqlCon, tran);
-                        cmd.Parameters.AddWithValue("@cartorio", parts[0]);
-                        cmd.Parameters.AddWithValue("@protocolo", parts[1]);
-                        cmd.Parameters.AddWithValue("@dataprotocolo", parts[2]);
-                        cmd.Parameters.AddWithValue("@destinatario", parts[3]);
-                        cmd.Parameters.AddWithValue("@docdestinatario", parts[4]);
-                        cmd.Parameters.AddWithValue("@endereco", parts[5]);
-                        cmd.Parameters.AddWithValue("@complemento", parts[6]);
-                        cmd.Parameters.AddWithValue("@bairro", parts[7]);
-                        cmd.Parameters.AddWithValue("@cidade", parts[8]);
-                        cmd.Parameters.AddWithValue("@UF", parts[9]);
-                        cmd.Parameters.AddWithValue("@CEP", parts[10]);
-                        cmd.Parameters.AddWithValue("@nrointimacao", parts[11]);
-                        cmd.Parameters.AddWithValue("@prazolimite", DateTime.ParseExact(parts[12], "ddMMyyyy", System.Globalization.CultureInfo.InvariantCulture).ToString("g"));
-                        cmd.Parameters.AddWithValue("@dataentrada", DateTime.ParseExact(dataentrada, "ddMMyyyy", System.Globalization.CultureInfo.InvariantCulture).ToString("g"));
-
-                        cmd.ExecuteNonQuery();
-                    }
-                    catch (Exception ex)
-                    {
-                        flag = 1;
-                        if (ex.HResult == -2146232060)
-                        {
-                            if (contador_Error < 1)
+                            for (int i = 0; i < lengths.Length; i++)
                             {
-                                MessageBox.Show("Há Valores Repetidos nas chaves primarias ou Título já consta no banco. ", "Importação");
-                                erroTexto = "Valor repetido / Já consta no banco";
+                                parts[i] = s.Substring(startPos, lengths[i]);
+                                startPos += lengths[i];
+                            }
+                            if (parts[0].Trim().Length < 2 && parts[11].Trim().Length < 13)
+                            {
+                                flag_error = 2;
+                                erroTexto = "Dado inválido para chave Primária do Banco!";
+                                throw new Exception(erroTexto);
+                            }
+
+                            cmd = new SqlCommand(queryInsert, sqlCon, tran);
+                            cmd.Parameters.AddWithValue("@cartorio", parts[0]);
+                            cmd.Parameters.AddWithValue("@protocolo", parts[1]);
+                            cmd.Parameters.AddWithValue("@dataprotocolo", parts[2]);
+                            cmd.Parameters.AddWithValue("@destinatario", parts[3]);
+                            cmd.Parameters.AddWithValue("@docdestinatario", parts[4]);
+                            cmd.Parameters.AddWithValue("@endereco", parts[5]);
+                            cmd.Parameters.AddWithValue("@complemento", parts[6]);
+                            cmd.Parameters.AddWithValue("@bairro", parts[7]);
+                            cmd.Parameters.AddWithValue("@cidade", parts[8]);
+                            cmd.Parameters.AddWithValue("@UF", parts[9]);
+                            cmd.Parameters.AddWithValue("@CEP", parts[10]);
+                            cmd.Parameters.AddWithValue("@nrointimacao", parts[11]);
+                            cmd.Parameters.AddWithValue("@prazolimite", DateTime.ParseExact(parts[12], "ddMMyyyy", System.Globalization.CultureInfo.InvariantCulture).ToString("g"));
+                            cmd.Parameters.AddWithValue("@dataentrada", DateTime.ParseExact(dataentrada, "ddMMyyyy", System.Globalization.CultureInfo.InvariantCulture).ToString("g"));
+
+                            cmd.ExecuteNonQuery();
+                        }
+                        catch (Exception ex)
+                        {
+                            flag = 1;
+                            if (ex.HResult == -2146232060)
+                            {
+                                if (contador_Error < 1)
+                                {
+                                    MessageBox.Show("Há Valores Repetidos nas chaves primarias ou Título já consta no banco. ", "Importação",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                                    erroTexto = "Valor repetido / Já consta no banco";
+                                    // tran.Rollback();
+                                }
+                                contador_Error++;
+                            }
+                            else if (flag_error == 1)
+                            {
+                                MessageBox.Show(ex.Message, "Importação", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                contador_Error++;
+                            }
+                            else if (flag_error == 2)
+                            {
+                                MessageBox.Show(ex.Message, "Importação", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                contador_Error++;
+                            }
+                            else
+                            {
+                                MessageBox.Show("Erro! " + ex, "Importação", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                erroTexto = ex.Message;
                                 // tran.Rollback();
                             }
-                            contador_Error++;
+                            AppendTextBox(" >>  " + erroTexto);
+
                         }
-                        else if (flag_error == 1)
+                        AppendTextBox(System.Environment.NewLine);
+                        contador++;
+
+                        this.backgroundWorker1.ReportProgress(j++ * 100 / files.Length);
+                        if (backgroundWorker1.CancellationPending)
                         {
-                            MessageBox.Show(ex.Message ,"Importação");
-                            contador_Error++;
+                            e.Cancel = true;
+                            backgroundWorker1.ReportProgress(0);
+                            return;
                         }
-                        else if(flag_error == 2)
-                        {
-                            MessageBox.Show(ex.Message, "Importação");
-                            contador_Error++;
-                        }
-                        else
-                        {
-                            MessageBox.Show("Erro! " + ex, "Importação");
-                            erroTexto = ex.Message;
-                            // tran.Rollback();
-                        }
-                        AppendTextBox(" >>  "+erroTexto);
-                     
                     }
-                    AppendTextBox(System.Environment.NewLine);
-                    contador++;
-                    
-                    this.backgroundWorker1.ReportProgress(j++ * 100 / files.Length);
-                    if (backgroundWorker1.CancellationPending)
-                    {
-                        e.Cancel = true;
-                        backgroundWorker1.ReportProgress(0);
-                        return;
-                    }
+                    reader.Close();
                 }
-                reader.Close();
+                contadorError = contador_Error;
+                error = flag;
+                backgroundWorker1.ReportProgress(100);
             }
-            contadorError = contador_Error;
-            error = flag;
-            backgroundWorker1.ReportProgress(100);
+            else
+            {
+                error = 2;
+            }
         }
 
         private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
@@ -252,18 +266,20 @@ namespace Banco_de_Dados
         {
             if (error == 0)
             {
-                MessageBox.Show("Arquivo importado com sucesso!", "Importação");
+                MessageBox.Show("Arquivo importado com sucesso!", "Importação", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 progressBar1.Value = 100;
                 tran.Commit();
                 sqlCon.Close();
             }
-            else
+            else if(error == 1)
             {
-                MessageBox.Show("Arquivo não importado! \nHá " + contadorError + " linhas inválidas", "Importação");
+                MessageBox.Show("Arquivo não importado! \nHá " + contadorError + " linhas inválidas", "Importação", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 tran.Rollback();
                 sqlCon.Close();
-            }
+            }else
+            {
 
+            }
         }
         public void AppendTextBox(string value)
         {
@@ -303,96 +319,106 @@ namespace Banco_de_Dados
             richTextBox1.SelectAll();
             richTextBox1.SelectionAlignment = HorizontalAlignment.Center;
             richTextBox1.Update();
-            if (cor == 0)
+            if (!string.IsNullOrWhiteSpace(richTextBox1.Text))
             {
-                //richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(richTextBox1.Lines.Length - 1), richTextBox1.Lines[richTextBox1.Lines.Length - 1].Length);
-                richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(0), richTextBox1.Lines[0].Length);
-                richTextBox1.SelectionColor = Color.WhiteSmoke;
-                cor++;
-            }
-            else if(cor == 1)
-            {
+                if (cor == 0)
+                {
+                    //richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(richTextBox1.Lines.Length - 1), richTextBox1.Lines[richTextBox1.Lines.Length - 1].Length);
+                    richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(0), richTextBox1.Lines[0].Length);
+                    richTextBox1.SelectionColor = Color.WhiteSmoke;
+                    cor++;
+                }
+                else if (cor == 1)
+                {
 
-                //richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(richTextBox1.Lines.Length - 1), richTextBox1.Lines[richTextBox1.Lines.Length - 1].Length);
-                richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(0), richTextBox1.Lines[0].Length);
-                richTextBox1.SelectionColor = Color.Gainsboro;
-                cor++; 
-            }else if(cor == 2)
-            {
-                //richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(richTextBox1.Lines.Length - 1), richTextBox1.Lines[richTextBox1.Lines.Length - 1].Length);
-                richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(0), richTextBox1.Lines[0].Length);
-                richTextBox1.SelectionColor = Color.LightGray;
-                cor++;
-            }else if(cor == 3)
-            {
-                //richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(richTextBox1.Lines.Length - 1), richTextBox1.Lines[richTextBox1.Lines.Length - 1].Length);
-                richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(0), richTextBox1.Lines[0].Length);
-                richTextBox1.SelectionColor = Color.Silver;
-                cor++;
-            }else if(cor == 4)
-            {
-                //richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(richTextBox1.Lines.Length - 1), richTextBox1.Lines[richTextBox1.Lines.Length - 1].Length);
-                richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(0), richTextBox1.Lines[0].Length);
-                richTextBox1.SelectionColor = Color.DarkGray;
-                cor++;
-            }else if(cor == 5)
-            {
-                //richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(richTextBox1.Lines.Length - 1), richTextBox1.Lines[richTextBox1.Lines.Length - 1].Length);
-                richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(0), richTextBox1.Lines[0].Length);
-                richTextBox1.SelectionColor = Color.Gray;
-                cor++;
-            }else if (cor == 6)
-            {
-                //richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(richTextBox1.Lines.Length - 1), richTextBox1.Lines[richTextBox1.Lines.Length - 1].Length);
-                richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(0), richTextBox1.Lines[0].Length);
-                richTextBox1.SelectionColor = Color.DimGray;
-                cor++;
-            }else if (cor == 7)
-            {
-                //richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(richTextBox1.Lines.Length - 1), richTextBox1.Lines[richTextBox1.Lines.Length - 1].Length);
-                richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(0), richTextBox1.Lines[0].Length);
-                richTextBox1.SelectionColor = Color.Gray;
-                cor ++;
-            }else if (cor == 8)
-            {
-                //richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(richTextBox1.Lines.Length - 1), richTextBox1.Lines[richTextBox1.Lines.Length - 1].Length);
-                richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(0), richTextBox1.Lines[0].Length);
-                richTextBox1.SelectionColor = Color.DarkGray;
-                cor++;
-            }
-            else if (cor == 9)
-            {
-                //richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(richTextBox1.Lines.Length - 1), richTextBox1.Lines[richTextBox1.Lines.Length - 1].Length);
-                richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(0), richTextBox1.Lines[0].Length);
-                richTextBox1.SelectionColor = Color.Silver;
-                cor++;
-            }
-            else if (cor == 10)
-            {
-                //richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(richTextBox1.Lines.Length - 1), richTextBox1.Lines[richTextBox1.Lines.Length - 1].Length);
-                richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(0), richTextBox1.Lines[0].Length);
-                richTextBox1.SelectionColor = Color.LightGray;
-                cor++;
-            }
-            else if (cor == 11)
-            {
-                //richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(richTextBox1.Lines.Length - 1), richTextBox1.Lines[richTextBox1.Lines.Length - 1].Length);
-                richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(0), richTextBox1.Lines[0].Length);
-                richTextBox1.SelectionColor = Color.LightGray;
-                cor ++;
-            }
-            else if (cor == 12)
-            {
-                //richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(richTextBox1.Lines.Length - 1), richTextBox1.Lines[richTextBox1.Lines.Length - 1].Length);
-                richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(0), richTextBox1.Lines[0].Length);
-                richTextBox1.SelectionColor = Color.WhiteSmoke;
-                cor++;
-            }else
-            {
+                    //richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(richTextBox1.Lines.Length - 1), richTextBox1.Lines[richTextBox1.Lines.Length - 1].Length);
+                    richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(0), richTextBox1.Lines[0].Length);
+                    richTextBox1.SelectionColor = Color.Gainsboro;
+                    cor++;
+                }
+                else if (cor == 2)
+                {
+                    //richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(richTextBox1.Lines.Length - 1), richTextBox1.Lines[richTextBox1.Lines.Length - 1].Length);
+                    richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(0), richTextBox1.Lines[0].Length);
+                    richTextBox1.SelectionColor = Color.LightGray;
+                    cor++;
+                }
+                else if (cor == 3)
+                {
+                    //richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(richTextBox1.Lines.Length - 1), richTextBox1.Lines[richTextBox1.Lines.Length - 1].Length);
+                    richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(0), richTextBox1.Lines[0].Length);
+                    richTextBox1.SelectionColor = Color.Silver;
+                    cor++;
+                }
+                else if (cor == 4)
+                {
+                    //richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(richTextBox1.Lines.Length - 1), richTextBox1.Lines[richTextBox1.Lines.Length - 1].Length);
+                    richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(0), richTextBox1.Lines[0].Length);
+                    richTextBox1.SelectionColor = Color.DarkGray;
+                    cor++;
+                }
+                else if (cor == 5)
+                {
+                    //richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(richTextBox1.Lines.Length - 1), richTextBox1.Lines[richTextBox1.Lines.Length - 1].Length);
+                    richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(0), richTextBox1.Lines[0].Length);
+                    richTextBox1.SelectionColor = Color.Gray;
+                    cor++;
+                }
+                else if (cor == 6)
+                {
+                    //richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(richTextBox1.Lines.Length - 1), richTextBox1.Lines[richTextBox1.Lines.Length - 1].Length);
+                    richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(0), richTextBox1.Lines[0].Length);
+                    richTextBox1.SelectionColor = Color.DimGray;
+                    cor++;
+                }
+                else if (cor == 7)
+                {
+                    //richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(richTextBox1.Lines.Length - 1), richTextBox1.Lines[richTextBox1.Lines.Length - 1].Length);
+                    richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(0), richTextBox1.Lines[0].Length);
+                    richTextBox1.SelectionColor = Color.Gray;
+                    cor++;
+                }
+                else if (cor == 8)
+                {
+                    //richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(richTextBox1.Lines.Length - 1), richTextBox1.Lines[richTextBox1.Lines.Length - 1].Length);
+                    richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(0), richTextBox1.Lines[0].Length);
+                    richTextBox1.SelectionColor = Color.DarkGray;
+                    cor++;
+                }
+                else if (cor == 9)
+                {
+                    //richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(richTextBox1.Lines.Length - 1), richTextBox1.Lines[richTextBox1.Lines.Length - 1].Length);
+                    richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(0), richTextBox1.Lines[0].Length);
+                    richTextBox1.SelectionColor = Color.Silver;
+                    cor++;
+                }
+                else if (cor == 10)
+                {
+                    //richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(richTextBox1.Lines.Length - 1), richTextBox1.Lines[richTextBox1.Lines.Length - 1].Length);
+                    richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(0), richTextBox1.Lines[0].Length);
+                    richTextBox1.SelectionColor = Color.LightGray;
+                    cor++;
+                }
+                else if (cor == 11)
+                {
+                    //richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(richTextBox1.Lines.Length - 1), richTextBox1.Lines[richTextBox1.Lines.Length - 1].Length);
+                    richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(0), richTextBox1.Lines[0].Length);
+                    richTextBox1.SelectionColor = Color.LightGray;
+                    cor++;
+                }
+                else if (cor == 12)
+                {
+                    //richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(richTextBox1.Lines.Length - 1), richTextBox1.Lines[richTextBox1.Lines.Length - 1].Length);
+                    richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(0), richTextBox1.Lines[0].Length);
+                    richTextBox1.SelectionColor = Color.WhiteSmoke;
+                    cor++;
+                }
+                else
+                {
 
-                cor = 0;
+                    cor = 0;
+                }
             }
-
         }
 
         private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
@@ -400,6 +426,21 @@ namespace Banco_de_Dados
             if(!char.IsDigit(e.KeyChar) && e.KeyChar != 8 && e.KeyChar != 46)
             {
                 e.Handled = true;
+            }
+        }
+        public bool connectBanco()
+        {
+        
+            try
+            {
+                
+                sqlCon.Open();
+                return true;
+
+            }catch(Exception e)
+            {
+                MessageBox.Show(e.Message, "Conexão com Banco de dados",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                return false;
             }
         }
     }

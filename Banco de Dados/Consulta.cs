@@ -35,57 +35,64 @@ namespace Banco_de_Dados
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if((!string.IsNullOrWhiteSpace(comboBox1.Text) && !string.IsNullOrWhiteSpace(textBox1.Text)) && string.IsNullOrWhiteSpace(comboBox2.Text))
+            if (connectBanco())
             {
-                query = "select * from dbo.tb_carta where "+comboBox1.Text+" like '"+textBox1.Text+"%'";
-            }else if((!string.IsNullOrWhiteSpace(comboBox1.Text) && string.IsNullOrWhiteSpace(textBox1.Text)) && string.IsNullOrWhiteSpace(comboBox2.Text)){
-                query = "select "+comboBox1.Text+" from dbo.tb_carta";
-            }else if((!string.IsNullOrWhiteSpace(comboBox1.Text) && !string.IsNullOrWhiteSpace(textBox1.Text)) && !string.IsNullOrWhiteSpace(comboBox2.Text))
-            {
-                query = "select * from dbo.tb_carta where " + comboBox1.Text + " = '" + textBox1.Text + "' and " + comboBox2.Text + " like '" + textBox2.Text + "%'";
-            }
-           /* if (!string.IsNullOrWhiteSpace(textBox1.Text) && !string.IsNullOrWhiteSpace(comboBox1.Text))
-            {
-                query = "select * from dbo.tb_carta where nrointimacao = '" + textBox1.Text + "' AND cartorio = '"+comboBox1.Text+"'";
-            }else if(string.IsNullOrWhiteSpace(textBox1.Text) && !string.IsNullOrWhiteSpace(comboBox1.Text))
-            {
-                query = "select * from dbo.tb_carta where cartorio = '" + comboBox1.Text + "'";
-            }else if (string.IsNullOrWhiteSpace(comboBox1.Text) && !string.IsNullOrWhiteSpace(textBox1.Text))
-            {
-                query = "select * from dbo.tb_carta where nrointimacao = '" + textBox1.Text + "'";
-            } */
-            else
-            {
-                query  = "select top(200) * from dbo.tb_carta";
-            }
-            try
-            {
-                sqlCon.Open();
-                cmd = new SqlCommand(query, sqlCon);
-                cmd.ExecuteNonQuery();
-                dt = new DataTable();
-                da = new SqlDataAdapter(cmd);
-                da.Fill(dt);
-                if (dt.Rows.Count < 1 )
+                if ((!string.IsNullOrWhiteSpace(comboBox1.Text) && !string.IsNullOrWhiteSpace(textBox1.Text)) && string.IsNullOrWhiteSpace(comboBox2.Text))
                 {
-                    throw new Exception("Dado não Encontrado!");
-                }else
-                {
-                    
-                    dataGridView1.DataSource = dt;
-                    configuraDataGridView();
+                    query = "select * from dbo.tb_carta where " + comboBox1.Text + " like '" + textBox1.Text + "%'";
                 }
-               
-            }catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Consulta");
+                else if ((!string.IsNullOrWhiteSpace(comboBox1.Text) && string.IsNullOrWhiteSpace(textBox1.Text)) && string.IsNullOrWhiteSpace(comboBox2.Text))
+                {
+                    query = "select " + comboBox1.Text + " from dbo.tb_carta";
+                }
+                else if ((!string.IsNullOrWhiteSpace(comboBox1.Text) && !string.IsNullOrWhiteSpace(textBox1.Text)) && !string.IsNullOrWhiteSpace(comboBox2.Text))
+                {
+                    query = "select * from dbo.tb_carta where " + comboBox1.Text + " = '" + textBox1.Text + "' and " + comboBox2.Text + " like '" + textBox2.Text + "%'";
+                }
+                /* if (!string.IsNullOrWhiteSpace(textBox1.Text) && !string.IsNullOrWhiteSpace(comboBox1.Text))
+                 {
+                     query = "select * from dbo.tb_carta where nrointimacao = '" + textBox1.Text + "' AND cartorio = '"+comboBox1.Text+"'";
+                 }else if(string.IsNullOrWhiteSpace(textBox1.Text) && !string.IsNullOrWhiteSpace(comboBox1.Text))
+                 {
+                     query = "select * from dbo.tb_carta where cartorio = '" + comboBox1.Text + "'";
+                 }else if (string.IsNullOrWhiteSpace(comboBox1.Text) && !string.IsNullOrWhiteSpace(textBox1.Text))
+                 {
+                     query = "select * from dbo.tb_carta where nrointimacao = '" + textBox1.Text + "'";
+                 } */
+                else
+                {
+                    query = "select top(200) * from dbo.tb_carta";
+                }
+                try
+                {
+                    //sqlCon.Open();
+                    cmd = new SqlCommand(query, sqlCon);
+                    cmd.ExecuteNonQuery();
+                    dt = new DataTable();
+                    da = new SqlDataAdapter(cmd);
+                    da.Fill(dt);
+                    if (dt.Rows.Count < 1)
+                    {
+                        throw new Exception("Dado não Encontrado!");
+                    }
+                    else
+                    {
+
+                        dataGridView1.DataSource = dt;
+                        configuraDataGridView();
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Consulta");
+                }
+                finally
+                {
+                    sqlCon.Close();
+                }
+
             }
-            finally
-            {
-                sqlCon.Close();
-            }
-            
-            
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -170,9 +177,9 @@ namespace Banco_de_Dados
 
         public void GetdatabaseList()
         {
- 
-
-            sqlCon.Open();
+            //sqlCon.Open();
+            if (connectBanco())
+            {
 
                 using (SqlCommand cmd = new SqlCommand("SELECT name FROM sys.columns WHERE object_id = OBJECT_ID('dbo.tb_carta')", sqlCon))
                 {
@@ -186,7 +193,8 @@ namespace Banco_de_Dados
                     }
                 }
 
-            sqlCon.Close();
+                sqlCon.Close();
+            }
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -212,6 +220,22 @@ namespace Banco_de_Dados
         private void Consulta_Load(object sender, EventArgs e)
         {
            
+        }
+        public bool connectBanco()
+        {
+
+            try
+            {
+
+                sqlCon.Open();
+                return true;
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Conexão com Banco de dados", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
         }
     }
 
