@@ -295,21 +295,54 @@ namespace Banco_de_Dados
         {
             if(e.KeyCode == Keys.Enter)
             {
-                if (string.IsNullOrWhiteSpace(textBox2.Text) || textBox2.Text.Length > 14)
+                if (connectBanco())
                 {
-                    MessageBox.Show("Campo não pode ser vazio ou conter mais que 13 Caracteres", "Baixa");
-                    textBox2.Clear();
-                }
-                else
-                {
-                    //richTextBox1.Text += textBox2.Text+System.Environment.NewLine;
-                    //richTextBox1.AppendText(textBox2.Text + System.Environment.NewLine);
-                    richTextBox1.Select(0, 0);
-                    richTextBox1.SelectedText = textBox2.Text + System.Environment.NewLine;
-                    richTextBox1.Update();
-                    //richTextBox1.SelectAll();
-                    //richTextBox1.SelectionAlignment = HorizontalAlignment.Center;
-                    textBox2.Clear();
+                    if (string.IsNullOrWhiteSpace(textBox2.Text) || textBox2.Text.Length > 14)
+                    {
+                        MessageBox.Show("Campo não pode ser vazio ou conter mais que 13 Caracteres", "Baixa",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                        textBox2.Clear();
+                    }
+                    else
+                    {
+                        try
+                        {
+                            //richTextBox1.Text += textBox2.Text+System.Environment.NewLine;
+                            //richTextBox1.AppendText(textBox2.Text + System.Environment.NewLine);
+
+                            using (var myCommand = new SqlCommand("select nrointimacao from dbo.tb_carta where nrointimacao = '" + textBox2.Text + "'", sqlCon))
+                            {
+                                myCommand.ExecuteNonQuery();
+                                var myReader = myCommand.ExecuteReader();
+                                if (myReader.Read() && myReader.GetSqlValue(0) == null)
+                                {
+                                    myCommand.Dispose();
+                                    myReader.Close();
+                                    using (var mycommand2 = new SqlCommand("update dbo.tb_carta set baixa = '" + DateTime.Now + "' where nrointimacao = '" + textBox2.Text + "'",sqlCon))
+                                    {
+                                        mycommand2.ExecuteNonQuery();
+                                        richTextBox1.Select(0, 0);
+                                        richTextBox1.SelectedText = textBox2.Text +"  "+ DateTime.Now + System.Environment.NewLine;
+                                        richTextBox1.Update();
+                                        //richTextBox1.SelectAll();
+                                        //richTextBox1.SelectionAlignment = HorizontalAlignment.Center;
+                                        textBox2.Clear();
+                                        mycommand2.Dispose();
+                                    }
+
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Dado não encontado ou Valor ja alterado", "Baixa", MessageBoxButtons.OK, MessageBoxIcon.Information);   
+                                }
+
+                            }
+                            
+                        }catch(Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                        }
+                        
+                    }
                 }
             }
         }
