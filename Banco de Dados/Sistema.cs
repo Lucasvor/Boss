@@ -328,11 +328,10 @@ namespace Banco_de_Dados
                                         textBox2.Clear();
                                         mycommand2.Dispose();
                                     }
-
                                 }
                                 else
                                 {
-                                    MessageBox.Show("Dado não encontado ou Valor ja alterado", "Baixa", MessageBoxButtons.OK, MessageBoxIcon.Information);   
+                                    MessageBox.Show("Dado não encontado ou Valor ja Baixado", "Baixa", MessageBoxButtons.OK, MessageBoxIcon.Information);   
                                 }
 
                             }

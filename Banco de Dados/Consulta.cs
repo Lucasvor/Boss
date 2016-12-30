@@ -171,8 +171,11 @@ namespace Banco_de_Dados
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int index = e.RowIndex;
-            DataGridViewRow selectedRow = dataGridView1.Rows[index];
-            dado = selectedRow.Cells[11].Value.ToString();
+            if (e.RowIndex != -1 && e.ColumnIndex != -1)
+            {
+                DataGridViewRow selectedRow = dataGridView1.Rows[index];
+                dado = selectedRow.Cells[11].Value.ToString();
+            }
         }
 
         public void GetdatabaseList()
@@ -237,6 +240,8 @@ namespace Banco_de_Dados
                 return false;
             }
         }
+
+
     }
 
 }
