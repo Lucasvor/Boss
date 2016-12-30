@@ -15,7 +15,8 @@ namespace Banco_de_Dados
     public partial class Sistema : Form
     {
 
-        SqlConnection sqlCon = new SqlConnection(Connect.sqlCon);
+        //SqlConnection sqlCon = new SqlConnection(Connect.query);
+        private readonly Connect conexao = new Connect();//add conexao.Dispose(); to the Dispose method on another file.
         SqlTransaction tran;
         SqlCommand cmd;
         int error;
@@ -26,6 +27,18 @@ namespace Banco_de_Dados
 
         const string queryInsert = "insert into dbo.tb_carta(cartorio, protocolo, dataprotocolo, destinatario, docdestinatario, endereco, complemento, bairro, cidade, UF, CEP, nrointimacao, prazolimite, dataentrada) values(@cartorio,@protocolo,@dataprotocolo,@destinatario,@docdestinatario,@endereco,@complemento,@bairro,@cidade,@UF,@CEP,@nrointimacao,@prazolimite,@dataentrada)";
 
+        //public SqlConnection SqlCon
+        //{
+        //    get
+        //    {
+        //        return sqlCon;
+        //    }
+
+        //    set
+        //    {
+        //        sqlCon = value;
+        //    }
+        //}
 
         public Sistema()
         {
@@ -91,7 +104,9 @@ namespace Banco_de_Dados
             button4.BackColor = System.Drawing.Color.Transparent;
             //panel13.BringToFront();
             BackImporta.Visible = false;
+            Baixa.Visible = false;
             textBox1.Clear();
+            textBox2.Clear();
             progressBar1.Value = 0;
         }
 
@@ -120,7 +135,7 @@ namespace Banco_de_Dados
             if (connectBanco())
             {
 
-                tran = sqlCon.BeginTransaction();
+                tran = conexao.SqlCon.BeginTransaction();
 
 
                 // Váriavel
@@ -183,7 +198,7 @@ namespace Banco_de_Dados
                                 throw new Exception(erroTexto);
                             }
 
-                            cmd = new SqlCommand(queryInsert, sqlCon, tran);
+                            cmd = new SqlCommand(queryInsert, conexao.SqlCon, tran);
                             cmd.Parameters.AddWithValue("@cartorio", parts[0]);
                             cmd.Parameters.AddWithValue("@protocolo", parts[1]);
                             cmd.Parameters.AddWithValue("@dataprotocolo", parts[2]);
@@ -269,16 +284,13 @@ namespace Banco_de_Dados
                 MessageBox.Show("Arquivo importado com sucesso!", "Importação", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 progressBar1.Value = 100;
                 tran.Commit();
-                sqlCon.Close();
+                conexao.SqlCon.Close();
             }
             else if(error == 1)
             {
                 MessageBox.Show("Arquivo não importado! \nHá " + contadorError + " linhas inválidas", "Importação", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 tran.Rollback();
-                sqlCon.Close();
-            }else
-            {
-
+                conexao.SqlCon.Close();
             }
         }
         public void AppendTextBox(string value)
@@ -309,7 +321,7 @@ namespace Banco_de_Dados
                             //richTextBox1.Text += textBox2.Text+System.Environment.NewLine;
                             //richTextBox1.AppendText(textBox2.Text + System.Environment.NewLine);
 
-                            using (var myCommand = new SqlCommand("select nrointimacao from dbo.tb_carta where nrointimacao = '" + textBox2.Text + "'", sqlCon))
+                            using (var myCommand = new SqlCommand("select nrointimacao from dbo.tb_carta where nrointimacao = '" + textBox2.Text + "'", conexao.SqlCon))
                             {
                                 myCommand.ExecuteNonQuery();
                                 var myReader = myCommand.ExecuteReader();
@@ -317,7 +329,7 @@ namespace Banco_de_Dados
                                 {
                                     myCommand.Dispose();
                                     myReader.Close();
-                                    using (var mycommand2 = new SqlCommand("update dbo.tb_carta set baixa = '" + DateTime.Now + "' where nrointimacao = '" + textBox2.Text + "'",sqlCon))
+                                    using (var mycommand2 = new SqlCommand("update dbo.tb_carta set baixa = '" + DateTime.Now + "' where nrointimacao = '" + textBox2.Text + "'",conexao.SqlCon))
                                     {
                                         mycommand2.ExecuteNonQuery();
                                         richTextBox1.Select(0, 0);
@@ -331,7 +343,8 @@ namespace Banco_de_Dados
                                 }
                                 else
                                 {
-                                    MessageBox.Show("Dado não encontado ou Valor ja Baixado", "Baixa", MessageBoxButtons.OK, MessageBoxIcon.Information);   
+                                    MessageBox.Show("Dado não encontado ou Valor já baixado", "Baixa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    textBox2.SelectAll();
                                 }
 
                             }
@@ -339,6 +352,10 @@ namespace Banco_de_Dados
                         }catch(Exception ex)
                         {
                             MessageBox.Show(ex.Message);
+                        }
+                        finally
+                        {
+                            conexao.SqlCon.Close();
                         }
                         
                     }
@@ -466,7 +483,7 @@ namespace Banco_de_Dados
             try
             {
                 
-                sqlCon.Open();
+                conexao.SqlCon.Open();
                 return true;
 
             }catch(Exception e)
@@ -474,6 +491,11 @@ namespace Banco_de_Dados
                 MessageBox.Show(e.Message, "Conexão com Banco de dados",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return false;
             }
+        }
+
+        private void Sistema_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            conexao.Dispose();
         }
     }
 }

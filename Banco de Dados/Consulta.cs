@@ -13,7 +13,8 @@ namespace Banco_de_Dados
 {
     public partial class Consulta : Form
     {
-        SqlConnection sqlCon = new SqlConnection(Connect.sqlCon);
+        //SqlConnection sqlCon = new SqlConnection(Connect.query);
+        private readonly Connect conexao = new Connect();//add conexao.Dispose(); to the Dispose method on another file.//add conexao.Dispose(); to the Dispose method on another file.
         DataTable dt;
 
         SqlDataAdapter da;
@@ -23,7 +24,7 @@ namespace Banco_de_Dados
 
         string query;
         string dado;
-        int flagButton = 0;
+        int flagButton;
 
 
         public Consulta()
@@ -66,7 +67,7 @@ namespace Banco_de_Dados
                 try
                 {
                     //sqlCon.Open();
-                    cmd = new SqlCommand(query, sqlCon);
+                    cmd = new SqlCommand(query, conexao.SqlCon);
                     cmd.ExecuteNonQuery();
                     dt = new DataTable();
                     da = new SqlDataAdapter(cmd);
@@ -89,7 +90,7 @@ namespace Banco_de_Dados
                 }
                 finally
                 {
-                    sqlCon.Close();
+                    conexao.SqlCon.Close();
                 }
 
             }
@@ -132,7 +133,6 @@ namespace Banco_de_Dados
                 dt.Clear();
                 da.Fill(dt);
             }
-            
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -141,12 +141,11 @@ namespace Banco_de_Dados
             {
                 if (MessageBox.Show("Tem Certeza ?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    
-                    cmd = new SqlCommand("delete from dbo.tb_carta where nrointimacao = @nrointimacao",sqlCon);
+                    cmd = new SqlCommand("delete from dbo.tb_carta where nrointimacao = @nrointimacao",conexao.SqlCon);
                     cmd.Parameters.AddWithValue("@nrointimacao", dado);
                     try
                     {
-                        sqlCon.Open();
+                        conexao.SqlCon.Open();
                         cmd.ExecuteNonQuery();
                         MessageBox.Show("Operação feita com sucesso","Excluir");
                         dt.Clear();
@@ -159,7 +158,7 @@ namespace Banco_de_Dados
                     }
                     finally
                     {
-                        sqlCon.Close();
+                        conexao.SqlCon.Close();
                     }
                 }
             }else
@@ -180,11 +179,11 @@ namespace Banco_de_Dados
 
         public void GetdatabaseList()
         {
-            //sqlCon.Open();
+            //conexao.SqlCon.Open();
             if (connectBanco())
             {
 
-                using (SqlCommand cmd = new SqlCommand("SELECT name FROM sys.columns WHERE object_id = OBJECT_ID('dbo.tb_carta')", sqlCon))
+                using (SqlCommand cmd = new SqlCommand("SELECT name FROM sys.columns WHERE object_id = OBJECT_ID('dbo.tb_carta')", conexao.SqlCon))
                 {
                     using (IDataReader dr = cmd.ExecuteReader())
                     {
@@ -196,7 +195,7 @@ namespace Banco_de_Dados
                     }
                 }
 
-                sqlCon.Close();
+                conexao.SqlCon.Close();
             }
         }
 
@@ -222,7 +221,7 @@ namespace Banco_de_Dados
 
         private void Consulta_Load(object sender, EventArgs e)
         {
-           
+
         }
         public bool connectBanco()
         {
@@ -230,7 +229,7 @@ namespace Banco_de_Dados
             try
             {
 
-                sqlCon.Open();
+                conexao.SqlCon.Open();
                 return true;
 
             }
