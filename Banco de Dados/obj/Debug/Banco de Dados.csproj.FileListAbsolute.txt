@@ -50,7 +50,6 @@ C:\Users\lucasvor\Documents\Visual Studio 2015\Projects\Banco de Dados atualizad
 C:\Users\lucasvor\Documents\Visual Studio 2015\Projects\Banco de Dados atualizado\Banco de Dados\obj\Debug\Banco_de_Dados.Consulta.resources
 C:\Users\lucasvor\Documents\Visual Studio 2015\Projects\Banco de Dados atualizado\Banco de Dados\obj\Debug\Banco_de_Dados.Properties.Resources.resources
 C:\Users\lucasvor\Documents\Visual Studio 2015\Projects\Banco de Dados atualizado\Banco de Dados\obj\Debug\Banco de Dados.csproj.GenerateResource.Cache
-D:\Documentos\Visual Studio 2015\Projects\Banco de Dados atualizado\boss\Banco de Dados\bin\Debug\Banco de Dados.exe.config
 D:\Documentos\Visual Studio 2015\Projects\Banco de Dados atualizado\boss\Banco de Dados\obj\Debug\Banco de Dados.exe
 D:\Documentos\Visual Studio 2015\Projects\Banco de Dados atualizado\boss\Banco de Dados\obj\Debug\Banco de Dados.pdb
 C:\Users\lucasvor\Desktop\boss\Banco de Dados\bin\Debug\Banco de Dados.exe.config
@@ -67,8 +66,23 @@ C:\Users\lucasvor\Desktop\boss\Banco de Dados\obj\Debug\Banco de Dados.csproj.Ge
 D:\Documentos\Visual Studio 2015\Projects\Banco de Dados atualizado\boss\Banco de Dados\bin\Debug\Banco de Dados.exe
 D:\Documentos\Visual Studio 2015\Projects\Banco de Dados atualizado\boss\Banco de Dados\bin\Debug\Banco de Dados.pdb
 D:\Documentos\Visual Studio 2015\Projects\Banco de Dados atualizado\boss\Banco de Dados\obj\Debug\Banco de Dados.csprojResolveAssemblyReference.cache
-D:\Documentos\Visual Studio 2015\Projects\Banco de Dados atualizado\boss\Banco de Dados\obj\Debug\Banco_de_Dados.Relatorio.resources
 D:\Documentos\Visual Studio 2015\Projects\Banco de Dados atualizado\boss\Banco de Dados\obj\Debug\Banco_de_Dados.Sistema.resources
 D:\Documentos\Visual Studio 2015\Projects\Banco de Dados atualizado\boss\Banco de Dados\obj\Debug\Banco_de_Dados.Consulta.resources
 D:\Documentos\Visual Studio 2015\Projects\Banco de Dados atualizado\boss\Banco de Dados\obj\Debug\Banco_de_Dados.Properties.Resources.resources
 D:\Documentos\Visual Studio 2015\Projects\Banco de Dados atualizado\boss\Banco de Dados\obj\Debug\Banco de Dados.csproj.GenerateResource.Cache
+D:\Documentos\Visual Studio 2015\Projects\Banco de Dados atualizado\boss\Banco de Dados\bin\Debug\Microsoft.ReportViewer.WinForms.dll
+D:\Documentos\Visual Studio 2015\Projects\Banco de Dados atualizado\boss\Banco de Dados\bin\Debug\Microsoft.SqlServer.Types.dll
+D:\Documentos\Visual Studio 2015\Projects\Banco de Dados atualizado\boss\Banco de Dados\bin\Debug\de\Microsoft.SqlServer.Types.resources.dll
+D:\Documentos\Visual Studio 2015\Projects\Banco de Dados atualizado\boss\Banco de Dados\bin\Debug\es\Microsoft.SqlServer.Types.resources.dll
+D:\Documentos\Visual Studio 2015\Projects\Banco de Dados atualizado\boss\Banco de Dados\bin\Debug\fr\Microsoft.SqlServer.Types.resources.dll
+D:\Documentos\Visual Studio 2015\Projects\Banco de Dados atualizado\boss\Banco de Dados\bin\Debug\it\Microsoft.SqlServer.Types.resources.dll
+D:\Documentos\Visual Studio 2015\Projects\Banco de Dados atualizado\boss\Banco de Dados\bin\Debug\ja\Microsoft.SqlServer.Types.resources.dll
+D:\Documentos\Visual Studio 2015\Projects\Banco de Dados atualizado\boss\Banco de Dados\bin\Debug\ko\Microsoft.SqlServer.Types.resources.dll
+D:\Documentos\Visual Studio 2015\Projects\Banco de Dados atualizado\boss\Banco de Dados\bin\Debug\pt\Microsoft.SqlServer.Types.resources.dll
+D:\Documentos\Visual Studio 2015\Projects\Banco de Dados atualizado\boss\Banco de Dados\bin\Debug\ru\Microsoft.SqlServer.Types.resources.dll
+D:\Documentos\Visual Studio 2015\Projects\Banco de Dados atualizado\boss\Banco de Dados\bin\Debug\zh-Hans\Microsoft.SqlServer.Types.resources.dll
+D:\Documentos\Visual Studio 2015\Projects\Banco de Dados atualizado\boss\Banco de Dados\bin\Debug\zh-Hant\Microsoft.SqlServer.Types.resources.dll
+D:\Documentos\Visual Studio 2015\Projects\Banco de Dados atualizado\boss\Banco de Dados\obj\Debug\RdlCompile.cache
+D:\Documentos\Visual Studio 2015\Projects\Banco de Dados atualizado\boss\Banco de Dados\obj\Debug\RdlCompile.compiled
+D:\Documentos\Visual Studio 2015\Projects\Banco de Dados atualizado\boss\Banco de Dados\bin\Debug\Banco de Dados.exe.config
+D:\Documentos\Visual Studio 2015\Projects\Banco de Dados atualizado\boss\Banco de Dados\obj\Debug\Banco_de_Dados.Relatorio.Relatorio.resources

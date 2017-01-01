@@ -5,14 +5,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Banco_de_Dados
 {
 
     class Connect : IDisposable
     {
-        public static string query = (@"Data Source=.\SQLEXPRESS;Initial Catalog=db_ARS;User ID=sa;Password=Lucas123");
+        //public static string query = (@"Data Source=.\SQLEXPRESS;Initial Catalog=db_ARS;User ID=sa;Password=Lucas123");
         //"Data Source=.\SQLEXPRESS;Initial Catalog=db_ARS;User ID=sa;Password=Lucas1234"
-        SqlConnection sqlCon = new SqlConnection(query);
+        SqlConnection sqlCon = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings[1].ToString().Replace("Provider=SQLNCLI11;",""));
 
         public void Dispose()
         {

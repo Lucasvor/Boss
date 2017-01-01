@@ -67,6 +67,20 @@
             this.PdirBaixa = new System.Windows.Forms.Panel();
             this.PesqBaixa = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
+            this.BackRelatorio = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.button6 = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.RelTOP = new System.Windows.Forms.Panel();
+            this.RelEsq = new System.Windows.Forms.Panel();
+            this.RelDir = new System.Windows.Forms.Panel();
+            this.RelBackOp = new System.Windows.Forms.Panel();
+            this.RelBackLeft = new System.Windows.Forms.Panel();
+            this.RelBackDir = new System.Windows.Forms.Panel();
+            this.RelBackBot = new System.Windows.Forms.Panel();
+            this.RelBackBotton = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -81,6 +95,10 @@
             this.Baixa.SuspendLayout();
             this.PHistorico.SuspendLayout();
             this.PbackHist.SuspendLayout();
+            this.BackRelatorio.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.RelBackOp.SuspendLayout();
+            this.RelBackBotton.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -510,12 +528,161 @@
             this.label4.TabIndex = 8;
             this.label4.Text = "Baixa";
             // 
+            // BackRelatorio
+            // 
+            this.BackRelatorio.Controls.Add(this.RelBackBotton);
+            this.BackRelatorio.Controls.Add(this.RelBackBot);
+            this.BackRelatorio.Controls.Add(this.RelBackDir);
+            this.BackRelatorio.Controls.Add(this.RelBackLeft);
+            this.BackRelatorio.Controls.Add(this.RelBackOp);
+            this.BackRelatorio.Controls.Add(this.RelDir);
+            this.BackRelatorio.Controls.Add(this.RelEsq);
+            this.BackRelatorio.Controls.Add(this.label7);
+            this.BackRelatorio.Controls.Add(this.RelTOP);
+            this.BackRelatorio.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BackRelatorio.Location = new System.Drawing.Point(233, 1);
+            this.BackRelatorio.Name = "BackRelatorio";
+            this.BackRelatorio.Size = new System.Drawing.Size(675, 673);
+            this.BackRelatorio.TabIndex = 0;
+            this.BackRelatorio.Visible = false;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.radioButton2);
+            this.groupBox1.Controls.Add(this.radioButton1);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(103)))), ((int)(((byte)(130)))));
+            this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(615, 261);
+            this.groupBox1.TabIndex = 5;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Opções";
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(205, 131);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(200, 24);
+            this.radioButton2.TabIndex = 1;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "Titulos Baixados Hoje";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(205, 97);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(202, 24);
+            this.radioButton1.TabIndex = 0;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Baixas não realizadas";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.Color.SeaGreen;
+            this.button6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button6.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(176)))), ((int)(((byte)(80)))));
+            this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(176)))), ((int)(((byte)(80)))));
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(244)))));
+            this.button6.Location = new System.Drawing.Point(0, 0);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(92, 45);
+            this.button6.TabIndex = 4;
+            this.button6.Text = "Abrir";
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(103)))), ((int)(((byte)(130)))));
+            this.label7.Location = new System.Drawing.Point(294, 23);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(84, 24);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Relatório";
+            // 
+            // RelTOP
+            // 
+            this.RelTOP.Dock = System.Windows.Forms.DockStyle.Top;
+            this.RelTOP.Location = new System.Drawing.Point(0, 0);
+            this.RelTOP.Name = "RelTOP";
+            this.RelTOP.Size = new System.Drawing.Size(675, 228);
+            this.RelTOP.TabIndex = 6;
+            // 
+            // RelEsq
+            // 
+            this.RelEsq.Dock = System.Windows.Forms.DockStyle.Left;
+            this.RelEsq.Location = new System.Drawing.Point(0, 228);
+            this.RelEsq.Name = "RelEsq";
+            this.RelEsq.Size = new System.Drawing.Size(30, 445);
+            this.RelEsq.TabIndex = 7;
+            // 
+            // RelDir
+            // 
+            this.RelDir.Dock = System.Windows.Forms.DockStyle.Right;
+            this.RelDir.Location = new System.Drawing.Point(645, 228);
+            this.RelDir.Name = "RelDir";
+            this.RelDir.Size = new System.Drawing.Size(30, 445);
+            this.RelDir.TabIndex = 8;
+            // 
+            // RelBackOp
+            // 
+            this.RelBackOp.Controls.Add(this.groupBox1);
+            this.RelBackOp.Dock = System.Windows.Forms.DockStyle.Top;
+            this.RelBackOp.Location = new System.Drawing.Point(30, 228);
+            this.RelBackOp.Name = "RelBackOp";
+            this.RelBackOp.Size = new System.Drawing.Size(615, 261);
+            this.RelBackOp.TabIndex = 2;
+            // 
+            // RelBackLeft
+            // 
+            this.RelBackLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            this.RelBackLeft.Location = new System.Drawing.Point(30, 489);
+            this.RelBackLeft.Name = "RelBackLeft";
+            this.RelBackLeft.Size = new System.Drawing.Size(262, 184);
+            this.RelBackLeft.TabIndex = 9;
+            // 
+            // RelBackDir
+            // 
+            this.RelBackDir.Dock = System.Windows.Forms.DockStyle.Right;
+            this.RelBackDir.Location = new System.Drawing.Point(384, 489);
+            this.RelBackDir.Name = "RelBackDir";
+            this.RelBackDir.Size = new System.Drawing.Size(261, 184);
+            this.RelBackDir.TabIndex = 0;
+            // 
+            // RelBackBot
+            // 
+            this.RelBackBot.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.RelBackBot.Location = new System.Drawing.Point(292, 534);
+            this.RelBackBot.Name = "RelBackBot";
+            this.RelBackBot.Size = new System.Drawing.Size(92, 139);
+            this.RelBackBot.TabIndex = 10;
+            // 
+            // RelBackBotton
+            // 
+            this.RelBackBotton.Controls.Add(this.button6);
+            this.RelBackBotton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RelBackBotton.Location = new System.Drawing.Point(292, 489);
+            this.RelBackBotton.Name = "RelBackBotton";
+            this.RelBackBotton.Size = new System.Drawing.Size(92, 45);
+            this.RelBackBotton.TabIndex = 11;
+            // 
             // Sistema
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(46)))), ((int)(((byte)(58)))));
             this.ClientSize = new System.Drawing.Size(909, 675);
+            this.Controls.Add(this.BackRelatorio);
             this.Controls.Add(this.Baixa);
             this.Controls.Add(this.BackImporta);
             this.Controls.Add(this.Inicio);
@@ -554,6 +721,12 @@
             this.PHistorico.ResumeLayout(false);
             this.PbackHist.ResumeLayout(false);
             this.PbackHist.PerformLayout();
+            this.BackRelatorio.ResumeLayout(false);
+            this.BackRelatorio.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.RelBackOp.ResumeLayout(false);
+            this.RelBackBotton.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -598,6 +771,20 @@
         private System.Windows.Forms.Panel PbackHist;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Panel BackRelatorio;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Panel RelBackBotton;
+        private System.Windows.Forms.Panel RelBackBot;
+        private System.Windows.Forms.Panel RelBackDir;
+        private System.Windows.Forms.Panel RelBackLeft;
+        private System.Windows.Forms.Panel RelBackOp;
+        private System.Windows.Forms.Panel RelDir;
+        private System.Windows.Forms.Panel RelEsq;
+        private System.Windows.Forms.Panel RelTOP;
     }
 }
 

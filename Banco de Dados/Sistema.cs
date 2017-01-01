@@ -58,7 +58,7 @@ namespace Banco_de_Dados
             button4.BackColor = System.Drawing.Color.Transparent;
             BackImporta.Visible = true;
             Baixa.Visible = false;
-
+            BackRelatorio.Visible = false;
 
             //panel14.BringToFront();
 
@@ -82,6 +82,9 @@ namespace Banco_de_Dados
             button2.BackColor = System.Drawing.Color.Transparent;
             button3.BackColor = System.Drawing.Color.FromArgb(0, 102, 204);
             button4.BackColor = System.Drawing.Color.Transparent;
+            BackImporta.Visible = false;
+            Baixa.Visible = false;
+            BackRelatorio.Visible = true;
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -94,6 +97,7 @@ namespace Banco_de_Dados
             richTextBox1.Clear();
             BackImporta.Visible = false;
             Baixa.Visible = true;
+            BackRelatorio.Visible = false;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -105,6 +109,7 @@ namespace Banco_de_Dados
             //panel13.BringToFront();
             BackImporta.Visible = false;
             Baixa.Visible = false;
+            BackRelatorio.Visible = false;
             textBox1.Clear();
             textBox2.Clear();
             progressBar1.Value = 0;
@@ -321,11 +326,11 @@ namespace Banco_de_Dados
                             //richTextBox1.Text += textBox2.Text+System.Environment.NewLine;
                             //richTextBox1.AppendText(textBox2.Text + System.Environment.NewLine);
 
-                            using (var myCommand = new SqlCommand("select nrointimacao from dbo.tb_carta where nrointimacao = '" + textBox2.Text + "'", conexao.SqlCon))
+                            using (var myCommand = new SqlCommand("select nrointimacao from db_ARS.dbo.tb_carta where nrointimacao = '" + textBox2.Text + "'", conexao.SqlCon))
                             {
                                 myCommand.ExecuteNonQuery();
                                 var myReader = myCommand.ExecuteReader();
-                                if (myReader.Read() && myReader.GetSqlValue(0) == null)
+                                if (myReader.Read() && myReader.GetSqlValue(0) != null)
                                 {
                                     myCommand.Dispose();
                                     myReader.Close();
@@ -496,6 +501,33 @@ namespace Banco_de_Dados
         private void Sistema_FormClosed(object sender, FormClosedEventArgs e)
         {
             conexao.Dispose();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+
+            //var checkedButton = groupBox1.Controls.OfType<RadioButton>()
+            //                          .FirstOrDefault(r => r.Checked);
+            //switch (checkedButton.Text)
+            //{
+            //    case "Baixas não realizadas":
+            //        rel.Op = 1;
+            //        break;
+            //    case "Segunda Opção":
+            //        rel.Op = 2;
+            //        break;
+            //}
+
+            if ((radioButton1.Checked == false )&&( radioButton2.Checked == false))
+            {
+                MessageBox.Show("Escolha pelo menos uma opção!", "Relatório", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }else
+            {
+                Relatorio.Relatorio rel = new Relatorio.Relatorio();
+                rel.Op = radioButton1.Checked == true ? 1 : radioButton2.Checked == true ? 2 : 0;
+                rel.ShowDialog();
+                rel.Dispose();
+            }
         }
     }
 }

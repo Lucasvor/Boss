@@ -26,10 +26,11 @@ namespace Banco_de_Dados.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-AGEVSLR\\SQLEXPRESS;Initial Catalog=db_ARS;User ID=sa")]
-        public string db_ARSConnectionString {
+        [global::System.Configuration.DefaultSettingValueAttribute("Provider=SQLNCLI11;Data Source=DESKTOP-AGEVSLR\\SQLEXPRESS;Password=Lucas123;User " +
+            "ID=sa;Initial Catalog=db_ARS")]
+        public string ConnectionString {
             get {
-                return ((string)(this["db_ARSConnectionString"]));
+                return ((string)(this["ConnectionString"]));
             }
         }
     }
