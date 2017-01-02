@@ -210,14 +210,15 @@
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="EntregadorComBaixaTableAdapter" GeneratorDataComponentClassName="EntregadorComBaixaTableAdapter" Name="EntregadorComBaixa" UserDataComponentName="EntregadorComBaixaTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="ConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="ConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        ent.NomeCompleto, loc.cartorio, loc.protocolo, loc.dataprotocolo, loc.destinatario, loc.endereco, loc.complemento, loc.bairro, loc.cidade, loc.UF, loc.CEP, loc.nrointimacao, loc.prazolimite, loc.baixa, 
-                         loc.dataentrada
+                    <CommandText>SELECT        ent.NomeCompleto, loc.cartorio, loc.protocolo, loc.dataprotocolo, loc.destinatario, loc.endereco, loc.complemento, loc.bairro, loc.cidade, loc.UF, loc.CEP, loc.nrointimacao, CONVERT(varchar(10), loc.prazolimite, 
+                         103) AS prazolimite, loc.baixa, loc.dataentrada
 FROM            cad_entregador AS ent INNER JOIN
                          ite_entregadorcep AS entcep ON ent.Codigo = entcep.CODIGO INNER JOIN
-                         tb_carta AS loc ON loc.CEP BETWEEN entcep.CEPINI AND entcep.CEPFIN</CommandText>
+                         tb_carta AS loc ON loc.CEP BETWEEN entcep.CEPINI AND entcep.CEPFIN
+WHERE            loc.baixa is null</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -236,9 +237,9 @@ FROM            cad_entregador AS ent INNER JOIN
               <Mapping SourceColumn="UF" DataSetColumn="UF" />
               <Mapping SourceColumn="CEP" DataSetColumn="CEP" />
               <Mapping SourceColumn="nrointimacao" DataSetColumn="nrointimacao" />
-              <Mapping SourceColumn="prazolimite" DataSetColumn="prazolimite" />
               <Mapping SourceColumn="baixa" DataSetColumn="baixa" />
               <Mapping SourceColumn="dataentrada" DataSetColumn="dataentrada" />
+              <Mapping SourceColumn="prazolimite" DataSetColumn="prazolimite" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -389,7 +390,7 @@ WHERE        (baixa LIKE CONVERT(VARCHAR(10), GETDATE(), 101) + '%')</CommandTex
   <xs:element name="DBars" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DBars" msprop:Generator_UserDSName="DBars">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="cad_entregador" msprop:Generator_TableClassName="cad_entregadorDataTable" msprop:Generator_TableVarName="tablecad_entregador" msprop:Generator_RowChangedName="cad_entregadorRowChanged" msprop:Generator_TablePropName="cad_entregador" msprop:Generator_RowDeletingName="cad_entregadorRowDeleting" msprop:Generator_RowChangingName="cad_entregadorRowChanging" msprop:Generator_RowEvHandlerName="cad_entregadorRowChangeEventHandler" msprop:Generator_RowDeletedName="cad_entregadorRowDeleted" msprop:Generator_RowClassName="cad_entregadorRow" msprop:Generator_UserTableName="cad_entregador" msprop:Generator_RowEvArgName="cad_entregadorRowChangeEvent">
+        <xs:element name="cad_entregador" msprop:Generator_TableClassName="cad_entregadorDataTable" msprop:Generator_TableVarName="tablecad_entregador" msprop:Generator_TablePropName="cad_entregador" msprop:Generator_RowDeletingName="cad_entregadorRowDeleting" msprop:Generator_RowChangingName="cad_entregadorRowChanging" msprop:Generator_RowEvHandlerName="cad_entregadorRowChangeEventHandler" msprop:Generator_RowDeletedName="cad_entregadorRowDeleted" msprop:Generator_UserTableName="cad_entregador" msprop:Generator_RowChangedName="cad_entregadorRowChanged" msprop:Generator_RowEvArgName="cad_entregadorRowChangeEvent" msprop:Generator_RowClassName="cad_entregadorRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Codigo" msprop:Generator_ColumnVarNameInTable="columnCodigo" msprop:Generator_ColumnPropNameInRow="Codigo" msprop:Generator_ColumnPropNameInTable="CodigoColumn" msprop:Generator_UserColumnName="Codigo" type="xs:double" minOccurs="0" />
@@ -431,7 +432,7 @@ WHERE        (baixa LIKE CONVERT(VARCHAR(10), GETDATE(), 101) + '%')</CommandTex
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ite_entregadorcep" msprop:Generator_TableClassName="ite_entregadorcepDataTable" msprop:Generator_TableVarName="tableite_entregadorcep" msprop:Generator_RowChangedName="ite_entregadorcepRowChanged" msprop:Generator_TablePropName="ite_entregadorcep" msprop:Generator_RowDeletingName="ite_entregadorcepRowDeleting" msprop:Generator_RowChangingName="ite_entregadorcepRowChanging" msprop:Generator_RowEvHandlerName="ite_entregadorcepRowChangeEventHandler" msprop:Generator_RowDeletedName="ite_entregadorcepRowDeleted" msprop:Generator_RowClassName="ite_entregadorcepRow" msprop:Generator_UserTableName="ite_entregadorcep" msprop:Generator_RowEvArgName="ite_entregadorcepRowChangeEvent">
+        <xs:element name="ite_entregadorcep" msprop:Generator_TableClassName="ite_entregadorcepDataTable" msprop:Generator_TableVarName="tableite_entregadorcep" msprop:Generator_TablePropName="ite_entregadorcep" msprop:Generator_RowDeletingName="ite_entregadorcepRowDeleting" msprop:Generator_RowChangingName="ite_entregadorcepRowChanging" msprop:Generator_RowEvHandlerName="ite_entregadorcepRowChangeEventHandler" msprop:Generator_RowDeletedName="ite_entregadorcepRowDeleted" msprop:Generator_UserTableName="ite_entregadorcep" msprop:Generator_RowChangedName="ite_entregadorcepRowChanged" msprop:Generator_RowEvArgName="ite_entregadorcepRowChangeEvent" msprop:Generator_RowClassName="ite_entregadorcepRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="CODIGO" msprop:Generator_ColumnVarNameInTable="columnCODIGO" msprop:Generator_ColumnPropNameInRow="CODIGO" msprop:Generator_ColumnPropNameInTable="CODIGOColumn" msprop:Generator_UserColumnName="CODIGO" type="xs:double" minOccurs="0" />
@@ -453,7 +454,7 @@ WHERE        (baixa LIKE CONVERT(VARCHAR(10), GETDATE(), 101) + '%')</CommandTex
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="tb_carta" msprop:Generator_TableClassName="tb_cartaDataTable" msprop:Generator_TableVarName="tabletb_carta" msprop:Generator_RowChangedName="tb_cartaRowChanged" msprop:Generator_TablePropName="tb_carta" msprop:Generator_RowDeletingName="tb_cartaRowDeleting" msprop:Generator_RowChangingName="tb_cartaRowChanging" msprop:Generator_RowEvHandlerName="tb_cartaRowChangeEventHandler" msprop:Generator_RowDeletedName="tb_cartaRowDeleted" msprop:Generator_RowClassName="tb_cartaRow" msprop:Generator_UserTableName="tb_carta" msprop:Generator_RowEvArgName="tb_cartaRowChangeEvent">
+        <xs:element name="tb_carta" msprop:Generator_TableClassName="tb_cartaDataTable" msprop:Generator_TableVarName="tabletb_carta" msprop:Generator_TablePropName="tb_carta" msprop:Generator_RowDeletingName="tb_cartaRowDeleting" msprop:Generator_RowChangingName="tb_cartaRowChanging" msprop:Generator_RowEvHandlerName="tb_cartaRowChangeEventHandler" msprop:Generator_RowDeletedName="tb_cartaRowDeleted" msprop:Generator_UserTableName="tb_carta" msprop:Generator_RowChangedName="tb_cartaRowChanged" msprop:Generator_RowEvArgName="tb_cartaRowChangeEvent" msprop:Generator_RowClassName="tb_cartaRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="cartorio" msprop:Generator_ColumnVarNameInTable="columncartorio" msprop:Generator_ColumnPropNameInRow="cartorio" msprop:Generator_ColumnPropNameInTable="cartorioColumn" msprop:Generator_UserColumnName="cartorio">
@@ -552,7 +553,7 @@ WHERE        (baixa LIKE CONVERT(VARCHAR(10), GETDATE(), 101) + '%')</CommandTex
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="EntregadorComBaixa" msprop:Generator_TableClassName="EntregadorComBaixaDataTable" msprop:Generator_TableVarName="tableEntregadorComBaixa" msprop:Generator_TablePropName="EntregadorComBaixa" msprop:Generator_RowDeletingName="EntregadorComBaixaRowDeleting" msprop:Generator_RowChangingName="EntregadorComBaixaRowChanging" msprop:Generator_RowEvHandlerName="EntregadorComBaixaRowChangeEventHandler" msprop:Generator_RowDeletedName="EntregadorComBaixaRowDeleted" msprop:Generator_UserTableName="EntregadorComBaixa" msprop:Generator_RowChangedName="EntregadorComBaixaRowChanged" msprop:Generator_RowEvArgName="EntregadorComBaixaRowChangeEvent" msprop:Generator_RowClassName="EntregadorComBaixaRow">
+        <xs:element name="EntregadorComBaixa" msprop:Generator_TableClassName="EntregadorComBaixaDataTable" msprop:Generator_TableVarName="tableEntregadorComBaixa" msprop:Generator_RowChangedName="EntregadorComBaixaRowChanged" msprop:Generator_TablePropName="EntregadorComBaixa" msprop:Generator_RowDeletingName="EntregadorComBaixaRowDeleting" msprop:Generator_RowChangingName="EntregadorComBaixaRowChanging" msprop:Generator_RowEvHandlerName="EntregadorComBaixaRowChangeEventHandler" msprop:Generator_RowDeletedName="EntregadorComBaixaRowDeleted" msprop:Generator_RowClassName="EntregadorComBaixaRow" msprop:Generator_UserTableName="EntregadorComBaixa" msprop:Generator_RowEvArgName="EntregadorComBaixaRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="NomeCompleto" msprop:Generator_ColumnVarNameInTable="columnNomeCompleto" msprop:Generator_ColumnPropNameInRow="NomeCompleto" msprop:Generator_ColumnPropNameInTable="NomeCompletoColumn" msprop:Generator_UserColumnName="NomeCompleto" minOccurs="0">
@@ -639,7 +640,6 @@ WHERE        (baixa LIKE CONVERT(VARCHAR(10), GETDATE(), 101) + '%')</CommandTex
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="prazolimite" msprop:Generator_ColumnVarNameInTable="columnprazolimite" msprop:Generator_ColumnPropNameInRow="prazolimite" msprop:Generator_ColumnPropNameInTable="prazolimiteColumn" msprop:Generator_UserColumnName="prazolimite" type="xs:dateTime" minOccurs="0" />
               <xs:element name="baixa" msprop:Generator_ColumnVarNameInTable="columnbaixa" msprop:Generator_ColumnPropNameInRow="baixa" msprop:Generator_ColumnPropNameInTable="baixaColumn" msprop:Generator_UserColumnName="baixa" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -648,10 +648,17 @@ WHERE        (baixa LIKE CONVERT(VARCHAR(10), GETDATE(), 101) + '%')</CommandTex
                 </xs:simpleType>
               </xs:element>
               <xs:element name="dataentrada" msprop:Generator_ColumnVarNameInTable="columndataentrada" msprop:Generator_ColumnPropNameInRow="dataentrada" msprop:Generator_ColumnPropNameInTable="dataentradaColumn" msprop:Generator_UserColumnName="dataentrada" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="prazolimite" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnprazolimite" msprop:Generator_ColumnPropNameInRow="prazolimite" msprop:Generator_ColumnPropNameInTable="prazolimiteColumn" msprop:Generator_UserColumnName="prazolimite" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="BaixaHoje" msprop:Generator_TableClassName="BaixaHojeDataTable" msprop:Generator_TableVarName="tableBaixaHoje" msprop:Generator_TablePropName="BaixaHoje" msprop:Generator_RowDeletingName="BaixaHojeRowDeleting" msprop:Generator_RowChangingName="BaixaHojeRowChanging" msprop:Generator_RowEvHandlerName="BaixaHojeRowChangeEventHandler" msprop:Generator_RowDeletedName="BaixaHojeRowDeleted" msprop:Generator_UserTableName="BaixaHoje" msprop:Generator_RowChangedName="BaixaHojeRowChanged" msprop:Generator_RowEvArgName="BaixaHojeRowChangeEvent" msprop:Generator_RowClassName="BaixaHojeRow">
+        <xs:element name="BaixaHoje" msprop:Generator_TableClassName="BaixaHojeDataTable" msprop:Generator_TableVarName="tableBaixaHoje" msprop:Generator_RowChangedName="BaixaHojeRowChanged" msprop:Generator_TablePropName="BaixaHoje" msprop:Generator_RowDeletingName="BaixaHojeRowDeleting" msprop:Generator_RowChangingName="BaixaHojeRowChanging" msprop:Generator_RowEvHandlerName="BaixaHojeRowChangeEventHandler" msprop:Generator_RowDeletedName="BaixaHojeRowDeleted" msprop:Generator_RowClassName="BaixaHojeRow" msprop:Generator_UserTableName="BaixaHoje" msprop:Generator_RowEvArgName="BaixaHojeRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="cartorio" msprop:Generator_ColumnVarNameInTable="columncartorio" msprop:Generator_ColumnPropNameInRow="cartorio" msprop:Generator_ColumnPropNameInTable="cartorioColumn" msprop:Generator_UserColumnName="cartorio">

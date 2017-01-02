@@ -1525,11 +1525,11 @@ namespace Banco_de_Dados {
             
             private global::System.Data.DataColumn columnnrointimacao;
             
-            private global::System.Data.DataColumn columnprazolimite;
-            
             private global::System.Data.DataColumn columnbaixa;
             
             private global::System.Data.DataColumn columndataentrada;
+            
+            private global::System.Data.DataColumn columnprazolimite;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -1662,14 +1662,6 @@ namespace Banco_de_Dados {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn prazolimiteColumn {
-                get {
-                    return this.columnprazolimite;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn baixaColumn {
                 get {
                     return this.columnbaixa;
@@ -1681,6 +1673,14 @@ namespace Banco_de_Dados {
             public global::System.Data.DataColumn dataentradaColumn {
                 get {
                     return this.columndataentrada;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn prazolimiteColumn {
+                get {
+                    return this.columnprazolimite;
                 }
             }
             
@@ -1721,7 +1721,7 @@ namespace Banco_de_Dados {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public EntregadorComBaixaRow AddEntregadorComBaixaRow(string NomeCompleto, string cartorio, string protocolo, string dataprotocolo, string destinatario, string endereco, string complemento, string bairro, string cidade, string UF, string CEP, string nrointimacao, System.DateTime prazolimite, string baixa, System.DateTime dataentrada) {
+            public EntregadorComBaixaRow AddEntregadorComBaixaRow(string NomeCompleto, string cartorio, string protocolo, string dataprotocolo, string destinatario, string endereco, string complemento, string bairro, string cidade, string UF, string CEP, string nrointimacao, string baixa, System.DateTime dataentrada, string prazolimite) {
                 EntregadorComBaixaRow rowEntregadorComBaixaRow = ((EntregadorComBaixaRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         NomeCompleto,
@@ -1736,9 +1736,9 @@ namespace Banco_de_Dados {
                         UF,
                         CEP,
                         nrointimacao,
-                        prazolimite,
                         baixa,
-                        dataentrada};
+                        dataentrada,
+                        prazolimite};
                 rowEntregadorComBaixaRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowEntregadorComBaixaRow);
                 return rowEntregadorComBaixaRow;
@@ -1781,9 +1781,9 @@ namespace Banco_de_Dados {
                 this.columnUF = base.Columns["UF"];
                 this.columnCEP = base.Columns["CEP"];
                 this.columnnrointimacao = base.Columns["nrointimacao"];
-                this.columnprazolimite = base.Columns["prazolimite"];
                 this.columnbaixa = base.Columns["baixa"];
                 this.columndataentrada = base.Columns["dataentrada"];
+                this.columnprazolimite = base.Columns["prazolimite"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1813,12 +1813,12 @@ namespace Banco_de_Dados {
                 base.Columns.Add(this.columnCEP);
                 this.columnnrointimacao = new global::System.Data.DataColumn("nrointimacao", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnrointimacao);
-                this.columnprazolimite = new global::System.Data.DataColumn("prazolimite", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnprazolimite);
                 this.columnbaixa = new global::System.Data.DataColumn("baixa", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnbaixa);
                 this.columndataentrada = new global::System.Data.DataColumn("dataentrada", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndataentrada);
+                this.columnprazolimite = new global::System.Data.DataColumn("prazolimite", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnprazolimite);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columncartorio,
                                 this.columnnrointimacao}, true));
@@ -1837,6 +1837,8 @@ namespace Banco_de_Dados {
                 this.columnnrointimacao.AllowDBNull = false;
                 this.columnnrointimacao.MaxLength = 50;
                 this.columnbaixa.MaxLength = 50;
+                this.columnprazolimite.ReadOnly = true;
+                this.columnprazolimite.MaxLength = 10;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3341,22 +3343,6 @@ namespace Banco_de_Dados {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime prazolimite {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableEntregadorComBaixa.prazolimiteColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'prazolimite\' in table \'EntregadorComBaixa\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableEntregadorComBaixa.prazolimiteColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string baixa {
                 get {
                     try {
@@ -3384,6 +3370,22 @@ namespace Banco_de_Dados {
                 }
                 set {
                     this[this.tableEntregadorComBaixa.dataentradaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string prazolimite {
+                get {
+                    try {
+                        return ((string)(this[this.tableEntregadorComBaixa.prazolimiteColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'prazolimite\' in table \'EntregadorComBaixa\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEntregadorComBaixa.prazolimiteColumn] = value;
                 }
             }
             
@@ -3509,18 +3511,6 @@ namespace Banco_de_Dados {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsprazolimiteNull() {
-                return this.IsNull(this.tableEntregadorComBaixa.prazolimiteColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetprazolimiteNull() {
-                this[this.tableEntregadorComBaixa.prazolimiteColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsbaixaNull() {
                 return this.IsNull(this.tableEntregadorComBaixa.baixaColumn);
             }
@@ -3541,6 +3531,18 @@ namespace Banco_de_Dados {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetdataentradaNull() {
                 this[this.tableEntregadorComBaixa.dataentradaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsprazolimiteNull() {
+                return this.IsNull(this.tableEntregadorComBaixa.prazolimiteColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetprazolimiteNull() {
+                this[this.tableEntregadorComBaixa.prazolimiteColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -5626,9 +5628,9 @@ namespace Banco_de_Dados.DBarsTableAdapters {
             tableMapping.ColumnMappings.Add("UF", "UF");
             tableMapping.ColumnMappings.Add("CEP", "CEP");
             tableMapping.ColumnMappings.Add("nrointimacao", "nrointimacao");
-            tableMapping.ColumnMappings.Add("prazolimite", "prazolimite");
             tableMapping.ColumnMappings.Add("baixa", "baixa");
             tableMapping.ColumnMappings.Add("dataentrada", "dataentrada");
+            tableMapping.ColumnMappings.Add("prazolimite", "prazolimite");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -5645,11 +5647,12 @@ namespace Banco_de_Dados.DBarsTableAdapters {
             this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        ent.NomeCompleto, loc.cartorio, loc.protocolo, loc.dataprotocolo, loc.destinatario, loc.endereco, loc.complemento, loc.bairro, loc.cidade, loc.UF, loc.CEP, loc.nrointimacao, loc.prazolimite, loc.baixa, 
-                         loc.dataentrada
+            this._commandCollection[0].CommandText = @"SELECT        ent.NomeCompleto, loc.cartorio, loc.protocolo, loc.dataprotocolo, loc.destinatario, loc.endereco, loc.complemento, loc.bairro, loc.cidade, loc.UF, loc.CEP, loc.nrointimacao, CONVERT(varchar(10), loc.prazolimite, 
+                         103) AS prazolimite, loc.baixa, loc.dataentrada
 FROM            cad_entregador AS ent INNER JOIN
                          ite_entregadorcep AS entcep ON ent.Codigo = entcep.CODIGO INNER JOIN
-                         tb_carta AS loc ON loc.CEP BETWEEN entcep.CEPINI AND entcep.CEPFIN";
+                         tb_carta AS loc ON loc.CEP BETWEEN entcep.CEPINI AND entcep.CEPFIN
+WHERE            loc.baixa is null";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
