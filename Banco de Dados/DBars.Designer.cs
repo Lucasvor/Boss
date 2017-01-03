@@ -5933,7 +5933,7 @@ WHERE            loc.baixa is null";
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT        cartorio, protocolo, dataprotocolo, destinatario, endereco, docdestinatario, complemento, bairro, cidade, UF, CEP, nrointimacao, prazolimite, baixa, dataentrada
 FROM            tb_carta
-WHERE        (baixa LIKE CONVERT(VARCHAR(10), GETDATE(), 101) + '%')";
+WHERE        (baixa LIKE CONVERT(VARCHAR(10), GETDATE(), 103) + '%')";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

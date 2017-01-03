@@ -326,11 +326,11 @@ namespace Banco_de_Dados
                             //richTextBox1.Text += textBox2.Text+System.Environment.NewLine;
                             //richTextBox1.AppendText(textBox2.Text + System.Environment.NewLine);
 
-                            using (var myCommand = new SqlCommand("select nrointimacao from db_ARS.dbo.tb_carta where nrointimacao = '" + textBox2.Text + "'", conexao.SqlCon))
+                            using (var myCommand = new SqlCommand("select baixa from db_ARS.dbo.tb_carta where nrointimacao = '" + textBox2.Text + "'", conexao.SqlCon))
                             {
                                 myCommand.ExecuteNonQuery();
                                 var myReader = myCommand.ExecuteReader();
-                                if (myReader.Read() && myReader.GetSqlValue(0) != null)
+                                if (myReader.Read() && myReader.IsDBNull(0))
                                 {
                                     myCommand.Dispose();
                                     myReader.Close();

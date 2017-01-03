@@ -34,8 +34,6 @@ namespace Banco_de_Dados.Relatorio
 
         private void Relatorio_Load(object sender, EventArgs e)
         {
-
-
             try
             {
                 if (Op == 1)
@@ -48,8 +46,13 @@ namespace Banco_de_Dados.Relatorio
                 else if (Op == 2)
                 {
 
-                     
                     this.reportViewer1.LocalReport.ReportEmbeddedResource = "Banco_de_Dados.Relatorio.BaixaHoje.rdlc";
+                    this.baixaHojeBindingSource.DataMember = "BaixaHoje";
+                    this.baixaHojeBindingSource.DataSource = this.dBars;
+                    this.baixaHojeTableAdapter.ClearBeforeFill = true;
+                    this.baixaHojeTableAdapter.Fill(this.dBars.BaixaHoje);
+
+
                     this.reportViewer1.RefreshReport();
                 }
                 else
