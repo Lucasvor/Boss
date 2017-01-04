@@ -66,38 +66,27 @@ namespace Banco_de_Dados.Relatorio
                 this.Close();
             }
             //this.reportViewer1.
+            
             System.Drawing.Printing.PageSettings pg = new System.Drawing.Printing.PageSettings();
-            pg.Margins = new System.Drawing.Printing.Margins(20, 20, 20, 20);
+            pg.Margins = new System.Drawing.Printing.Margins(2, 2, 2, 2);
             pg.Landscape = true;
-
-            //set paper size
             //System.Drawing.Printing.PaperSize size = new System.Drawing.Printing.PaperSize();
-            pg.PaperSize = new System.Drawing.Printing.PaperSize("A4", 827, 1169);
-            pg.PaperSize.RawKind = (int)System.Drawing.Printing.PaperKind.A4;
+            
 
-            this.reportViewer1.SetPageSettings(pg);
-            //size.RawKind = (int)System.Drawing.Printing.PaperKind.A5;
+            ////set paper size
+            ////System.Drawing.Printing.PaperSize size = new System.Drawing.Printing.PaperSize();
+            //// pg.PaperSize = new System.Drawing.Printing.PaperSize("A4",)
+            //pg.PaperSize.RawKind = (int)System.Drawing.Printing.PaperKind.A4;
+
+            //this.reportViewer1.SetPageSettings(pg);
+            ////size.RawKind = (int)System.Drawing.Printing.PaperKind.A4;
             //pg.PaperSize = size;
-            //reportViewer1.SetPageSettings(pg);
+            this.reportViewer1.SetPageSettings(pg);
+            this.reportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout);
 
             this.reportViewer1.RefreshReport();
-            this.reportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.Normal);
 
 
-
-
-
-
-
-            //this.reportViewer1.LocalReport.ReportEmbeddedResource = "Banco_de_Dados.Relatorio.NBaixa.rdlc";
-
-            //this.reportViewer1.LocalReport.ReportEmbeddedResource = "Banco_de_Dados.Relatorio.BaixaHoje.rdlc";
-            // TODO: This line of code loads data into the 'dBars.EntregadorComBaixa' table. You can move, or remove it, as needed.
-            //this.entregadorComBaixaTableAdapter.Fill(this.dBars.EntregadorComBaixa);
-            // TODO: This line of code loads data into the 'dBars.BaixaHoje' table. You can move, or remove it, as needed.
-            //this.baixaHojeTableAdapter.Fill(this.dBars.BaixaHoje);
-
-           // this.reportViewer1.RefreshReport();
         }
     }
 }

@@ -98,11 +98,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Relatorio\BaixaHoje.rdlc" />
     <EmbeddedResource Include="Relatorio\FormRelatorio.resx">
       <DependentUpon>FormRelatorio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Relatorio\NBaixa.rdlc" />
-    <EmbeddedResource Include="Relatorio\BaixaHoje.rdlc" />
     <EmbeddedResource Include="Sistema.resx">
       <DependentUpon>Sistema.cs</DependentUpon>
     </EmbeddedResource>
