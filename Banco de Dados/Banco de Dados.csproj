@@ -78,11 +78,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DBars.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Relatorio\Relatorio.cs">
+    <Compile Include="Relatorio\FormRelatorio.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Relatorio\Relatorio.Designer.cs">
-      <DependentUpon>Relatorio.cs</DependentUpon>
+    <Compile Include="Relatorio\FormRelatorio.Designer.cs">
+      <DependentUpon>FormRelatorio.cs</DependentUpon>
     </Compile>
     <Compile Include="Sistema.cs">
       <SubType>Form</SubType>
@@ -98,8 +98,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Relatorio\Relatorio.resx">
-      <DependentUpon>Relatorio.cs</DependentUpon>
+    <EmbeddedResource Include="Relatorio\FormRelatorio.resx">
+      <DependentUpon>FormRelatorio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Relatorio\NBaixa.rdlc" />
     <EmbeddedResource Include="Relatorio\BaixaHoje.rdlc" />
@@ -119,7 +119,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="app.config" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="DBars.xsc">
       <DependentUpon>DBars.xsd</DependentUpon>
     </None>

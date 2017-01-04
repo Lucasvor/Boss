@@ -68,19 +68,19 @@
             this.PesqBaixa = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.BackRelatorio = new System.Windows.Forms.Panel();
+            this.RelBackBotton = new System.Windows.Forms.Panel();
+            this.button6 = new System.Windows.Forms.Button();
+            this.RelBackBot = new System.Windows.Forms.Panel();
+            this.RelBackDir = new System.Windows.Forms.Panel();
+            this.RelBackLeft = new System.Windows.Forms.Panel();
+            this.RelBackOp = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.button6 = new System.Windows.Forms.Button();
+            this.RelDir = new System.Windows.Forms.Panel();
+            this.RelEsq = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.RelTOP = new System.Windows.Forms.Panel();
-            this.RelEsq = new System.Windows.Forms.Panel();
-            this.RelDir = new System.Windows.Forms.Panel();
-            this.RelBackOp = new System.Windows.Forms.Panel();
-            this.RelBackLeft = new System.Windows.Forms.Panel();
-            this.RelBackDir = new System.Windows.Forms.Panel();
-            this.RelBackBot = new System.Windows.Forms.Panel();
-            this.RelBackBotton = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -96,9 +96,9 @@
             this.PHistorico.SuspendLayout();
             this.PbackHist.SuspendLayout();
             this.BackRelatorio.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.RelBackOp.SuspendLayout();
             this.RelBackBotton.SuspendLayout();
+            this.RelBackOp.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -546,6 +546,64 @@
             this.BackRelatorio.TabIndex = 0;
             this.BackRelatorio.Visible = false;
             // 
+            // RelBackBotton
+            // 
+            this.RelBackBotton.Controls.Add(this.button6);
+            this.RelBackBotton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RelBackBotton.Location = new System.Drawing.Point(292, 489);
+            this.RelBackBotton.Name = "RelBackBotton";
+            this.RelBackBotton.Size = new System.Drawing.Size(92, 45);
+            this.RelBackBotton.TabIndex = 11;
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.Color.SeaGreen;
+            this.button6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button6.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(176)))), ((int)(((byte)(80)))));
+            this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(176)))), ((int)(((byte)(80)))));
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(244)))));
+            this.button6.Location = new System.Drawing.Point(0, 0);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(92, 45);
+            this.button6.TabIndex = 4;
+            this.button6.Text = "Abrir";
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // RelBackBot
+            // 
+            this.RelBackBot.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.RelBackBot.Location = new System.Drawing.Point(292, 534);
+            this.RelBackBot.Name = "RelBackBot";
+            this.RelBackBot.Size = new System.Drawing.Size(92, 139);
+            this.RelBackBot.TabIndex = 10;
+            // 
+            // RelBackDir
+            // 
+            this.RelBackDir.Dock = System.Windows.Forms.DockStyle.Right;
+            this.RelBackDir.Location = new System.Drawing.Point(384, 489);
+            this.RelBackDir.Name = "RelBackDir";
+            this.RelBackDir.Size = new System.Drawing.Size(261, 184);
+            this.RelBackDir.TabIndex = 0;
+            // 
+            // RelBackLeft
+            // 
+            this.RelBackLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            this.RelBackLeft.Location = new System.Drawing.Point(30, 489);
+            this.RelBackLeft.Name = "RelBackLeft";
+            this.RelBackLeft.Size = new System.Drawing.Size(262, 184);
+            this.RelBackLeft.TabIndex = 9;
+            // 
+            // RelBackOp
+            // 
+            this.RelBackOp.Controls.Add(this.groupBox1);
+            this.RelBackOp.Dock = System.Windows.Forms.DockStyle.Top;
+            this.RelBackOp.Location = new System.Drawing.Point(30, 228);
+            this.RelBackOp.Name = "RelBackOp";
+            this.RelBackOp.Size = new System.Drawing.Size(615, 261);
+            this.RelBackOp.TabIndex = 2;
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.radioButton2);
@@ -583,21 +641,21 @@
             this.radioButton1.Text = "Baixas não realizadas";
             this.radioButton1.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // RelDir
             // 
-            this.button6.BackColor = System.Drawing.Color.SeaGreen;
-            this.button6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button6.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(176)))), ((int)(((byte)(80)))));
-            this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(176)))), ((int)(((byte)(80)))));
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(244)))));
-            this.button6.Location = new System.Drawing.Point(0, 0);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(92, 45);
-            this.button6.TabIndex = 4;
-            this.button6.Text = "Abrir";
-            this.button6.UseVisualStyleBackColor = false;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.RelDir.Dock = System.Windows.Forms.DockStyle.Right;
+            this.RelDir.Location = new System.Drawing.Point(645, 228);
+            this.RelDir.Name = "RelDir";
+            this.RelDir.Size = new System.Drawing.Size(30, 445);
+            this.RelDir.TabIndex = 8;
+            // 
+            // RelEsq
+            // 
+            this.RelEsq.Dock = System.Windows.Forms.DockStyle.Left;
+            this.RelEsq.Location = new System.Drawing.Point(0, 228);
+            this.RelEsq.Name = "RelEsq";
+            this.RelEsq.Size = new System.Drawing.Size(30, 445);
+            this.RelEsq.TabIndex = 7;
             // 
             // label7
             // 
@@ -617,64 +675,6 @@
             this.RelTOP.Name = "RelTOP";
             this.RelTOP.Size = new System.Drawing.Size(675, 228);
             this.RelTOP.TabIndex = 6;
-            // 
-            // RelEsq
-            // 
-            this.RelEsq.Dock = System.Windows.Forms.DockStyle.Left;
-            this.RelEsq.Location = new System.Drawing.Point(0, 228);
-            this.RelEsq.Name = "RelEsq";
-            this.RelEsq.Size = new System.Drawing.Size(30, 445);
-            this.RelEsq.TabIndex = 7;
-            // 
-            // RelDir
-            // 
-            this.RelDir.Dock = System.Windows.Forms.DockStyle.Right;
-            this.RelDir.Location = new System.Drawing.Point(645, 228);
-            this.RelDir.Name = "RelDir";
-            this.RelDir.Size = new System.Drawing.Size(30, 445);
-            this.RelDir.TabIndex = 8;
-            // 
-            // RelBackOp
-            // 
-            this.RelBackOp.Controls.Add(this.groupBox1);
-            this.RelBackOp.Dock = System.Windows.Forms.DockStyle.Top;
-            this.RelBackOp.Location = new System.Drawing.Point(30, 228);
-            this.RelBackOp.Name = "RelBackOp";
-            this.RelBackOp.Size = new System.Drawing.Size(615, 261);
-            this.RelBackOp.TabIndex = 2;
-            // 
-            // RelBackLeft
-            // 
-            this.RelBackLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.RelBackLeft.Location = new System.Drawing.Point(30, 489);
-            this.RelBackLeft.Name = "RelBackLeft";
-            this.RelBackLeft.Size = new System.Drawing.Size(262, 184);
-            this.RelBackLeft.TabIndex = 9;
-            // 
-            // RelBackDir
-            // 
-            this.RelBackDir.Dock = System.Windows.Forms.DockStyle.Right;
-            this.RelBackDir.Location = new System.Drawing.Point(384, 489);
-            this.RelBackDir.Name = "RelBackDir";
-            this.RelBackDir.Size = new System.Drawing.Size(261, 184);
-            this.RelBackDir.TabIndex = 0;
-            // 
-            // RelBackBot
-            // 
-            this.RelBackBot.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.RelBackBot.Location = new System.Drawing.Point(292, 534);
-            this.RelBackBot.Name = "RelBackBot";
-            this.RelBackBot.Size = new System.Drawing.Size(92, 139);
-            this.RelBackBot.TabIndex = 10;
-            // 
-            // RelBackBotton
-            // 
-            this.RelBackBotton.Controls.Add(this.button6);
-            this.RelBackBotton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RelBackBotton.Location = new System.Drawing.Point(292, 489);
-            this.RelBackBotton.Name = "RelBackBotton";
-            this.RelBackBotton.Size = new System.Drawing.Size(92, 45);
-            this.RelBackBotton.TabIndex = 11;
             // 
             // Sistema
             // 
@@ -723,10 +723,10 @@
             this.PbackHist.PerformLayout();
             this.BackRelatorio.ResumeLayout(false);
             this.BackRelatorio.PerformLayout();
+            this.RelBackBotton.ResumeLayout(false);
+            this.RelBackOp.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.RelBackOp.ResumeLayout(false);
-            this.RelBackBotton.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

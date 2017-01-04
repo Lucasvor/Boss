@@ -1996,11 +1996,11 @@ namespace Banco_de_Dados {
             
             private global::System.Data.DataColumn columnnrointimacao;
             
-            private global::System.Data.DataColumn columnprazolimite;
-            
             private global::System.Data.DataColumn columnbaixa;
             
             private global::System.Data.DataColumn columndataentrada;
+            
+            private global::System.Data.DataColumn columnprazolimite;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -2133,14 +2133,6 @@ namespace Banco_de_Dados {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn prazolimiteColumn {
-                get {
-                    return this.columnprazolimite;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn baixaColumn {
                 get {
                     return this.columnbaixa;
@@ -2152,6 +2144,14 @@ namespace Banco_de_Dados {
             public global::System.Data.DataColumn dataentradaColumn {
                 get {
                     return this.columndataentrada;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn prazolimiteColumn {
+                get {
+                    return this.columnprazolimite;
                 }
             }
             
@@ -2192,7 +2192,7 @@ namespace Banco_de_Dados {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public BaixaHojeRow AddBaixaHojeRow(string cartorio, string protocolo, string dataprotocolo, string destinatario, string endereco, string docdestinatario, string complemento, string bairro, string cidade, string UF, string CEP, string nrointimacao, System.DateTime prazolimite, string baixa, System.DateTime dataentrada) {
+            public BaixaHojeRow AddBaixaHojeRow(string cartorio, string protocolo, string dataprotocolo, string destinatario, string endereco, string docdestinatario, string complemento, string bairro, string cidade, string UF, string CEP, string nrointimacao, string baixa, System.DateTime dataentrada, string prazolimite) {
                 BaixaHojeRow rowBaixaHojeRow = ((BaixaHojeRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         cartorio,
@@ -2207,9 +2207,9 @@ namespace Banco_de_Dados {
                         UF,
                         CEP,
                         nrointimacao,
-                        prazolimite,
                         baixa,
-                        dataentrada};
+                        dataentrada,
+                        prazolimite};
                 rowBaixaHojeRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowBaixaHojeRow);
                 return rowBaixaHojeRow;
@@ -2252,9 +2252,9 @@ namespace Banco_de_Dados {
                 this.columnUF = base.Columns["UF"];
                 this.columnCEP = base.Columns["CEP"];
                 this.columnnrointimacao = base.Columns["nrointimacao"];
-                this.columnprazolimite = base.Columns["prazolimite"];
                 this.columnbaixa = base.Columns["baixa"];
                 this.columndataentrada = base.Columns["dataentrada"];
+                this.columnprazolimite = base.Columns["prazolimite"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2284,12 +2284,12 @@ namespace Banco_de_Dados {
                 base.Columns.Add(this.columnCEP);
                 this.columnnrointimacao = new global::System.Data.DataColumn("nrointimacao", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnrointimacao);
-                this.columnprazolimite = new global::System.Data.DataColumn("prazolimite", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnprazolimite);
                 this.columnbaixa = new global::System.Data.DataColumn("baixa", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnbaixa);
                 this.columndataentrada = new global::System.Data.DataColumn("dataentrada", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndataentrada);
+                this.columnprazolimite = new global::System.Data.DataColumn("prazolimite", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnprazolimite);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columncartorio,
                                 this.columnnrointimacao}, true));
@@ -2308,6 +2308,8 @@ namespace Banco_de_Dados {
                 this.columnnrointimacao.AllowDBNull = false;
                 this.columnnrointimacao.MaxLength = 50;
                 this.columnbaixa.MaxLength = 50;
+                this.columnprazolimite.ReadOnly = true;
+                this.columnprazolimite.MaxLength = 10;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3744,22 +3746,6 @@ namespace Banco_de_Dados {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime prazolimite {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableBaixaHoje.prazolimiteColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'prazolimite\' in table \'BaixaHoje\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableBaixaHoje.prazolimiteColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string baixa {
                 get {
                     try {
@@ -3787,6 +3773,22 @@ namespace Banco_de_Dados {
                 }
                 set {
                     this[this.tableBaixaHoje.dataentradaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string prazolimite {
+                get {
+                    try {
+                        return ((string)(this[this.tableBaixaHoje.prazolimiteColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'prazolimite\' in table \'BaixaHoje\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBaixaHoje.prazolimiteColumn] = value;
                 }
             }
             
@@ -3912,18 +3914,6 @@ namespace Banco_de_Dados {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsprazolimiteNull() {
-                return this.IsNull(this.tableBaixaHoje.prazolimiteColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetprazolimiteNull() {
-                this[this.tableBaixaHoje.prazolimiteColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsbaixaNull() {
                 return this.IsNull(this.tableBaixaHoje.baixaColumn);
             }
@@ -3944,6 +3934,18 @@ namespace Banco_de_Dados {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetdataentradaNull() {
                 this[this.tableBaixaHoje.dataentradaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsprazolimiteNull() {
+                return this.IsNull(this.tableBaixaHoje.prazolimiteColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetprazolimiteNull() {
+                this[this.tableBaixaHoje.prazolimiteColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -5814,13 +5816,13 @@ WHERE            loc.baixa is null";
             tableMapping.ColumnMappings.Add("UF", "UF");
             tableMapping.ColumnMappings.Add("CEP", "CEP");
             tableMapping.ColumnMappings.Add("nrointimacao", "nrointimacao");
-            tableMapping.ColumnMappings.Add("prazolimite", "prazolimite");
             tableMapping.ColumnMappings.Add("baixa", "baixa");
             tableMapping.ColumnMappings.Add("dataentrada", "dataentrada");
+            tableMapping.ColumnMappings.Add("prazolimite", "prazolimite");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [tb_carta] WHERE (([cartorio] = ?) AND ((? = 1 AND [protocolo] IS NULL) OR ([protocolo] = ?)) AND ((? = 1 AND [dataprotocolo] IS NULL) OR ([dataprotocolo] = ?)) AND ((? = 1 AND [destinatario] IS NULL) OR ([destinatario] = ?)) AND ((? = 1 AND [endereco] IS NULL) OR ([endereco] = ?)) AND ((? = 1 AND [docdestinatario] IS NULL) OR ([docdestinatario] = ?)) AND ((? = 1 AND [complemento] IS NULL) OR ([complemento] = ?)) AND ((? = 1 AND [bairro] IS NULL) OR ([bairro] = ?)) AND ((? = 1 AND [cidade] IS NULL) OR ([cidade] = ?)) AND ((? = 1 AND [UF] IS NULL) OR ([UF] = ?)) AND ((? = 1 AND [CEP] IS NULL) OR ([CEP] = ?)) AND ([nrointimacao] = ?) AND ((? = 1 AND [prazolimite] IS NULL) OR ([prazolimite] = ?)) AND ((? = 1 AND [baixa] IS NULL) OR ([baixa] = ?)) AND ((? = 1 AND [dataentrada] IS NULL) OR ([dataentrada] = ?)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [tb_carta] WHERE (([cartorio] = ?) AND ((? = 1 AND [protocolo] IS NULL) OR ([protocolo] = ?)) AND ((? = 1 AND [dataprotocolo] IS NULL) OR ([dataprotocolo] = ?)) AND ((? = 1 AND [destinatario] IS NULL) OR ([destinatario] = ?)) AND ((? = 1 AND [endereco] IS NULL) OR ([endereco] = ?)) AND ((? = 1 AND [docdestinatario] IS NULL) OR ([docdestinatario] = ?)) AND ((? = 1 AND [complemento] IS NULL) OR ([complemento] = ?)) AND ((? = 1 AND [bairro] IS NULL) OR ([bairro] = ?)) AND ((? = 1 AND [cidade] IS NULL) OR ([cidade] = ?)) AND ((? = 1 AND [UF] IS NULL) OR ([UF] = ?)) AND ((? = 1 AND [CEP] IS NULL) OR ([CEP] = ?)) AND ([nrointimacao] = ?) AND ((? = 1 AND [baixa] IS NULL) OR ([baixa] = ?)) AND ((? = 1 AND [dataentrada] IS NULL) OR ([dataentrada] = ?)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_cartorio", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "cartorio", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_protocolo", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "protocolo", global::System.Data.DataRowVersion.Original, true, null));
@@ -5844,15 +5846,16 @@ WHERE            loc.baixa is null";
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_CEP", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CEP", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_CEP", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CEP", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_nrointimacao", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nrointimacao", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_prazolimite", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "prazolimite", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_prazolimite", global::System.Data.OleDb.OleDbType.DBDate, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "prazolimite", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_baixa", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "baixa", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_baixa", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "baixa", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_dataentrada", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "dataentrada", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_dataentrada", global::System.Data.OleDb.OleDbType.DBDate, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "dataentrada", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.InsertCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [tb_carta] ([cartorio], [protocolo], [dataprotocolo], [destinatario], [endereco], [docdestinatario], [complemento], [bairro], [cidade], [UF], [CEP], [nrointimacao], [prazolimite], [baixa], [dataentrada]) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [tb_carta] ([cartorio], [protocolo], [dataprotocolo], [destinatario]," +
+                " [endereco], [docdestinatario], [complemento], [bairro], [cidade], [UF], [CEP], " +
+                "[nrointimacao], [baixa], [dataentrada]) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?," +
+                " ?, ?, ?)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("cartorio", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "cartorio", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("protocolo", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "protocolo", global::System.Data.DataRowVersion.Current, false, null));
@@ -5866,12 +5869,11 @@ WHERE            loc.baixa is null";
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("UF", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "UF", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("CEP", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CEP", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("nrointimacao", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nrointimacao", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("prazolimite", global::System.Data.OleDb.OleDbType.DBDate, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "prazolimite", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("baixa", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "baixa", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("dataentrada", global::System.Data.OleDb.OleDbType.DBDate, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "dataentrada", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [tb_carta] SET [cartorio] = ?, [protocolo] = ?, [dataprotocolo] = ?, [destinatario] = ?, [endereco] = ?, [docdestinatario] = ?, [complemento] = ?, [bairro] = ?, [cidade] = ?, [UF] = ?, [CEP] = ?, [nrointimacao] = ?, [prazolimite] = ?, [baixa] = ?, [dataentrada] = ? WHERE (([cartorio] = ?) AND ((? = 1 AND [protocolo] IS NULL) OR ([protocolo] = ?)) AND ((? = 1 AND [dataprotocolo] IS NULL) OR ([dataprotocolo] = ?)) AND ((? = 1 AND [destinatario] IS NULL) OR ([destinatario] = ?)) AND ((? = 1 AND [endereco] IS NULL) OR ([endereco] = ?)) AND ((? = 1 AND [docdestinatario] IS NULL) OR ([docdestinatario] = ?)) AND ((? = 1 AND [complemento] IS NULL) OR ([complemento] = ?)) AND ((? = 1 AND [bairro] IS NULL) OR ([bairro] = ?)) AND ((? = 1 AND [cidade] IS NULL) OR ([cidade] = ?)) AND ((? = 1 AND [UF] IS NULL) OR ([UF] = ?)) AND ((? = 1 AND [CEP] IS NULL) OR ([CEP] = ?)) AND ([nrointimacao] = ?) AND ((? = 1 AND [prazolimite] IS NULL) OR ([prazolimite] = ?)) AND ((? = 1 AND [baixa] IS NULL) OR ([baixa] = ?)) AND ((? = 1 AND [dataentrada] IS NULL) OR ([dataentrada] = ?)))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [tb_carta] SET [cartorio] = ?, [protocolo] = ?, [dataprotocolo] = ?, [destinatario] = ?, [endereco] = ?, [docdestinatario] = ?, [complemento] = ?, [bairro] = ?, [cidade] = ?, [UF] = ?, [CEP] = ?, [nrointimacao] = ?, [baixa] = ?, [dataentrada] = ? WHERE (([cartorio] = ?) AND ((? = 1 AND [protocolo] IS NULL) OR ([protocolo] = ?)) AND ((? = 1 AND [dataprotocolo] IS NULL) OR ([dataprotocolo] = ?)) AND ((? = 1 AND [destinatario] IS NULL) OR ([destinatario] = ?)) AND ((? = 1 AND [endereco] IS NULL) OR ([endereco] = ?)) AND ((? = 1 AND [docdestinatario] IS NULL) OR ([docdestinatario] = ?)) AND ((? = 1 AND [complemento] IS NULL) OR ([complemento] = ?)) AND ((? = 1 AND [bairro] IS NULL) OR ([bairro] = ?)) AND ((? = 1 AND [cidade] IS NULL) OR ([cidade] = ?)) AND ((? = 1 AND [UF] IS NULL) OR ([UF] = ?)) AND ((? = 1 AND [CEP] IS NULL) OR ([CEP] = ?)) AND ([nrointimacao] = ?) AND ((? = 1 AND [baixa] IS NULL) OR ([baixa] = ?)) AND ((? = 1 AND [dataentrada] IS NULL) OR ([dataentrada] = ?)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("cartorio", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "cartorio", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("protocolo", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "protocolo", global::System.Data.DataRowVersion.Current, false, null));
@@ -5885,7 +5887,6 @@ WHERE            loc.baixa is null";
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("UF", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "UF", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("CEP", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CEP", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("nrointimacao", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nrointimacao", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("prazolimite", global::System.Data.OleDb.OleDbType.DBDate, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "prazolimite", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("baixa", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "baixa", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("dataentrada", global::System.Data.OleDb.OleDbType.DBDate, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "dataentrada", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_cartorio", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "cartorio", global::System.Data.DataRowVersion.Original, false, null));
@@ -5910,8 +5911,6 @@ WHERE            loc.baixa is null";
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_CEP", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CEP", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_CEP", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CEP", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_nrointimacao", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "nrointimacao", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_prazolimite", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "prazolimite", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_prazolimite", global::System.Data.OleDb.OleDbType.DBDate, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "prazolimite", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_baixa", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "baixa", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_baixa", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "baixa", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_dataentrada", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "dataentrada", global::System.Data.DataRowVersion.Original, true, null));
@@ -5931,7 +5930,7 @@ WHERE            loc.baixa is null";
             this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        cartorio, protocolo, dataprotocolo, destinatario, endereco, docdestinatario, complemento, bairro, cidade, UF, CEP, nrointimacao, prazolimite, baixa, dataentrada
+            this._commandCollection[0].CommandText = @"SELECT        cartorio, protocolo, dataprotocolo, destinatario, endereco, docdestinatario, complemento, bairro, cidade, UF, CEP, nrointimacao, CONVERT(varchar(10), prazolimite, 103) AS prazolimite, baixa, dataentrada
 FROM            tb_carta
 WHERE        (baixa LIKE CONVERT(VARCHAR(10), GETDATE(), 103) + '%')";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
@@ -5994,7 +5993,7 @@ WHERE        (baixa LIKE CONVERT(VARCHAR(10), GETDATE(), 103) + '%')";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_cartorio, string Original_protocolo, string Original_dataprotocolo, string Original_destinatario, string Original_endereco, string Original_docdestinatario, string Original_complemento, string Original_bairro, string Original_cidade, string Original_UF, string Original_CEP, string Original_nrointimacao, global::System.Nullable<global::System.DateTime> Original_prazolimite, string Original_baixa, global::System.Nullable<global::System.DateTime> Original_dataentrada) {
+        public virtual int Delete(string Original_cartorio, string Original_protocolo, string Original_dataprotocolo, string Original_destinatario, string Original_endereco, string Original_docdestinatario, string Original_complemento, string Original_bairro, string Original_cidade, string Original_UF, string Original_CEP, string Original_nrointimacao, string Original_baixa, global::System.Nullable<global::System.DateTime> Original_dataentrada) {
             if ((Original_cartorio == null)) {
                 throw new global::System.ArgumentNullException("Original_cartorio");
             }
@@ -6087,29 +6086,21 @@ WHERE        (baixa LIKE CONVERT(VARCHAR(10), GETDATE(), 103) + '%')";
             else {
                 this.Adapter.DeleteCommand.Parameters[21].Value = ((string)(Original_nrointimacao));
             }
-            if ((Original_prazolimite.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[22].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[23].Value = ((System.DateTime)(Original_prazolimite.Value));
-            }
-            else {
+            if ((Original_baixa == null)) {
                 this.Adapter.DeleteCommand.Parameters[22].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[23].Value = global::System.DBNull.Value;
             }
-            if ((Original_baixa == null)) {
-                this.Adapter.DeleteCommand.Parameters[24].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[25].Value = global::System.DBNull.Value;
-            }
             else {
-                this.Adapter.DeleteCommand.Parameters[24].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[25].Value = ((string)(Original_baixa));
+                this.Adapter.DeleteCommand.Parameters[22].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[23].Value = ((string)(Original_baixa));
             }
             if ((Original_dataentrada.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[26].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[27].Value = ((System.DateTime)(Original_dataentrada.Value));
+                this.Adapter.DeleteCommand.Parameters[24].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[25].Value = ((System.DateTime)(Original_dataentrada.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[26].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[27].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[24].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[25].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -6131,7 +6122,7 @@ WHERE        (baixa LIKE CONVERT(VARCHAR(10), GETDATE(), 103) + '%')";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string cartorio, string protocolo, string dataprotocolo, string destinatario, string endereco, string docdestinatario, string complemento, string bairro, string cidade, string UF, string CEP, string nrointimacao, global::System.Nullable<global::System.DateTime> prazolimite, string baixa, global::System.Nullable<global::System.DateTime> dataentrada) {
+        public virtual int Insert(string cartorio, string protocolo, string dataprotocolo, string destinatario, string endereco, string docdestinatario, string complemento, string bairro, string cidade, string UF, string CEP, string nrointimacao, string baixa, global::System.Nullable<global::System.DateTime> dataentrada) {
             if ((cartorio == null)) {
                 throw new global::System.ArgumentNullException("cartorio");
             }
@@ -6204,23 +6195,17 @@ WHERE        (baixa LIKE CONVERT(VARCHAR(10), GETDATE(), 103) + '%')";
             else {
                 this.Adapter.InsertCommand.Parameters[11].Value = ((string)(nrointimacao));
             }
-            if ((prazolimite.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[12].Value = ((System.DateTime)(prazolimite.Value));
-            }
-            else {
+            if ((baixa == null)) {
                 this.Adapter.InsertCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
-            if ((baixa == null)) {
-                this.Adapter.InsertCommand.Parameters[13].Value = global::System.DBNull.Value;
-            }
             else {
-                this.Adapter.InsertCommand.Parameters[13].Value = ((string)(baixa));
+                this.Adapter.InsertCommand.Parameters[12].Value = ((string)(baixa));
             }
             if ((dataentrada.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[14].Value = ((System.DateTime)(dataentrada.Value));
+                this.Adapter.InsertCommand.Parameters[13].Value = ((System.DateTime)(dataentrada.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[14].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -6255,7 +6240,6 @@ WHERE        (baixa LIKE CONVERT(VARCHAR(10), GETDATE(), 103) + '%')";
                     string UF, 
                     string CEP, 
                     string nrointimacao, 
-                    global::System.Nullable<global::System.DateTime> prazolimite, 
                     string baixa, 
                     global::System.Nullable<global::System.DateTime> dataentrada, 
                     string Original_cartorio, 
@@ -6270,7 +6254,6 @@ WHERE        (baixa LIKE CONVERT(VARCHAR(10), GETDATE(), 103) + '%')";
                     string Original_UF, 
                     string Original_CEP, 
                     string Original_nrointimacao, 
-                    global::System.Nullable<global::System.DateTime> Original_prazolimite, 
                     string Original_baixa, 
                     global::System.Nullable<global::System.DateTime> Original_dataentrada) {
             if ((cartorio == null)) {
@@ -6345,139 +6328,125 @@ WHERE        (baixa LIKE CONVERT(VARCHAR(10), GETDATE(), 103) + '%')";
             else {
                 this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(nrointimacao));
             }
-            if ((prazolimite.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((System.DateTime)(prazolimite.Value));
-            }
-            else {
+            if ((baixa == null)) {
                 this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
-            if ((baixa == null)) {
-                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
-            }
             else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(baixa));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(baixa));
             }
             if ((dataentrada.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((System.DateTime)(dataentrada.Value));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((System.DateTime)(dataentrada.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
             if ((Original_cartorio == null)) {
                 throw new global::System.ArgumentNullException("Original_cartorio");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_cartorio));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_cartorio));
             }
             if ((Original_protocolo == null)) {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_protocolo));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_protocolo));
             }
             if ((Original_dataprotocolo == null)) {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_dataprotocolo));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Original_dataprotocolo));
             }
             if ((Original_destinatario == null)) {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(Original_destinatario));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(Original_destinatario));
             }
             if ((Original_endereco == null)) {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((string)(Original_endereco));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((string)(Original_endereco));
             }
             if ((Original_docdestinatario == null)) {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((string)(Original_docdestinatario));
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((string)(Original_docdestinatario));
             }
             if ((Original_complemento == null)) {
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((string)(Original_complemento));
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((string)(Original_complemento));
             }
             if ((Original_bairro == null)) {
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[29].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[28].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((string)(Original_bairro));
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((string)(Original_bairro));
             }
             if ((Original_cidade == null)) {
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[31].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[30].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[31].Value = ((string)(Original_cidade));
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((string)(Original_cidade));
             }
             if ((Original_UF == null)) {
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[33].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[32].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[33].Value = ((string)(Original_UF));
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((string)(Original_UF));
             }
             if ((Original_CEP == null)) {
-                this.Adapter.UpdateCommand.Parameters[34].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[35].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[34].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[34].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[35].Value = ((string)(Original_CEP));
+                this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[34].Value = ((string)(Original_CEP));
             }
             if ((Original_nrointimacao == null)) {
                 throw new global::System.ArgumentNullException("Original_nrointimacao");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[36].Value = ((string)(Original_nrointimacao));
-            }
-            if ((Original_prazolimite.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[37].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[38].Value = ((System.DateTime)(Original_prazolimite.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[37].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[38].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[35].Value = ((string)(Original_nrointimacao));
             }
             if ((Original_baixa == null)) {
-                this.Adapter.UpdateCommand.Parameters[39].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[40].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[37].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[39].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[40].Value = ((string)(Original_baixa));
+                this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[37].Value = ((string)(Original_baixa));
             }
             if ((Original_dataentrada.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[41].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[42].Value = ((System.DateTime)(Original_dataentrada.Value));
+                this.Adapter.UpdateCommand.Parameters[38].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[39].Value = ((System.DateTime)(Original_dataentrada.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[41].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[42].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[38].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[39].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -6510,7 +6479,6 @@ WHERE        (baixa LIKE CONVERT(VARCHAR(10), GETDATE(), 103) + '%')";
                     string cidade, 
                     string UF, 
                     string CEP, 
-                    global::System.Nullable<global::System.DateTime> prazolimite, 
                     string baixa, 
                     global::System.Nullable<global::System.DateTime> dataentrada, 
                     string Original_cartorio, 
@@ -6525,10 +6493,9 @@ WHERE        (baixa LIKE CONVERT(VARCHAR(10), GETDATE(), 103) + '%')";
                     string Original_UF, 
                     string Original_CEP, 
                     string Original_nrointimacao, 
-                    global::System.Nullable<global::System.DateTime> Original_prazolimite, 
                     string Original_baixa, 
                     global::System.Nullable<global::System.DateTime> Original_dataentrada) {
-            return this.Update(Original_cartorio, protocolo, dataprotocolo, destinatario, endereco, docdestinatario, complemento, bairro, cidade, UF, CEP, Original_nrointimacao, prazolimite, baixa, dataentrada, Original_cartorio, Original_protocolo, Original_dataprotocolo, Original_destinatario, Original_endereco, Original_docdestinatario, Original_complemento, Original_bairro, Original_cidade, Original_UF, Original_CEP, Original_nrointimacao, Original_prazolimite, Original_baixa, Original_dataentrada);
+            return this.Update(Original_cartorio, protocolo, dataprotocolo, destinatario, endereco, docdestinatario, complemento, bairro, cidade, UF, CEP, Original_nrointimacao, baixa, dataentrada, Original_cartorio, Original_protocolo, Original_dataprotocolo, Original_destinatario, Original_endereco, Original_docdestinatario, Original_complemento, Original_bairro, Original_cidade, Original_UF, Original_CEP, Original_nrointimacao, Original_baixa, Original_dataentrada);
         }
     }
     

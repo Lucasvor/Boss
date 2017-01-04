@@ -523,10 +523,12 @@ namespace Banco_de_Dados
                 MessageBox.Show("Escolha pelo menos uma opção!", "Relatório", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }else
             {
-                Relatorio.Relatorio rel = new Relatorio.Relatorio();
+                Banco_de_Dados.Relatorio.FormRelatorio rel = new Banco_de_Dados.Relatorio.FormRelatorio();
                 rel.Op = radioButton1.Checked == true ? 1 : radioButton2.Checked == true ? 2 : 0;
                 rel.ShowDialog();
                 rel.Dispose();
+
+
             }
         }
     }
