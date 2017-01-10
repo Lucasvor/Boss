@@ -379,7 +379,7 @@
     <Height>2in</Height>
     <Style />
   </Body>
-  <Width>10.94086in</Width>
+  <Width>10.81586in</Width>
   <Page>
     <PageHeader>
       <Height>2.54cm</Height>
@@ -742,18 +742,23 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value />
-                  <Style />
+                  <Value>Baixados Hoje</Value>
+                  <Style>
+                    <FontSize>28pt</FontSize>
+                    <TextDecoration>Underline</TextDecoration>
+                  </Style>
                 </TextRun>
               </TextRuns>
-              <Style />
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox105</rd:DefaultName>
-          <Top>0.44662cm</Top>
-          <Left>6.90245cm</Left>
-          <Height>0.6cm</Height>
-          <Width>2.5cm</Width>
+          <Top>0.41487cm</Top>
+          <Left>0.42426cm</Left>
+          <Height>1.33124cm</Height>
+          <Width>26.60332cm</Width>
           <ZIndex>10</ZIndex>
           <Style>
             <Border>

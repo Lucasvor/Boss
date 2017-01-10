@@ -35,6 +35,7 @@ namespace Banco_de_Dados.Relatorio
                 op = value;
             }
         }
+
         private void FormRelatorio_Load(object sender, EventArgs e)
         {
             try
