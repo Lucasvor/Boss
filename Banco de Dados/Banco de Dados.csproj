@@ -102,6 +102,7 @@
     <EmbeddedResource Include="Relatorio\FormRelatorio.resx">
       <DependentUpon>FormRelatorio.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Relatorio\BaixasPar.rdlc" />
     <EmbeddedResource Include="Relatorio\NBaixa.rdlc" />
     <EmbeddedResource Include="Sistema.resx">
       <DependentUpon>Sistema.cs</DependentUpon>

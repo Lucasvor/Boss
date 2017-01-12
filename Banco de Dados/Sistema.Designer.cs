@@ -81,6 +81,13 @@
             this.RelEsq = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.RelTOP = new System.Windows.Forms.Panel();
+            this.PanelLeftGroupBox = new System.Windows.Forms.Panel();
+            this.PanelRigGRoupBox = new System.Windows.Forms.Panel();
+            this.OP1 = new System.Windows.Forms.Panel();
+            this.OP2 = new System.Windows.Forms.Panel();
+            this.OP3 = new System.Windows.Forms.Panel();
+            this.OP4 = new System.Windows.Forms.Panel();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -99,6 +106,9 @@
             this.RelBackBotton.SuspendLayout();
             this.RelBackOp.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.OP1.SuspendLayout();
+            this.OP2.SuspendLayout();
+            this.OP3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -606,8 +616,12 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Controls.Add(this.radioButton1);
+            this.groupBox1.Controls.Add(this.OP4);
+            this.groupBox1.Controls.Add(this.OP3);
+            this.groupBox1.Controls.Add(this.OP2);
+            this.groupBox1.Controls.Add(this.OP1);
+            this.groupBox1.Controls.Add(this.PanelRigGRoupBox);
+            this.groupBox1.Controls.Add(this.PanelLeftGroupBox);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -622,9 +636,10 @@
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(205, 131);
+            this.radioButton2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.radioButton2.Location = new System.Drawing.Point(0, 0);
             this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(200, 24);
+            this.radioButton2.Size = new System.Drawing.Size(212, 48);
             this.radioButton2.TabIndex = 1;
             this.radioButton2.TabStop = true;
             this.radioButton2.Text = "Titulos Baixados Hoje";
@@ -633,9 +648,10 @@
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(205, 97);
+            this.radioButton1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.radioButton1.Location = new System.Drawing.Point(0, 0);
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(202, 24);
+            this.radioButton1.Size = new System.Drawing.Size(212, 48);
             this.radioButton1.TabIndex = 0;
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Baixas não realizadas";
@@ -675,6 +691,69 @@
             this.RelTOP.Name = "RelTOP";
             this.RelTOP.Size = new System.Drawing.Size(675, 228);
             this.RelTOP.TabIndex = 6;
+            // 
+            // PanelLeftGroupBox
+            // 
+            this.PanelLeftGroupBox.Dock = System.Windows.Forms.DockStyle.Left;
+            this.PanelLeftGroupBox.Location = new System.Drawing.Point(3, 22);
+            this.PanelLeftGroupBox.Name = "PanelLeftGroupBox";
+            this.PanelLeftGroupBox.Size = new System.Drawing.Size(196, 236);
+            this.PanelLeftGroupBox.TabIndex = 2;
+            // 
+            // PanelRigGRoupBox
+            // 
+            this.PanelRigGRoupBox.Dock = System.Windows.Forms.DockStyle.Right;
+            this.PanelRigGRoupBox.Location = new System.Drawing.Point(411, 22);
+            this.PanelRigGRoupBox.Name = "PanelRigGRoupBox";
+            this.PanelRigGRoupBox.Size = new System.Drawing.Size(201, 236);
+            this.PanelRigGRoupBox.TabIndex = 3;
+            // 
+            // OP1
+            // 
+            this.OP1.Controls.Add(this.radioButton1);
+            this.OP1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.OP1.Location = new System.Drawing.Point(199, 22);
+            this.OP1.Name = "OP1";
+            this.OP1.Size = new System.Drawing.Size(212, 48);
+            this.OP1.TabIndex = 4;
+            // 
+            // OP2
+            // 
+            this.OP2.Controls.Add(this.radioButton2);
+            this.OP2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.OP2.Location = new System.Drawing.Point(199, 70);
+            this.OP2.Name = "OP2";
+            this.OP2.Size = new System.Drawing.Size(212, 48);
+            this.OP2.TabIndex = 5;
+            // 
+            // OP3
+            // 
+            this.OP3.Controls.Add(this.radioButton3);
+            this.OP3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.OP3.Location = new System.Drawing.Point(199, 118);
+            this.OP3.Name = "OP3";
+            this.OP3.Size = new System.Drawing.Size(212, 48);
+            this.OP3.TabIndex = 5;
+            // 
+            // OP4
+            // 
+            this.OP4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.OP4.Location = new System.Drawing.Point(199, 166);
+            this.OP4.Name = "OP4";
+            this.OP4.Size = new System.Drawing.Size(212, 48);
+            this.OP4.TabIndex = 6;
+            // 
+            // radioButton3
+            // 
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.radioButton3.Location = new System.Drawing.Point(0, 0);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(212, 48);
+            this.radioButton3.TabIndex = 0;
+            this.radioButton3.TabStop = true;
+            this.radioButton3.Text = "Baixa";
+            this.radioButton3.UseVisualStyleBackColor = true;
             // 
             // Sistema
             // 
@@ -726,7 +805,12 @@
             this.RelBackBotton.ResumeLayout(false);
             this.RelBackOp.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.OP1.ResumeLayout(false);
+            this.OP1.PerformLayout();
+            this.OP2.ResumeLayout(false);
+            this.OP2.PerformLayout();
+            this.OP3.ResumeLayout(false);
+            this.OP3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -785,6 +869,13 @@
         private System.Windows.Forms.Panel RelDir;
         private System.Windows.Forms.Panel RelEsq;
         private System.Windows.Forms.Panel RelTOP;
+        private System.Windows.Forms.Panel OP4;
+        private System.Windows.Forms.Panel OP3;
+        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.Panel OP2;
+        private System.Windows.Forms.Panel OP1;
+        private System.Windows.Forms.Panel PanelRigGRoupBox;
+        private System.Windows.Forms.Panel PanelLeftGroupBox;
     }
 }
 
