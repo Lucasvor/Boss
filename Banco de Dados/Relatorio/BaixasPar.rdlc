@@ -420,7 +420,7 @@
       </Border>
     </Style>
   </Body>
-  <Width>11.14216in</Width>
+  <Width>11.11348in</Width>
   <Page>
     <PageHeader>
       <Height>1.17413in</Height>
@@ -434,7 +434,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>="Baixas não Realizadas na Data: "&amp;convert.ToInt64(Parameters!Data.Value).ToString("00\/00\/0000")</Value>
+                  <Value>="Baixas não Realizadas no dia: "&amp;convert.ToInt64(Parameters!Data.Value).ToString("00\/00\/0000")</Value>
                   <Style>
                     <FontSize>30pt</FontSize>
                     <FontWeight>Bold</FontWeight>

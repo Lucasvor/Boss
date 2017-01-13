@@ -552,9 +552,10 @@ namespace Banco_de_Dados
             {
                 if (!string.IsNullOrWhiteSpace(textBox3.Text))
                 {
+                    
                     button6.PerformClick();
-                    button6.Focus();
                     textBox3.Clear();
+                    button6.Focus();
                 }
             }
         }
