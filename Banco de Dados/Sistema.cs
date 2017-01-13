@@ -545,5 +545,18 @@ namespace Banco_de_Dados
                 textBox3.Clear();
             }
         }
+
+        private void textBox3_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                if (!string.IsNullOrWhiteSpace(textBox3.Text))
+                {
+                    button6.PerformClick();
+                    button6.Focus();
+                    textBox3.Clear();
+                }
+            }
+        }
     }
 }

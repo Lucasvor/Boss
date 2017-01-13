@@ -404,7 +404,6 @@
         <FixedColumnHeaders>true</FixedColumnHeaders>
         <FixedRowHeaders>true</FixedRowHeaders>
         <DataSetName>DataSet1</DataSetName>
-        <Top>0.31749cm</Top>
         <Height>0.6cm</Height>
         <Width>28.22825cm</Width>
         <Style>
@@ -417,7 +416,7 @@
     <Height>8.5in</Height>
     <Style>
       <Border>
-        <Style>Solid</Style>
+        <Style>None</Style>
       </Border>
     </Style>
   </Body>
@@ -435,7 +434,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Baixas Não Realizadas</Value>
+                  <Value>="Baixas não Realizadas na Data: "&amp;convert.ToInt64(Parameters!Data.Value).ToString("00\/00\/0000")</Value>
                   <Style>
                     <FontSize>30pt</FontSize>
                     <FontWeight>Bold</FontWeight>
@@ -450,9 +449,9 @@
           </Paragraphs>
           <rd:DefaultName>Textbox1</rd:DefaultName>
           <Top>0.44873cm</Top>
-          <Left>4.57978cm</Left>
+          <Left>0.26707cm</Left>
           <Height>1.44667cm</Height>
-          <Width>20.92756cm</Width>
+          <Width>27.59506cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
@@ -480,7 +479,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox106</rd:DefaultName>
-          <Top>2.3823cm</Top>
+          <Top>2.09655cm</Top>
           <Height>0.6cm</Height>
           <Width>2.9078cm</Width>
           <ZIndex>1</ZIndex>
@@ -512,7 +511,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox102</rd:DefaultName>
-          <Top>2.3823cm</Top>
+          <Top>2.09655cm</Top>
           <Left>2.9078cm</Left>
           <Height>0.6cm</Height>
           <Width>3.12871cm</Width>
@@ -545,7 +544,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox104</rd:DefaultName>
-          <Top>2.3823cm</Top>
+          <Top>2.09655cm</Top>
           <Left>6.03651cm</Left>
           <Height>0.6cm</Height>
           <Width>2.2312cm</Width>
@@ -578,7 +577,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox134</rd:DefaultName>
-          <Top>2.3823cm</Top>
+          <Top>2.09655cm</Top>
           <Left>8.26771cm</Left>
           <Height>0.6cm</Height>
           <Width>2.05974cm</Width>
@@ -611,7 +610,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox142</rd:DefaultName>
-          <Top>2.3823cm</Top>
+          <Top>2.09655cm</Top>
           <Left>10.32745cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
@@ -644,7 +643,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox124</rd:DefaultName>
-          <Top>2.3823cm</Top>
+          <Top>2.09655cm</Top>
           <Left>12.82745cm</Left>
           <Height>0.6cm</Height>
           <Width>5.6268cm</Width>
@@ -677,7 +676,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox126</rd:DefaultName>
-          <Top>2.3823cm</Top>
+          <Top>2.09655cm</Top>
           <Left>18.45425cm</Left>
           <Height>0.6cm</Height>
           <Width>4.84125cm</Width>
@@ -710,7 +709,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox128</rd:DefaultName>
-          <Top>2.3823cm</Top>
+          <Top>2.09655cm</Top>
           <Left>23.2955cm</Left>
           <Height>0.6cm</Height>
           <Width>2.21184cm</Width>
@@ -743,7 +742,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox130</rd:DefaultName>
-          <Top>2.3823cm</Top>
+          <Top>2.09655cm</Top>
           <Left>25.50734cm</Left>
           <Height>0.6cm</Height>
           <Width>0.74484cm</Width>
@@ -776,7 +775,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox132</rd:DefaultName>
-          <Top>2.3823cm</Top>
+          <Top>2.09655cm</Top>
           <Left>26.25218cm</Left>
           <Height>0.6cm</Height>
           <Width>1.97607cm</Width>
@@ -788,36 +787,6 @@
             </Border>
             <PaddingLeft>3pt</PaddingLeft>
             <PaddingRight>3pt</PaddingRight>
-            <PaddingTop>2pt</PaddingTop>
-            <PaddingBottom>2pt</PaddingBottom>
-          </Style>
-        </Textbox>
-        <Textbox Name="Textbox3">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>="Data Utilizada: "&amp;Parameters!Data.Value</Value>
-                  <Style />
-                </TextRun>
-              </TextRuns>
-              <Style />
-            </Paragraph>
-          </Paragraphs>
-          <rd:DefaultName>Textbox3</rd:DefaultName>
-          <Top>0.25917in</Top>
-          <Left>0.47792in</Left>
-          <Height>0.25in</Height>
-          <Width>1in</Width>
-          <ZIndex>11</ZIndex>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-            <PaddingLeft>2pt</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
             <PaddingTop>2pt</PaddingTop>
             <PaddingBottom>2pt</PaddingBottom>
           </Style>

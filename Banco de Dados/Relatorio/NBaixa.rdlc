@@ -404,6 +404,7 @@
         <FixedColumnHeaders>true</FixedColumnHeaders>
         <FixedRowHeaders>true</FixedRowHeaders>
         <DataSetName>DataSet1</DataSetName>
+        <Top>0.09524cm</Top>
         <Height>0.6cm</Height>
         <Width>28.22825cm</Width>
         <Style>
@@ -416,11 +417,11 @@
     <Height>8.5in</Height>
     <Style>
       <Border>
-        <Style>Solid</Style>
+        <Style>None</Style>
       </Border>
     </Style>
   </Body>
-  <Width>11.14216in</Width>
+  <Width>11.11348in</Width>
   <Page>
     <PageHeader>
       <Height>1.17413in</Height>
@@ -479,7 +480,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox106</rd:DefaultName>
-          <Top>2.3823cm</Top>
+          <Top>2.09655cm</Top>
           <Height>0.6cm</Height>
           <Width>2.9078cm</Width>
           <ZIndex>1</ZIndex>
@@ -511,7 +512,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox102</rd:DefaultName>
-          <Top>2.3823cm</Top>
+          <Top>2.09655cm</Top>
           <Left>2.9078cm</Left>
           <Height>0.6cm</Height>
           <Width>3.12871cm</Width>
@@ -544,7 +545,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox104</rd:DefaultName>
-          <Top>2.3823cm</Top>
+          <Top>2.09655cm</Top>
           <Left>6.03651cm</Left>
           <Height>0.6cm</Height>
           <Width>2.2312cm</Width>
@@ -577,7 +578,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox134</rd:DefaultName>
-          <Top>2.3823cm</Top>
+          <Top>2.09655cm</Top>
           <Left>8.26771cm</Left>
           <Height>0.6cm</Height>
           <Width>2.05974cm</Width>
@@ -610,7 +611,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox142</rd:DefaultName>
-          <Top>2.3823cm</Top>
+          <Top>2.09655cm</Top>
           <Left>10.32745cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
@@ -643,7 +644,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox124</rd:DefaultName>
-          <Top>2.3823cm</Top>
+          <Top>2.09655cm</Top>
           <Left>12.82745cm</Left>
           <Height>0.6cm</Height>
           <Width>5.6268cm</Width>
@@ -676,7 +677,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox126</rd:DefaultName>
-          <Top>2.3823cm</Top>
+          <Top>2.09655cm</Top>
           <Left>18.45425cm</Left>
           <Height>0.6cm</Height>
           <Width>4.84125cm</Width>
@@ -709,7 +710,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox128</rd:DefaultName>
-          <Top>2.3823cm</Top>
+          <Top>2.09655cm</Top>
           <Left>23.2955cm</Left>
           <Height>0.6cm</Height>
           <Width>2.21184cm</Width>
@@ -742,7 +743,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox130</rd:DefaultName>
-          <Top>2.3823cm</Top>
+          <Top>2.09655cm</Top>
           <Left>25.50734cm</Left>
           <Height>0.6cm</Height>
           <Width>0.74484cm</Width>
@@ -775,7 +776,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox132</rd:DefaultName>
-          <Top>2.3823cm</Top>
+          <Top>2.09655cm</Top>
           <Left>26.25218cm</Left>
           <Height>0.6cm</Height>
           <Width>1.97607cm</Width>
@@ -878,6 +879,10 @@
           <DataField>nrointimacao</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="prazolimite">
+          <DataField>prazolimite</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
         <Field Name="baixa">
           <DataField>baixa</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -886,14 +891,10 @@
           <DataField>dataentrada</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
-        <Field Name="prazolimite">
-          <DataField>prazolimite</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>DBars</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\lucasvor\Desktop\boss\Banco de Dados\DBars.xsd</rd:SchemaPath>
+        <rd:SchemaPath>D:\Documentos\Visual Studio 2015\Projects\Banco de Dados atualizado\boss\Banco de Dados\DBars.xsd</rd:SchemaPath>
         <rd:TableName>EntregadorComBaixa</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
