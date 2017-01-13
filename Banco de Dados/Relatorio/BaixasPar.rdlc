@@ -404,6 +404,7 @@
         <FixedColumnHeaders>true</FixedColumnHeaders>
         <FixedRowHeaders>true</FixedRowHeaders>
         <DataSetName>DataSet1</DataSetName>
+        <Top>0.31749cm</Top>
         <Height>0.6cm</Height>
         <Width>28.22825cm</Width>
         <Style>
@@ -791,6 +792,36 @@
             <PaddingBottom>2pt</PaddingBottom>
           </Style>
         </Textbox>
+        <Textbox Name="Textbox3">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>="Data Utilizada: "&amp;Parameters!Data.Value</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox3</rd:DefaultName>
+          <Top>0.25917in</Top>
+          <Left>0.47792in</Left>
+          <Height>0.25in</Height>
+          <Width>1in</Width>
+          <ZIndex>11</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
       </ReportItems>
       <Style>
         <Border>
@@ -820,7 +851,7 @@
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>b36dd624-b042-43a8-8464-938543792128</rd:DataSourceID>
+      <rd:DataSourceID>84310591-edda-4033-b851-3912aa6c4de2</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
@@ -880,7 +911,7 @@
         </Field>
         <Field Name="prazolimite">
           <DataField>prazolimite</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="baixa">
           <DataField>baixa</DataField>
@@ -893,14 +924,20 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>DBars</rd:DataSetName>
-        <rd:SchemaPath>D:\Documentos\Visual Studio 2015\Projects\Banco de Dados atualizado\boss\Banco de Dados\DBars.xsd</rd:SchemaPath>
-        <rd:TableName>EntregadorComBaixa</rd:TableName>
+        <rd:SchemaPath>C:\Users\lucasvor\Desktop\boss\Banco de Dados\DBars.xsd</rd:SchemaPath>
+        <rd:TableName>GetData</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>EntregadorComBaixaTableAdapter</rd:TableAdapterName>
+        <rd:TableAdapterName>GetDataTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
+  <ReportParameters>
+    <ReportParameter Name="Data">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+  </ReportParameters>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:ReportID>a51d6be3-3162-44bf-aab1-6ee5e69a5897</rd:ReportID>
 </Report>

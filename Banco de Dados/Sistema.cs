@@ -518,17 +518,31 @@ namespace Banco_de_Dados
             //        break;
             //}
 
-            if ((radioButton1.Checked == false )&&( radioButton2.Checked == false))
+            if ((radioButton1.Checked == false )&&( radioButton2.Checked == false)&&(radioButton3.Checked == false)&& (radioButton4.Checked == false))
             {
                 MessageBox.Show("Escolha pelo menos uma opção!", "Relatório", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }else
             {
                 Banco_de_Dados.Relatorio.FormRelatorio rel = new Banco_de_Dados.Relatorio.FormRelatorio();
-                rel.Op = radioButton1.Checked == true ? 1 : radioButton2.Checked == true ? 2 : 0;
+                rel.Aux = radioButton3.Checked == true ? textBox3.Text : null;
+                rel.Op = radioButton1.Checked == true ? 1 : radioButton2.Checked == true ? 2 :radioButton3.Checked == true? 3:radioButton4.Checked == true ? 4: 0;
                 rel.ShowDialog();
                 rel.Dispose();
 
 
+            }
+        }
+
+        private void radioButton3_CheckedChanged(object sender, EventArgs e)
+        {
+            if(radioButton3.Checked == true)
+            {
+                textBox3.Visible = true;
+                textBox3.Focus();
+            }else
+            {
+                textBox3.Visible = false;
+                textBox3.Clear();
             }
         }
     }

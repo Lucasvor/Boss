@@ -29,25 +29,19 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.dBars = new Banco_de_Dados.DBars();
             this.baixaHojeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.baixaHojeTableAdapter = new Banco_de_Dados.DBarsTableAdapters.BaixaHojeTableAdapter();
             this.entregadorComBaixaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.entregadorComBaixaTableAdapter = new Banco_de_Dados.DBarsTableAdapters.EntregadorComBaixaTableAdapter();
+            this.getDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.getDataTableAdapter = new Banco_de_Dados.DBarsTableAdapters.GetDataTableAdapter();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             ((System.ComponentModel.ISupportInitialize)(this.dBars)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.baixaHojeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.entregadorComBaixaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.getDataBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // reportViewer1
-            // 
-            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.reportViewer1.Location = new System.Drawing.Point(0, 0);
-            this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.Size = new System.Drawing.Size(909, 675);
-            this.reportViewer1.TabIndex = 0;
-            this.reportViewer1.ZoomMode = Microsoft.Reporting.WinForms.ZoomMode.PageWidth;
             // 
             // dBars
             // 
@@ -72,6 +66,23 @@
             // 
             this.entregadorComBaixaTableAdapter.ClearBeforeFill = true;
             // 
+            // getDataBindingSource
+            // 
+            this.getDataBindingSource.DataMember = "GetData";
+            this.getDataBindingSource.DataSource = this.dBars;
+            // 
+            // getDataTableAdapter
+            // 
+            this.getDataTableAdapter.ClearBeforeFill = true;
+            // 
+            // reportViewer1
+            // 
+            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.reportViewer1.Location = new System.Drawing.Point(0, 0);
+            this.reportViewer1.Name = "reportViewer1";
+            this.reportViewer1.Size = new System.Drawing.Size(909, 675);
+            this.reportViewer1.TabIndex = 0;
+            // 
             // FormRelatorio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -85,18 +96,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.dBars)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.baixaHojeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.entregadorComBaixaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.getDataBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         private DBars dBars;
         private System.Windows.Forms.BindingSource baixaHojeBindingSource;
         
         private DBarsTableAdapters.BaixaHojeTableAdapter baixaHojeTableAdapter;
         private System.Windows.Forms.BindingSource entregadorComBaixaBindingSource;
         private DBarsTableAdapters.EntregadorComBaixaTableAdapter entregadorComBaixaTableAdapter;
+        private System.Windows.Forms.BindingSource getDataBindingSource;
+        private DBarsTableAdapters.GetDataTableAdapter getDataTableAdapter;
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
     }
 }

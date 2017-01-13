@@ -13,6 +13,7 @@ namespace Banco_de_Dados.Relatorio
     public partial class FormRelatorio : Form
     {
         private int op;
+        private string aux;
         Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
         
         public FormRelatorio()
@@ -36,6 +37,19 @@ namespace Banco_de_Dados.Relatorio
             }
         }
 
+        public string Aux
+        {
+            get
+            {
+                return aux;
+            }
+
+            set
+            {
+                aux = value;
+            }
+        }
+
         private void FormRelatorio_Load(object sender, EventArgs e)
         {
             try
@@ -53,6 +67,13 @@ namespace Banco_de_Dados.Relatorio
                     reportDataSource1.Value = this.baixaHojeBindingSource;
                     this.reportViewer1.LocalReport.ReportEmbeddedResource = "Banco_de_Dados.Relatorio.BaixaHoje.rdlc";
                     this.baixaHojeTableAdapter.Fill(this.dBars.BaixaHoje);
+                }else if(Op == 3)
+                {
+                    reportDataSource1.Value = this.getDataBindingSource;
+                    this.reportViewer1.LocalReport.ReportEmbeddedResource = "Banco_de_Dados.Relatorio.BaixasPar.rdlc";
+                    Microsoft.Reporting.WinForms.ReportParameter get = new Microsoft.Reporting.WinForms.ReportParameter("Data", Aux);
+                    this.reportViewer1.LocalReport.SetParameters(get);
+                    this.getDataTableAdapter.Fill(this.dBars.GetData, Aux);
                 }
                 else
                 {
@@ -86,7 +107,6 @@ namespace Banco_de_Dados.Relatorio
             this.reportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout);
 
             this.reportViewer1.RefreshReport();
-
 
         }
     }
