@@ -56,12 +56,13 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.button5 = new System.Windows.Forms.Button();
+            this.BackEmbaixo = new System.Windows.Forms.Panel();
             this.Baixa = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.PHistorico = new System.Windows.Forms.Panel();
             this.PbackHist = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.PHistorico = new System.Windows.Forms.Panel();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.PdirBaixa = new System.Windows.Forms.Panel();
             this.PesqBaixa = new System.Windows.Forms.Panel();
@@ -79,11 +80,10 @@
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.PanelRigGRoupBox = new System.Windows.Forms.Panel();
             this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.RelDir = new System.Windows.Forms.Panel();
             this.RelEsq = new System.Windows.Forms.Panel();
             this.RelTOP = new System.Windows.Forms.Panel();
-            this.BackEmbaixo = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -96,8 +96,8 @@
             this.BackImporta.SuspendLayout();
             this.BackTextbox.SuspendLayout();
             this.Baixa.SuspendLayout();
-            this.PHistorico.SuspendLayout();
             this.PbackHist.SuspendLayout();
+            this.PHistorico.SuspendLayout();
             this.BackRelatorio.SuspendLayout();
             this.RelBackBotton.SuspendLayout();
             this.RelBackOp.SuspendLayout();
@@ -409,6 +409,14 @@
             this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
+            // BackEmbaixo
+            // 
+            this.BackEmbaixo.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.BackEmbaixo.Location = new System.Drawing.Point(0, 663);
+            this.BackEmbaixo.Name = "BackEmbaixo";
+            this.BackEmbaixo.Size = new System.Drawing.Size(675, 10);
+            this.BackEmbaixo.TabIndex = 7;
+            // 
             // Baixa
             // 
             this.Baixa.Controls.Add(this.textBox2);
@@ -424,19 +432,6 @@
             this.Baixa.TabIndex = 8;
             this.Baixa.Visible = false;
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(103)))), ((int)(((byte)(130)))));
-            this.label6.Location = new System.Drawing.Point(30, 0);
-            this.label6.Name = "label6";
-            this.label6.Padding = new System.Windows.Forms.Padding(0, 70, 0, 0);
-            this.label6.Size = new System.Drawing.Size(190, 94);
-            this.label6.TabIndex = 14;
-            this.label6.Text = "Numero da Intimação";
-            // 
             // textBox2
             // 
             this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(46)))), ((int)(((byte)(58)))));
@@ -450,15 +445,6 @@
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox2_KeyDown);
             this.textBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox2_KeyPress);
-            // 
-            // PHistorico
-            // 
-            this.PHistorico.Controls.Add(this.richTextBox1);
-            this.PHistorico.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.PHistorico.Location = new System.Drawing.Point(30, 175);
-            this.PHistorico.Name = "PHistorico";
-            this.PHistorico.Size = new System.Drawing.Size(615, 498);
-            this.PHistorico.TabIndex = 10;
             // 
             // PbackHist
             // 
@@ -480,6 +466,28 @@
             this.label5.Size = new System.Drawing.Size(161, 48);
             this.label5.TabIndex = 13;
             this.label5.Text = "\r\nHistórico de Baixa";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(103)))), ((int)(((byte)(130)))));
+            this.label6.Location = new System.Drawing.Point(30, 0);
+            this.label6.Name = "label6";
+            this.label6.Padding = new System.Windows.Forms.Padding(0, 70, 0, 0);
+            this.label6.Size = new System.Drawing.Size(190, 94);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "Numero da Intimação";
+            // 
+            // PHistorico
+            // 
+            this.PHistorico.Controls.Add(this.richTextBox1);
+            this.PHistorico.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.PHistorico.Location = new System.Drawing.Point(30, 175);
+            this.PHistorico.Name = "PHistorico";
+            this.PHistorico.Size = new System.Drawing.Size(615, 498);
+            this.PHistorico.TabIndex = 10;
             // 
             // richTextBox1
             // 
@@ -682,6 +690,20 @@
             this.textBox3.Visible = false;
             this.textBox3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox3_KeyDown);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(103)))), ((int)(((byte)(130)))));
+            this.label1.Location = new System.Drawing.Point(0, 110);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(69, 25);
+            this.label1.TabIndex = 20;
+            this.label1.Text = "Data :";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label1.Visible = false;
+            // 
             // RelDir
             // 
             this.RelDir.Dock = System.Windows.Forms.DockStyle.Right;
@@ -705,28 +727,6 @@
             this.RelTOP.Name = "RelTOP";
             this.RelTOP.Size = new System.Drawing.Size(675, 192);
             this.RelTOP.TabIndex = 6;
-            // 
-            // BackEmbaixo
-            // 
-            this.BackEmbaixo.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.BackEmbaixo.Location = new System.Drawing.Point(0, 663);
-            this.BackEmbaixo.Name = "BackEmbaixo";
-            this.BackEmbaixo.Size = new System.Drawing.Size(675, 10);
-            this.BackEmbaixo.TabIndex = 7;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(103)))), ((int)(((byte)(130)))));
-            this.label1.Location = new System.Drawing.Point(0, 110);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 25);
-            this.label1.TabIndex = 20;
-            this.label1.Text = "Data :";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label1.Visible = false;
             // 
             // Sistema
             // 
@@ -769,9 +769,9 @@
             this.BackTextbox.PerformLayout();
             this.Baixa.ResumeLayout(false);
             this.Baixa.PerformLayout();
-            this.PHistorico.ResumeLayout(false);
             this.PbackHist.ResumeLayout(false);
             this.PbackHist.PerformLayout();
+            this.PHistorico.ResumeLayout(false);
             this.BackRelatorio.ResumeLayout(false);
             this.RelBackBotton.ResumeLayout(false);
             this.RelBackOp.ResumeLayout(false);
