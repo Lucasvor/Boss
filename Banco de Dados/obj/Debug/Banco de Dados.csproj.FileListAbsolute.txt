@@ -84,7 +84,6 @@ D:\Documentos\Visual Studio 2015\Projects\Banco de Dados atualizado\boss\Banco d
 D:\Documentos\Visual Studio 2015\Projects\Banco de Dados atualizado\boss\Banco de Dados\obj\Debug\RdlCompile.cache
 D:\Documentos\Visual Studio 2015\Projects\Banco de Dados atualizado\boss\Banco de Dados\obj\Debug\RdlCompile.compiled
 D:\Documentos\Visual Studio 2015\Projects\Banco de Dados atualizado\boss\Banco de Dados\bin\Debug\Banco de Dados.exe.config
-D:\Documentos\Visual Studio 2015\Projects\Banco de Dados atualizado\boss\Banco de Dados\obj\Debug\Banco_de_Dados.Relatorio.Relatorio.resources
 C:\Users\lucasvor\Desktop\boss\Banco de Dados\bin\Debug\Microsoft.SqlServer.Types.dll
 C:\Users\lucasvor\Desktop\boss\Banco de Dados\bin\Debug\de\Microsoft.SqlServer.Types.resources.dll
 C:\Users\lucasvor\Desktop\boss\Banco de Dados\bin\Debug\es\Microsoft.SqlServer.Types.resources.dll
@@ -100,3 +99,7 @@ C:\Users\lucasvor\Desktop\boss\Banco de Dados\bin\Debug\Microsoft.ReportViewer.W
 C:\Users\lucasvor\Desktop\boss\Banco de Dados\obj\Debug\RdlCompile.cache
 C:\Users\lucasvor\Desktop\boss\Banco de Dados\obj\Debug\RdlCompile.compiled
 C:\Users\lucasvor\Desktop\boss\Banco de Dados\obj\Debug\Banco_de_Dados.Relatorio.FormRelatorio.resources
+D:\Documentos\Visual Studio 2015\Projects\Banco de Dados atualizado\boss\Banco de Dados\obj\Debug\Banco_de_Dados.Relatorio.FormRelatorio.resources
+C:\Users\Lucas\Desktop\Git\boss\Banco de Dados\bin\Debug\Banco de Dados.exe.config
+C:\Users\Lucas\Desktop\Git\boss\Banco de Dados\obj\Debug\Banco de Dados.exe
+C:\Users\Lucas\Desktop\Git\boss\Banco de Dados\obj\Debug\Banco de Dados.pdb

@@ -537,10 +537,12 @@ namespace Banco_de_Dados
         {
             if(radioButton3.Checked == true)
             {
+                label1.Visible = true;
                 textBox3.Visible = true;
                 textBox3.Focus();
             }else
             {
+                label1.Visible = false;
                 textBox3.Visible = false;
                 textBox3.Clear();
             }

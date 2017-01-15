@@ -90,7 +90,7 @@ namespace Banco_de_Dados.Relatorio
             //this.reportViewer1.
             
             System.Drawing.Printing.PageSettings pg = new System.Drawing.Printing.PageSettings();
-            pg.Margins = new System.Drawing.Printing.Margins(2, 2, 2, 2);
+            pg.Margins = new System.Drawing.Printing.Margins(36, 2, 2, 2);
             pg.Landscape = true;
             //System.Drawing.Printing.PaperSize size = new System.Drawing.Printing.PaperSize();
             
