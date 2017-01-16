@@ -618,11 +618,11 @@
             this.radioButton4.Dock = System.Windows.Forms.DockStyle.Top;
             this.radioButton4.Location = new System.Drawing.Point(3, 184);
             this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Padding = new System.Windows.Forms.Padding(20, 30, 0, 0);
+            this.radioButton4.Padding = new System.Windows.Forms.Padding(15, 30, 0, 0);
             this.radioButton4.Size = new System.Drawing.Size(250, 54);
             this.radioButton4.TabIndex = 0;
             this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "Importado Hoje";
+            this.radioButton4.Text = "Imp. Hj / Entrada Amanhã";
             this.radioButton4.UseVisualStyleBackColor = true;
             // 
             // radioButton3
@@ -631,7 +631,7 @@
             this.radioButton3.Dock = System.Windows.Forms.DockStyle.Top;
             this.radioButton3.Location = new System.Drawing.Point(3, 130);
             this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Padding = new System.Windows.Forms.Padding(20, 30, 0, 0);
+            this.radioButton3.Padding = new System.Windows.Forms.Padding(15, 30, 0, 0);
             this.radioButton3.Size = new System.Drawing.Size(250, 54);
             this.radioButton3.TabIndex = 0;
             this.radioButton3.TabStop = true;
@@ -645,7 +645,7 @@
             this.radioButton2.Dock = System.Windows.Forms.DockStyle.Top;
             this.radioButton2.Location = new System.Drawing.Point(3, 76);
             this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Padding = new System.Windows.Forms.Padding(20, 30, 0, 0);
+            this.radioButton2.Padding = new System.Windows.Forms.Padding(15, 30, 0, 0);
             this.radioButton2.Size = new System.Drawing.Size(250, 54);
             this.radioButton2.TabIndex = 1;
             this.radioButton2.TabStop = true;
@@ -658,7 +658,7 @@
             this.radioButton1.Dock = System.Windows.Forms.DockStyle.Top;
             this.radioButton1.Location = new System.Drawing.Point(3, 22);
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Padding = new System.Windows.Forms.Padding(20, 30, 0, 0);
+            this.radioButton1.Padding = new System.Windows.Forms.Padding(15, 30, 0, 0);
             this.radioButton1.Size = new System.Drawing.Size(250, 54);
             this.radioButton1.TabIndex = 0;
             this.radioButton1.TabStop = true;

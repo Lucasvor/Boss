@@ -328,7 +328,7 @@
                       </Border>
                       <PaddingLeft>2pt</PaddingLeft>
                       <PaddingRight>2pt</PaddingRight>
-                      <PaddingTop>2pt</PaddingTop>
+                      <PaddingTop>5pt</PaddingTop>
                       <PaddingBottom>2pt</PaddingBottom>
                     </Style>
                   </Textbox>
@@ -345,7 +345,7 @@
         <DataSetName>DataSet1</DataSetName>
         <Left>0.19667in</Left>
         <Height>0.25in</Height>
-        <Width>10.72541in</Width>
+        <Width>10.72539in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -513,7 +513,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Data Protocolo</Value>
+                  <Value>Data Prot.</Value>
                   <Style>
                     <FontWeight>Bold</FontWeight>
                   </Style>

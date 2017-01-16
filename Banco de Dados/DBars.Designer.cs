@@ -8825,7 +8825,7 @@ WHERE        (baixa LIKE CONVERT(VARCHAR(10), GETDATE(), 103) + '%')";
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT        cartorio, protocolo, dataprotocolo, destinatario, endereco, docdestinatario, complemento, bairro, cidade, UF, CEP, nrointimacao, CONVERT(varchar(10), prazolimite, 103) AS prazolimite, baixa, dataentrada
 FROM            tb_carta
-WHERE        (dataentrada LIKE CONVERT(VARCHAR(10), GETDATE(), 103) + '%')";
+WHERE        (dataentrada = CONVERT(DATE, GETDATE() + 1, 112))";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
