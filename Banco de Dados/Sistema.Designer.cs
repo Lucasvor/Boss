@@ -622,7 +622,7 @@
             this.radioButton4.Size = new System.Drawing.Size(250, 54);
             this.radioButton4.TabIndex = 0;
             this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "Baixados Hoje";
+            this.radioButton4.Text = "Importado Hoje";
             this.radioButton4.UseVisualStyleBackColor = true;
             // 
             // radioButton3

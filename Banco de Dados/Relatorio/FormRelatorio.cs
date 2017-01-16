@@ -52,6 +52,8 @@ namespace Banco_de_Dados.Relatorio
 
         private void FormRelatorio_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dBars.EntradaHoje' table. You can move, or remove it, as needed.
+            this.entradaHojeTableAdapter.Fill(this.dBars.EntradaHoje);
             try
             {
                 reportDataSource1.Name = "DataSet1";
@@ -74,6 +76,12 @@ namespace Banco_de_Dados.Relatorio
                     Microsoft.Reporting.WinForms.ReportParameter get = new Microsoft.Reporting.WinForms.ReportParameter("Data", Aux);
                     this.reportViewer1.LocalReport.SetParameters(get);
                     this.getDataTableAdapter.Fill(this.dBars.GetData, Aux);
+                }else if(Op == 4)
+                {
+                    reportDataSource1.Value = this.EntradaHojeBindingSource;
+                    this.reportViewer1.LocalReport.ReportEmbeddedResource = "Banco_de_Dados.Relatorio.TitBaixaHoje.rdlc";
+                    this.entradaHojeTableAdapter.Fill(this.dBars.EntradaHoje);
+
                 }
                 else
                 {
@@ -108,6 +116,7 @@ namespace Banco_de_Dados.Relatorio
 
             this.reportViewer1.RefreshReport();
 
+            this.reportViewer1.RefreshReport();
         }
     }
 }

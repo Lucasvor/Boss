@@ -98,6 +98,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Relatorio\TitBaixaHoje.rdlc" />
     <EmbeddedResource Include="Relatorio\BaixaHoje.rdlc" />
     <EmbeddedResource Include="Relatorio\FormRelatorio.resx">
       <DependentUpon>FormRelatorio.cs</DependentUpon>
