@@ -330,25 +330,34 @@ namespace Banco_de_Dados
                             {
                                 myCommand.ExecuteNonQuery();
                                 var myReader = myCommand.ExecuteReader();
-                                if (myReader.Read() && myReader.IsDBNull(0))
+                                if (myReader.HasRows)
                                 {
-                                    myCommand.Dispose();
-                                    myReader.Close();
-                                    using (var mycommand2 = new SqlCommand("update dbo.tb_carta set baixa = '" + DateTime.Now + "' where nrointimacao = '" + textBox2.Text + "'",conexao.SqlCon))
+                                    
+                                    if (myReader.Read() && myReader.IsDBNull(0))
                                     {
-                                        mycommand2.ExecuteNonQuery();
-                                        richTextBox1.Select(0, 0);
-                                        richTextBox1.SelectedText = textBox2.Text +"  "+ DateTime.Now + System.Environment.NewLine;
-                                        richTextBox1.Update();
-                                        //richTextBox1.SelectAll();
-                                        //richTextBox1.SelectionAlignment = HorizontalAlignment.Center;
-                                        textBox2.Clear();
-                                        mycommand2.Dispose();
+                                        myCommand.Dispose();
+                                        myReader.Close();
+                                        using (var mycommand2 = new SqlCommand("update dbo.tb_carta set baixa = '" + DateTime.Now + "' where nrointimacao = '" + textBox2.Text + "'", conexao.SqlCon))
+                                        {
+                                            mycommand2.ExecuteNonQuery();
+                                            richTextBox1.Select(0, 0);
+                                            richTextBox1.SelectedText = textBox2.Text + "  " + DateTime.Now + System.Environment.NewLine;
+                                            richTextBox1.Update();
+                                            //richTextBox1.SelectAll();
+                                            //richTextBox1.SelectionAlignment = HorizontalAlignment.Center;
+                                            textBox2.Clear();
+                                            mycommand2.Dispose();
+                                        }
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Valor já baixado", "Baixa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        textBox2.SelectAll();
                                     }
                                 }
                                 else
                                 {
-                                    MessageBox.Show("Dado não encontado ou Valor já baixado", "Baixa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    MessageBox.Show("Dado não encontado", "Baixa", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     textBox2.SelectAll();
                                 }
 

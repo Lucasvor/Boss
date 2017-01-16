@@ -366,9 +366,9 @@
             // 
             this.BackTextbox.Controls.Add(this.textBox1);
             this.BackTextbox.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.BackTextbox.Location = new System.Drawing.Point(0, -7);
+            this.BackTextbox.Location = new System.Drawing.Point(0, 11);
             this.BackTextbox.Name = "BackTextbox";
-            this.BackTextbox.Size = new System.Drawing.Size(675, 614);
+            this.BackTextbox.Size = new System.Drawing.Size(675, 596);
             this.BackTextbox.TabIndex = 6;
             // 
             // textBox1
@@ -382,7 +382,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
             this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBox1.Size = new System.Drawing.Size(675, 614);
+            this.textBox1.Size = new System.Drawing.Size(675, 596);
             this.textBox1.TabIndex = 0;
             // 
             // progressBar1
@@ -698,9 +698,9 @@
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(103)))), ((int)(((byte)(130)))));
             this.label1.Location = new System.Drawing.Point(0, 110);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 25);
+            this.label1.Size = new System.Drawing.Size(166, 25);
             this.label1.TabIndex = 20;
-            this.label1.Text = "Data :";
+            this.label1.Text = "Data Protocolo :";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.label1.Visible = false;
             // 
