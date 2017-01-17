@@ -505,7 +505,9 @@ namespace Banco_de_Dados {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public cad_entregadorDataTable() {
                 this.TableName = "cad_entregador";
+#pragma warning disable CC0067 // Virtual Method Called On Constructor
                 this.BeginInit();
+#pragma warning restore CC0067 // Virtual Method Called On Constructor
                 this.InitClass();
                 this.EndInit();
             }
@@ -823,7 +825,9 @@ namespace Banco_de_Dados {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public ite_entregadorcepDataTable() {
                 this.TableName = "ite_entregadorcep";
+#pragma warning disable CC0067 // Virtual Method Called On Constructor
                 this.BeginInit();
+#pragma warning disable CC0067 // Virtual Method Called On Constructor
                 this.InitClass();
                 this.EndInit();
             }

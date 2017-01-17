@@ -389,9 +389,9 @@
           </Paragraphs>
           <rd:DefaultName>Textbox1</rd:DefaultName>
           <Top>0.44873cm</Top>
-          <Left>3.5479cm</Left>
+          <Left>0.435cm</Left>
           <Height>1.37611cm</Height>
-          <Width>20.47777cm</Width>
+          <Width>27.24249cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
@@ -514,7 +514,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Data Protocolo</Value>
+                  <Value>Data Prot.</Value>
                   <Style>
                     <FontWeight>Bold</FontWeight>
                   </Style>

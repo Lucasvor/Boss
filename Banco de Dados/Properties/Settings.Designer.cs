@@ -26,8 +26,8 @@ namespace Banco_de_Dados.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Provider=SQLNCLI11;Data Source=.\\SQLEXPRESS;Password=Lucas123;User ID=sa;Initial " +
-            "Catalog=db_ARS")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Provider=SQLNCLI11;Data Source=.\\SQLEXPRESS;Password=Lucas1234;User ID=sa;Initial" +
+            " Catalog=db_ARS")]
         public string ConnectionString {
             get {
                 return ((string)(this["ConnectionString"]));

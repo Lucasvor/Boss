@@ -15,8 +15,9 @@ namespace Banco_de_Dados
     public partial class Sistema : Form
     {
 
-        //SqlConnection sqlCon = new SqlConnection(Connect.query);
+#pragma warning disable CC0033 // Dispose Fields Properly
         private readonly Connect conexao = new Connect();//add conexao.Dispose(); to the Dispose method on another file.
+#pragma warning restore CC0033 // Dispose Fields Properly
         SqlTransaction tran;
         SqlCommand cmd;
         int error;
@@ -115,11 +116,6 @@ namespace Banco_de_Dados
             progressBar1.Value = 0;
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void button5_Click(object sender, EventArgs e)
         {
             textBox1.Clear();
@@ -141,11 +137,11 @@ namespace Banco_de_Dados
             {
 
                 tran = conexao.SqlCon.BeginTransaction();
-
-
                 // Váriavel
                 string s;
-                int flag = 0, contador = 2, contador_Error = 0;
+                var flag = 0;
+                var contador = 2;
+                var contador_Error = 0;
                 var lengths = new[] { 2, 4, 8, 45, 14, 45, 20, 20, 20, 2, 8, 13, 8 };
                 string dataentrada, erroTexto = null, fim = null;
                 var parts = new string[lengths.Length];
@@ -168,7 +164,7 @@ namespace Banco_de_Dados
 
                         try
                         {
-                            if (s.Trim().Length < 210)
+                            if (s.Trim().Length < 210 || s.Substring(9, 226).Equals("                                                                                                                                                                                                                                  "))
                             {
                                 if (fim == s.Substring(0, 8))
                                 {
@@ -186,7 +182,7 @@ namespace Banco_de_Dados
                                 else
                                 {
                                     flag_error = 1;
-                                    erroTexto = "Falta dados necessários para importação! Linha: " + contador;
+                                    erroTexto = " Falta dados necessários para importação! Linha: " + contador;
                                     throw new Exception(erroTexto);
                                 }
                             }
@@ -199,7 +195,7 @@ namespace Banco_de_Dados
                             if (parts[0].Trim().Length < 2 && parts[11].Trim().Length < 13)
                             {
                                 flag_error = 2;
-                                erroTexto = "Dado inválido para chave Primária do Banco!";
+                                erroTexto = " Dado inválido para chave Primária do Banco!";
                                 throw new Exception(erroTexto);
                             }
 
@@ -221,58 +217,67 @@ namespace Banco_de_Dados
 
                             cmd.ExecuteNonQuery();
                         }
-                        catch (Exception ex)
+                        catch(SqlException exq)
                         {
                             flag = 1;
-                            if (ex.HResult == -2146232060)
+                            if (exq.Number == 2627)
                             {
                                 if (contador_Error < 1)
                                 {
-                                    MessageBox.Show("Há Valores Repetidos nas chaves primarias ou Título já consta no banco. ", "Importação",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                                    MessageBox.Show("Há Valores Repetidos nas chaves primarias ou AR já consta no banco. ", "Importação", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                     erroTexto = "Valor repetido / Já consta no banco";
                                     // tran.Rollback();
                                 }
-                                contador_Error++;
-                            }
-                            else if (flag_error == 1)
-                            {
-                                MessageBox.Show(ex.Message, "Importação", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                contador_Error++;
-                            }
-                            else if (flag_error == 2)
-                            {
-                                MessageBox.Show(ex.Message, "Importação", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                erroTexto = "Valor repetido / Já consta no banco";
                                 contador_Error++;
                             }
                             else
                             {
-                                MessageBox.Show("Erro! " + ex, "Importação", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                erroTexto = ex.Message;
+                                MessageBox.Show("Erro! " + exq, "Importação", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                erroTexto = exq.Message;
                                 // tran.Rollback();
                             }
                             AppendTextBox(" >>  " + erroTexto);
-
                         }
-                        AppendTextBox(System.Environment.NewLine);
-                        contador++;
-
-                        this.backgroundWorker1.ReportProgress(j++ * 100 / files.Length);
-                        if (backgroundWorker1.CancellationPending)
+                        catch (Exception ex)
                         {
-                            e.Cancel = true;
-                            backgroundWorker1.ReportProgress(0);
-                            return;
+                            flag = 1;
+                                if (flag_error == 1)
+                                {
+                                    MessageBox.Show(ex.Message, "Importação", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                    contador_Error++;
+                                }
+                                else if (flag_error == 2)
+                                {
+                                    MessageBox.Show(ex.Message, "Importação", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                    contador_Error++;
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Erro! " + ex, "Importação", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                    erroTexto = ex.Message;
+                                    // tran.Rollback();
+                                }
+                                AppendTextBox(" >>  " + erroTexto);
+
+                            }
+                            AppendTextBox(System.Environment.NewLine);
+                            contador++;
+
+                            this.backgroundWorker1.ReportProgress(j++ * 100 / files.Length);
+                            if (backgroundWorker1.CancellationPending)
+                            {
+                                e.Cancel = true;
+                                backgroundWorker1.ReportProgress(0);
+                                return;
+                            }
                         }
+                        reader.Close();
                     }
-                    reader.Close();
-                }
-                contadorError = contador_Error;
-                error = flag;
-                backgroundWorker1.ReportProgress(100);
-            }
-            else
-            {
-                error = 2;
+                    contadorError = contador_Error;
+                    error = flag;
+                    backgroundWorker1.ReportProgress(100);
+
             }
         }
 
@@ -316,7 +321,7 @@ namespace Banco_de_Dados
                 {
                     if (string.IsNullOrWhiteSpace(textBox2.Text) || textBox2.Text.Length > 14)
                     {
-                        MessageBox.Show("Campo não pode ser vazio ou conter mais que 13 Caracteres", "Baixa",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                        MessageBox.Show("Campo não pode ser vazio ou conter mais que 13 Caracteres", nameof(Baixa), MessageBoxButtons.OK,MessageBoxIcon.Warning);
                         textBox2.Clear();
                     }
                     else
@@ -332,7 +337,7 @@ namespace Banco_de_Dados
                                 var myReader = myCommand.ExecuteReader();
                                 if (myReader.HasRows)
                                 {
-                                    
+
                                     if (myReader.Read() && myReader.IsDBNull(0))
                                     {
                                         myCommand.Dispose();
@@ -351,18 +356,18 @@ namespace Banco_de_Dados
                                     }
                                     else
                                     {
-                                        MessageBox.Show("Valor já baixado", "Baixa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        MessageBox.Show("Valor já baixado", nameof(Baixa), MessageBoxButtons.OK, MessageBoxIcon.Information);
                                         textBox2.SelectAll();
                                     }
                                 }
                                 else
                                 {
-                                    MessageBox.Show("Dado não encontado", "Baixa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    MessageBox.Show("Dado não encontado", nameof(Baixa), MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     textBox2.SelectAll();
                                 }
 
                             }
-                            
+
                         }catch(Exception ex)
                         {
                             MessageBox.Show(ex.Message);
@@ -371,7 +376,7 @@ namespace Banco_de_Dados
                         {
                             conexao.SqlCon.Close();
                         }
-                        
+
                     }
                 }
             }
@@ -484,7 +489,7 @@ namespace Banco_de_Dados
             }
         }
 
-        private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
+        private static void textBox2_KeyPress(object sender, KeyPressEventArgs e)
         {
             if(!char.IsDigit(e.KeyChar) && e.KeyChar != 8 && e.KeyChar != 46)
             {
@@ -493,10 +498,10 @@ namespace Banco_de_Dados
         }
         public bool connectBanco()
         {
-        
+
             try
             {
-                
+
                 conexao.SqlCon.Open();
                 return true;
 
@@ -527,24 +532,31 @@ namespace Banco_de_Dados
             //        break;
             //}
 
-            if ((radioButton1.Checked == false )&&( radioButton2.Checked == false)&&(radioButton3.Checked == false)&& (radioButton4.Checked == false))
+            if ((!radioButton1.Checked) && (!radioButton2.Checked) && (!radioButton3.Checked) && (!radioButton4.Checked))
             {
                 MessageBox.Show("Escolha pelo menos uma opção!", "Relatório", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }else
+            } else
             {
-                Banco_de_Dados.Relatorio.FormRelatorio rel = new Banco_de_Dados.Relatorio.FormRelatorio();
-                rel.Aux = radioButton3.Checked == true ? textBox3.Text : null;
-                rel.Op = radioButton1.Checked == true ? 1 : radioButton2.Checked == true ? 2 :radioButton3.Checked == true? 3:radioButton4.Checked == true ? 4: 0;
-                rel.ShowDialog();
-                rel.Dispose();
-
-
+                var rel = new Banco_de_Dados.Relatorio.FormRelatorio
+                {
+                    Aux = radioButton3.Checked ? textBox3.Text : null,
+                    Op = radioButton1.Checked ? 1 : radioButton2.Checked ? 2 : radioButton3.Checked ? 3 : radioButton4.Checked ? 4 : 0
+                };
+                if (radioButton3.Checked && string.IsNullOrWhiteSpace(textBox3.Text))
+                {
+                    MessageBox.Show("Coloque uma Data Protocolo", nameof(Baixa), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    rel.ShowDialog();
+                    rel.Dispose();
+                }
             }
         }
 
         private void radioButton3_CheckedChanged(object sender, EventArgs e)
         {
-            if(radioButton3.Checked == true)
+            if(radioButton3.Checked)
             {
                 label1.Visible = true;
                 textBox3.Visible = true;
@@ -563,7 +575,7 @@ namespace Banco_de_Dados
             {
                 if (!string.IsNullOrWhiteSpace(textBox3.Text))
                 {
-                    
+
                     button6.PerformClick();
                     textBox3.Clear();
                     button6.Focus();
