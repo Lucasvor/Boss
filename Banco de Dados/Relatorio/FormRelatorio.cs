@@ -52,39 +52,36 @@ namespace Banco_de_Dados.Relatorio
                 try
                 {
                     reportDataSource1.Name = "DataSet1";
-                    if (Op == 1)
+                    switch (Op)
                     {
-                        reportDataSource1.Value = this.entregadorComBaixaBindingSource;
-                        this.reportViewer1.LocalReport.ReportEmbeddedResource = "Banco_de_Dados.Relatorio.NBaixa.rdlc";
-                        this.entregadorComBaixaTableAdapter.Fill(this.dBars.EntregadorComBaixa);
+                        case 1:
+                            reportDataSource1.Value = this.entregadorComBaixaBindingSource;
+                            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Banco_de_Dados.Relatorio.NBaixa.rdlc";
+                            this.entregadorComBaixaTableAdapter.Fill(this.dBars.EntregadorComBaixa);
+                            break;
+                        case 2:
+                            reportDataSource1.Value = this.baixaHojeBindingSource;
+                            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Banco_de_Dados.Relatorio.BaixaHoje.rdlc";
+                            this.baixaHojeTableAdapter.Fill(this.dBars.BaixaHoje);
+                            break;
+                        case 3:
+                            reportDataSource1.Value = this.getDataBindingSource;
+                            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Banco_de_Dados.Relatorio.BaixasPar.rdlc";
+                            var get = new Microsoft.Reporting.WinForms.ReportParameter("Data", Aux);
+                            this.reportViewer1.LocalReport.SetParameters(get);
+                            this.getDataTableAdapter.Fill(this.dBars.GetData, Aux);
+                            break;
+                        case 4:
+                            reportDataSource1.Value = this.EntradaHojeBindingSource;
+                            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Banco_de_Dados.Relatorio.TitBaixaHoje.rdlc";
+                            this.entradaHojeTableAdapter.Fill(this.dBars.EntradaHoje);
+                            break;
+                        default:
+                            this.Dispose();
+                            this.Close();
+                            break;
+                    }
 
-                    }
-                    else if (Op == 2)
-                    {
-                        reportDataSource1.Value = this.baixaHojeBindingSource;
-                        this.reportViewer1.LocalReport.ReportEmbeddedResource = "Banco_de_Dados.Relatorio.BaixaHoje.rdlc";
-                        this.baixaHojeTableAdapter.Fill(this.dBars.BaixaHoje);
-                    }
-                    else if (Op == 3)
-                    {
-                        reportDataSource1.Value = this.getDataBindingSource;
-                        this.reportViewer1.LocalReport.ReportEmbeddedResource = "Banco_de_Dados.Relatorio.BaixasPar.rdlc";
-                        var get = new Microsoft.Reporting.WinForms.ReportParameter("Data", Aux);
-                        this.reportViewer1.LocalReport.SetParameters(get);
-                        this.getDataTableAdapter.Fill(this.dBars.GetData, Aux);
-                    }
-                    else if (Op == 4)
-                    {
-                        reportDataSource1.Value = this.EntradaHojeBindingSource;
-                        this.reportViewer1.LocalReport.ReportEmbeddedResource = "Banco_de_Dados.Relatorio.TitBaixaHoje.rdlc";
-                        this.entradaHojeTableAdapter.Fill(this.dBars.EntradaHoje);
-
-                    }
-                    else
-                    {
-                        this.Dispose();
-                        this.Close();
-                    }
                     this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
                 }
                 catch (Exception ex)

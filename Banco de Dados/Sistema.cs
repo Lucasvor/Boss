@@ -389,102 +389,90 @@ namespace Banco_de_Dados
             richTextBox1.Update();
             if (!string.IsNullOrWhiteSpace(richTextBox1.Text))
             {
-                if (cor == 0)
+                switch (cor)
                 {
-                    //richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(richTextBox1.Lines.Length - 1), richTextBox1.Lines[richTextBox1.Lines.Length - 1].Length);
-                    richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(0), richTextBox1.Lines[0].Length);
-                    richTextBox1.SelectionColor = Color.WhiteSmoke;
-                    cor++;
-                }
-                else if (cor == 1)
-                {
+                    case 0:
+                        //richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(richTextBox1.Lines.Length - 1), richTextBox1.Lines[richTextBox1.Lines.Length - 1].Length);
+                        richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(0), richTextBox1.Lines[0].Length);
+                        richTextBox1.SelectionColor = Color.WhiteSmoke;
+                        cor++;
+                        break;
+                    case 1:
 
-                    //richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(richTextBox1.Lines.Length - 1), richTextBox1.Lines[richTextBox1.Lines.Length - 1].Length);
-                    richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(0), richTextBox1.Lines[0].Length);
-                    richTextBox1.SelectionColor = Color.Gainsboro;
-                    cor++;
-                }
-                else if (cor == 2)
-                {
-                    //richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(richTextBox1.Lines.Length - 1), richTextBox1.Lines[richTextBox1.Lines.Length - 1].Length);
-                    richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(0), richTextBox1.Lines[0].Length);
-                    richTextBox1.SelectionColor = Color.LightGray;
-                    cor++;
-                }
-                else if (cor == 3)
-                {
-                    //richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(richTextBox1.Lines.Length - 1), richTextBox1.Lines[richTextBox1.Lines.Length - 1].Length);
-                    richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(0), richTextBox1.Lines[0].Length);
-                    richTextBox1.SelectionColor = Color.Silver;
-                    cor++;
-                }
-                else if (cor == 4)
-                {
-                    //richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(richTextBox1.Lines.Length - 1), richTextBox1.Lines[richTextBox1.Lines.Length - 1].Length);
-                    richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(0), richTextBox1.Lines[0].Length);
-                    richTextBox1.SelectionColor = Color.DarkGray;
-                    cor++;
-                }
-                else if (cor == 5)
-                {
-                    //richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(richTextBox1.Lines.Length - 1), richTextBox1.Lines[richTextBox1.Lines.Length - 1].Length);
-                    richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(0), richTextBox1.Lines[0].Length);
-                    richTextBox1.SelectionColor = Color.Gray;
-                    cor++;
-                }
-                else if (cor == 6)
-                {
-                    //richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(richTextBox1.Lines.Length - 1), richTextBox1.Lines[richTextBox1.Lines.Length - 1].Length);
-                    richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(0), richTextBox1.Lines[0].Length);
-                    richTextBox1.SelectionColor = Color.DimGray;
-                    cor++;
-                }
-                else if (cor == 7)
-                {
-                    //richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(richTextBox1.Lines.Length - 1), richTextBox1.Lines[richTextBox1.Lines.Length - 1].Length);
-                    richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(0), richTextBox1.Lines[0].Length);
-                    richTextBox1.SelectionColor = Color.Gray;
-                    cor++;
-                }
-                else if (cor == 8)
-                {
-                    //richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(richTextBox1.Lines.Length - 1), richTextBox1.Lines[richTextBox1.Lines.Length - 1].Length);
-                    richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(0), richTextBox1.Lines[0].Length);
-                    richTextBox1.SelectionColor = Color.DarkGray;
-                    cor++;
-                }
-                else if (cor == 9)
-                {
-                    //richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(richTextBox1.Lines.Length - 1), richTextBox1.Lines[richTextBox1.Lines.Length - 1].Length);
-                    richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(0), richTextBox1.Lines[0].Length);
-                    richTextBox1.SelectionColor = Color.Silver;
-                    cor++;
-                }
-                else if (cor == 10)
-                {
-                    //richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(richTextBox1.Lines.Length - 1), richTextBox1.Lines[richTextBox1.Lines.Length - 1].Length);
-                    richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(0), richTextBox1.Lines[0].Length);
-                    richTextBox1.SelectionColor = Color.LightGray;
-                    cor++;
-                }
-                else if (cor == 11)
-                {
-                    //richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(richTextBox1.Lines.Length - 1), richTextBox1.Lines[richTextBox1.Lines.Length - 1].Length);
-                    richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(0), richTextBox1.Lines[0].Length);
-                    richTextBox1.SelectionColor = Color.LightGray;
-                    cor++;
-                }
-                else if (cor == 12)
-                {
-                    //richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(richTextBox1.Lines.Length - 1), richTextBox1.Lines[richTextBox1.Lines.Length - 1].Length);
-                    richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(0), richTextBox1.Lines[0].Length);
-                    richTextBox1.SelectionColor = Color.WhiteSmoke;
-                    cor++;
-                }
-                else
-                {
-
-                    cor = 0;
+                        //richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(richTextBox1.Lines.Length - 1), richTextBox1.Lines[richTextBox1.Lines.Length - 1].Length);
+                        richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(0), richTextBox1.Lines[0].Length);
+                        richTextBox1.SelectionColor = Color.Gainsboro;
+                        cor++;
+                        break;
+                    case 2:
+                        //richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(richTextBox1.Lines.Length - 1), richTextBox1.Lines[richTextBox1.Lines.Length - 1].Length);
+                        richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(0), richTextBox1.Lines[0].Length);
+                        richTextBox1.SelectionColor = Color.LightGray;
+                        cor++;
+                        break;
+                    case 3:
+                        //richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(richTextBox1.Lines.Length - 1), richTextBox1.Lines[richTextBox1.Lines.Length - 1].Length);
+                        richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(0), richTextBox1.Lines[0].Length);
+                        richTextBox1.SelectionColor = Color.Silver;
+                        cor++;
+                        break;
+                    case 4:
+                        //richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(richTextBox1.Lines.Length - 1), richTextBox1.Lines[richTextBox1.Lines.Length - 1].Length);
+                        richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(0), richTextBox1.Lines[0].Length);
+                        richTextBox1.SelectionColor = Color.DarkGray;
+                        cor++;
+                        break;
+                    case 5:
+                        //richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(richTextBox1.Lines.Length - 1), richTextBox1.Lines[richTextBox1.Lines.Length - 1].Length);
+                        richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(0), richTextBox1.Lines[0].Length);
+                        richTextBox1.SelectionColor = Color.Gray;
+                        cor++;
+                        break;
+                    case 6:
+                        //richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(richTextBox1.Lines.Length - 1), richTextBox1.Lines[richTextBox1.Lines.Length - 1].Length);
+                        richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(0), richTextBox1.Lines[0].Length);
+                        richTextBox1.SelectionColor = Color.DimGray;
+                        cor++;
+                        break;
+                    case 7:
+                        //richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(richTextBox1.Lines.Length - 1), richTextBox1.Lines[richTextBox1.Lines.Length - 1].Length);
+                        richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(0), richTextBox1.Lines[0].Length);
+                        richTextBox1.SelectionColor = Color.Gray;
+                        cor++;
+                        break;
+                    case 8:
+                        //richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(richTextBox1.Lines.Length - 1), richTextBox1.Lines[richTextBox1.Lines.Length - 1].Length);
+                        richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(0), richTextBox1.Lines[0].Length);
+                        richTextBox1.SelectionColor = Color.DarkGray;
+                        cor++;
+                        break;
+                    case 9:
+                        //richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(richTextBox1.Lines.Length - 1), richTextBox1.Lines[richTextBox1.Lines.Length - 1].Length);
+                        richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(0), richTextBox1.Lines[0].Length);
+                        richTextBox1.SelectionColor = Color.Silver;
+                        cor++;
+                        break;
+                    case 10:
+                        //richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(richTextBox1.Lines.Length - 1), richTextBox1.Lines[richTextBox1.Lines.Length - 1].Length);
+                        richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(0), richTextBox1.Lines[0].Length);
+                        richTextBox1.SelectionColor = Color.LightGray;
+                        cor++;
+                        break;
+                    case 11:
+                        //richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(richTextBox1.Lines.Length - 1), richTextBox1.Lines[richTextBox1.Lines.Length - 1].Length);
+                        richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(0), richTextBox1.Lines[0].Length);
+                        richTextBox1.SelectionColor = Color.LightGray;
+                        cor++;
+                        break;
+                    case 12:
+                        //richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(richTextBox1.Lines.Length - 1), richTextBox1.Lines[richTextBox1.Lines.Length - 1].Length);
+                        richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(0), richTextBox1.Lines[0].Length);
+                        richTextBox1.SelectionColor = Color.WhiteSmoke;
+                        cor++;
+                        break;
+                    default:
+                        cor = 0;
+                        break;
                 }
             }
         }
