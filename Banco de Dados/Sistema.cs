@@ -26,7 +26,7 @@ namespace Banco_de_Dados
         int flag_error;
         int cor;
 
-        const string queryInsert = "insert into dbo.tb_carta(cartorio, protocolo, dataprotocolo, destinatario, docdestinatario, endereco, complemento, bairro, cidade, UF, CEP, nrointimacao, prazolimite, dataentrada) values(@cartorio,@protocolo,@dataprotocolo,@destinatario,@docdestinatario,@endereco,@complemento,@bairro,@cidade,@UF,@CEP,@nrointimacao,@prazolimite,@dataentrada)";
+        const string queryInsert = "insert into dbo.tb_carta(cartorio, protocolo, dataprotocolo, destinatario, docdestinatario, endereco, complemento, bairro, cidade, UF, CEP, nrointimacao, prazolimite,datachamada, dataentrada) values(@cartorio,@protocolo,@dataprotocolo,@destinatario,@docdestinatario,@endereco,@complemento,@bairro,@cidade,@UF,@CEP,@nrointimacao,@prazolimite,@datachamada,@dataentrada)";
 
         //public SqlConnection SqlCon
         //{
@@ -142,7 +142,7 @@ namespace Banco_de_Dados
                 var flag = 0;
                 var contador = 2;
                 var contador_Error = 0;
-                var lengths = new[] { 2, 4, 8, 45, 14, 45, 20, 20, 20, 2, 8, 13, 8 };
+                var lengths = new[] { 2, 4, 8, 45, 14, 45, 20, 20, 20, 2, 8, 13, 8, 8};
                 string dataentrada, erroTexto = null, fim = null;
                 var parts = new string[lengths.Length];
                 var files = File.ReadAllLines((string)e.Argument);
@@ -213,6 +213,7 @@ namespace Banco_de_Dados
                             cmd.Parameters.AddWithValue("@CEP", parts[10]);
                             cmd.Parameters.AddWithValue("@nrointimacao", parts[11]);
                             cmd.Parameters.AddWithValue("@prazolimite", DateTime.ParseExact(parts[12], "ddMMyyyy", System.Globalization.CultureInfo.InvariantCulture).ToString("g"));
+                            cmd.Parameters.AddWithValue("@datachamada", DateTime.ParseExact(parts[13], "ddMMyyyy", System.Globalization.CultureInfo.InvariantCulture).ToString("g"));
                             cmd.Parameters.AddWithValue("@dataentrada", DateTime.ParseExact(dataentrada, "ddMMyyyy", System.Globalization.CultureInfo.InvariantCulture).ToString("g"));
 
                             cmd.ExecuteNonQuery();
@@ -323,6 +324,7 @@ namespace Banco_de_Dados
                     {
                         MessageBox.Show("Campo não pode ser vazio ou conter mais que 13 Caracteres", nameof(Baixa), MessageBoxButtons.OK,MessageBoxIcon.Warning);
                         textBox2.Clear();
+                        conexao.SqlCon.Close();
                     }
                     else
                     {
