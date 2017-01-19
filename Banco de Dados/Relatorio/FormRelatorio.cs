@@ -60,9 +60,11 @@ namespace Banco_de_Dados.Relatorio
                             this.entregadorComBaixaTableAdapter.Fill(this.dBars.EntregadorComBaixa);
                             break;
                         case 2:
-                            reportDataSource1.Value = this.baixaHojeBindingSource;
+                            reportDataSource1.Value = this.getdatabaixaBindingSource;
                             this.reportViewer1.LocalReport.ReportEmbeddedResource = "Banco_de_Dados.Relatorio.BaixaHoje.rdlc";
-                            this.baixaHojeTableAdapter.Fill(this.dBars.BaixaHoje);
+                            var baixa = new Microsoft.Reporting.WinForms.ReportParameter("dataBaixa", Aux);
+                            this.reportViewer1.LocalReport.SetParameters(baixa);
+                            this.getdatabaixaTableAdapter.Fill(this.dBars.Getdatabaixa,Aux);
                             break;
                         case 3:
                             reportDataSource1.Value = this.getDataBindingSource;

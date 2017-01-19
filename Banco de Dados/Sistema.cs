@@ -529,12 +529,12 @@ namespace Banco_de_Dados
             {
                 var rel = new Banco_de_Dados.Relatorio.FormRelatorio
                 {
-                    Aux = radioButton3.Checked ? textBox3.Text : null,
+                    Aux = radioButton3.Checked ? textBox3.Text : radioButton2.Checked ? textBox3.Text : null,
                     Op = radioButton1.Checked ? 1 : radioButton2.Checked ? 2 : radioButton3.Checked ? 3 : radioButton4.Checked ? 4 : 0
                 };
-                if (radioButton3.Checked && string.IsNullOrWhiteSpace(textBox3.Text))
+                if ((radioButton3.Checked && string.IsNullOrWhiteSpace(textBox3.Text)) || radioButton2.Checked && string.IsNullOrWhiteSpace(textBox3.Text))
                 {
-                    MessageBox.Show("Coloque uma Data Protocolo", nameof(Baixa), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Coloque um dado valido", nameof(Baixa), MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
@@ -548,6 +548,25 @@ namespace Banco_de_Dados
         {
             if(radioButton3.Checked)
             {
+                //0; 55; 0; 0
+                PanelRigGRoupBox.Padding = new Padding(0, 110, 0, 0);
+                label1.Text = "Data Protocolo :";
+                label1.Visible = true;
+                textBox3.Visible = true;
+                textBox3.Focus();
+            }else
+            {
+                label1.Visible = false;
+                textBox3.Visible = false;
+                textBox3.Clear();
+            }
+        }
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton2.Checked)
+            {
+                PanelRigGRoupBox.Padding = new Padding(0, 55, 0, 0);
+                label1.Text = "Data Baixa :";
                 label1.Visible = true;
                 textBox3.Visible = true;
                 textBox3.Focus();
@@ -572,5 +591,7 @@ namespace Banco_de_Dados
                 }
             }
         }
+
+
     }
 }

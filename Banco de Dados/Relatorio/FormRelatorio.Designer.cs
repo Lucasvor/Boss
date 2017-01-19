@@ -30,46 +30,43 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRelatorio));
-            this.EntradaHojeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.getdatabaixaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dBars = new Banco_de_Dados.DBars();
-            this.baixaHojeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.baixaHojeTableAdapter = new Banco_de_Dados.DBarsTableAdapters.BaixaHojeTableAdapter();
+            this.EntradaHojeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.entregadorComBaixaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.entregadorComBaixaTableAdapter = new Banco_de_Dados.DBarsTableAdapters.EntregadorComBaixaTableAdapter();
             this.getDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.getDataTableAdapter = new Banco_de_Dados.DBarsTableAdapters.GetDataTableAdapter();
             this.entradaHojeTableAdapter = new Banco_de_Dados.DBarsTableAdapters.EntradaHojeTableAdapter();
+            this.getdatabaixaTableAdapter = new Banco_de_Dados.DBarsTableAdapters.GetdatabaixaTableAdapter();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            ((System.ComponentModel.ISupportInitialize)(this.EntradaHojeBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.getdatabaixaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBars)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.baixaHojeBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EntradaHojeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.entregadorComBaixaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.getDataBindingSource)).BeginInit();
             this.SuspendLayout();
+    
+            // dBars
+            // 
+            this.dBars.DataSetName = "DBars";
+            this.dBars.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // EntradaHojeBindingSource
             // 
             this.EntradaHojeBindingSource.DataMember = "EntradaHoje";
             this.EntradaHojeBindingSource.DataSource = this.dBars;
             // 
-            // dBars
-            // 
-            this.dBars.DataSetName = "DBars";
-            this.dBars.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // baixaHojeBindingSource
-            // 
-            this.baixaHojeBindingSource.DataMember = "BaixaHoje";
-            this.baixaHojeBindingSource.DataSource = this.dBars;
-            // 
-            // baixaHojeTableAdapter
-            // 
-            this.baixaHojeTableAdapter.ClearBeforeFill = true;
-            // 
             // entregadorComBaixaBindingSource
             // 
             this.entregadorComBaixaBindingSource.DataMember = "EntregadorComBaixa";
             this.entregadorComBaixaBindingSource.DataSource = this.dBars;
+            // 
+            // getdatabaixaBindingSource
+            // 
+            this.getdatabaixaBindingSource.DataMember = "Getdatabaixa";
+            this.getdatabaixaBindingSource.DataSource = this.dBars;
+            // 
             // 
             // entregadorComBaixaTableAdapter
             // 
@@ -87,6 +84,10 @@
             // entradaHojeTableAdapter
             // 
             this.entradaHojeTableAdapter.ClearBeforeFill = true;
+            // 
+            // getdatabaixaTableAdapter
+            // 
+            this.getdatabaixaTableAdapter.ClearBeforeFill = true;
             // 
             // reportViewer1
             // 
@@ -107,9 +108,9 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormRelatorio";
             this.Load += new System.EventHandler(this.FormRelatorio_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.EntradaHojeBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.getdatabaixaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBars)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.baixaHojeBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EntradaHojeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.entregadorComBaixaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.getDataBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -118,15 +119,15 @@
 
         #endregion
         private DBars dBars;
-        private System.Windows.Forms.BindingSource baixaHojeBindingSource;
-        
-        private DBarsTableAdapters.BaixaHojeTableAdapter baixaHojeTableAdapter;
         private System.Windows.Forms.BindingSource entregadorComBaixaBindingSource;
         private DBarsTableAdapters.EntregadorComBaixaTableAdapter entregadorComBaixaTableAdapter;
         private System.Windows.Forms.BindingSource getDataBindingSource;
         private DBarsTableAdapters.GetDataTableAdapter getDataTableAdapter;
         private System.Windows.Forms.BindingSource EntradaHojeBindingSource;
         private DBarsTableAdapters.EntradaHojeTableAdapter entradaHojeTableAdapter;
+        private System.Windows.Forms.BindingSource getdatabaixaBindingSource;
+        private DBarsTableAdapters.GetdatabaixaTableAdapter getdatabaixaTableAdapter;
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
+
     }
 }

@@ -312,21 +312,21 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="prazolimite">
+                    <Textbox Name="datachamada">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!prazolimite.Value</Value>
+                              <Value>=Fields!datachamada.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>prazolimite</rd:DefaultName>
+                      <rd:DefaultName>datachamada</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -707,8 +707,9 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Data Prazo</Value>
+                  <Value>Data Chamada</Value>
                   <Style>
+                    <FontSize>9pt</FontSize>
                     <FontWeight>Bold</FontWeight>
                   </Style>
                 </TextRun>
@@ -742,7 +743,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Baixados Hoje</Value>
+                  <Value>="Baixado na Data : "&amp;convert.ToInt64(Parameters!dataBaixa.Value).ToString("00\/00\/0000")</Value>
                   <Style>
                     <FontSize>28pt</FontSize>
                     <TextDecoration>Underline</TextDecoration>
@@ -793,7 +794,7 @@
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>07ae3ab4-e578-4d9f-a45e-d1f84cd9cc96</rd:DataSourceID>
+      <rd:DataSourceID>5b0363e0-7676-49c7-a385-9f899212a1f7</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
@@ -851,6 +852,10 @@
           <DataField>nrointimacao</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="prazolimite">
+          <DataField>prazolimite</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="baixa">
           <DataField>baixa</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -859,21 +864,27 @@
           <DataField>dataentrada</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
-        <Field Name="prazolimite">
-          <DataField>prazolimite</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
+        <Field Name="datachamada">
+          <DataField>datachamada</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>DBars</rd:DataSetName>
         <rd:SchemaPath>C:\Users\lucasvor\Desktop\boss\Banco de Dados\DBars.xsd</rd:SchemaPath>
-        <rd:TableName>BaixaHoje</rd:TableName>
+        <rd:TableName>Getdatabaixa</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>BaixaHojeTableAdapter</rd:TableAdapterName>
+        <rd:TableAdapterName>GetdatabaixaTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
+  <ReportParameters>
+    <ReportParameter Name="dataBaixa">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+  </ReportParameters>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>77656d33-4290-4a5b-80ec-107c6cb116cb</rd:ReportID>
 </Report>

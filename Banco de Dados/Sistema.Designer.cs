@@ -634,7 +634,7 @@
             this.radioButton3.Size = new System.Drawing.Size(250, 54);
             this.radioButton3.TabIndex = 0;
             this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "Baixa com Data";
+            this.radioButton3.Text = "N Baixado com Data";
             this.radioButton3.UseVisualStyleBackColor = true;
             this.radioButton3.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
             // 
@@ -648,8 +648,9 @@
             this.radioButton2.Size = new System.Drawing.Size(250, 54);
             this.radioButton2.TabIndex = 1;
             this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Titulos Baixados Hoje";
+            this.radioButton2.Text = "Baixa c/ Data";
             this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
             // radioButton1
             // 
@@ -671,7 +672,7 @@
             this.PanelRigGRoupBox.Dock = System.Windows.Forms.DockStyle.Right;
             this.PanelRigGRoupBox.Location = new System.Drawing.Point(253, 22);
             this.PanelRigGRoupBox.Name = "PanelRigGRoupBox";
-            this.PanelRigGRoupBox.Padding = new System.Windows.Forms.Padding(0, 110, 0, 0);
+            this.PanelRigGRoupBox.Padding = new System.Windows.Forms.Padding(0, 55, 0, 0);
             this.PanelRigGRoupBox.Size = new System.Drawing.Size(359, 236);
             this.PanelRigGRoupBox.TabIndex = 3;
             // 
@@ -681,7 +682,8 @@
             this.textBox3.Dock = System.Windows.Forms.DockStyle.Top;
             this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox3.ForeColor = System.Drawing.Color.Silver;
-            this.textBox3.Location = new System.Drawing.Point(0, 135);
+            this.textBox3.Location = new System.Drawing.Point(0, 80);
+            this.textBox3.MaxLength = 8;
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(359, 29);
             this.textBox3.TabIndex = 10;
@@ -695,7 +697,7 @@
             this.label1.Dock = System.Windows.Forms.DockStyle.Top;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(103)))), ((int)(((byte)(130)))));
-            this.label1.Location = new System.Drawing.Point(0, 110);
+            this.label1.Location = new System.Drawing.Point(0, 55);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(166, 25);
             this.label1.TabIndex = 20;
@@ -708,6 +710,7 @@
             this.RelDir.Dock = System.Windows.Forms.DockStyle.Right;
             this.RelDir.Location = new System.Drawing.Point(645, 192);
             this.RelDir.Name = "RelDir";
+            this.RelDir.Padding = new System.Windows.Forms.Padding(0, 50, 0, 0);
             this.RelDir.Size = new System.Drawing.Size(30, 481);
             this.RelDir.TabIndex = 8;
             // 
