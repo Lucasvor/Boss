@@ -9,16 +9,19 @@
               <Width>1.00694in</Width>
             </TablixColumn>
             <TablixColumn>
+              <Width>1in</Width>
+            </TablixColumn>
+            <TablixColumn>
               <Width>0.99653in</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>1.00694in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.86111in</Width>
+              <Width>1.53125in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.53819in</Width>
+              <Width>1.4271in</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>1.00694in</Width>
@@ -27,7 +30,7 @@
               <Width>0.32986in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.00694in</Width>
+              <Width>0.77777in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -51,6 +54,36 @@
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>nrointimacao</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="protocolo">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!protocolo.Value</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>protocolo</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -288,6 +321,7 @@
             <TablixMember />
             <TablixMember />
             <TablixMember />
+            <TablixMember />
           </TablixMembers>
         </TablixColumnHierarchy>
         <TablixRowHierarchy>
@@ -304,7 +338,7 @@
                 </SortExpression>
               </SortExpressions>
               <TablixHeader>
-                <Size>1.97194in</Size>
+                <Size>1.64208in</Size>
                 <CellContents>
                   <Textbox Name="NomeCompleto">
                     <CanGrow>true</CanGrow>
@@ -345,7 +379,7 @@
         <DataSetName>DataSet1</DataSetName>
         <Left>0.19667in</Left>
         <Height>0.25in</Height>
-        <Width>10.72539in</Width>
+        <Width>10.72541in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -353,14 +387,14 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>4.19896cm</Height>
+    <Height>4.19897cm</Height>
     <Style>
       <Border>
         <Style>None</Style>
       </Border>
     </Style>
   </Body>
-  <Width>28.1125cm</Width>
+  <Width>28.32412cm</Width>
   <Page>
     <PageHeader>
       <Height>1.08732in</Height>
@@ -423,7 +457,7 @@
           <Top>2.1268cm</Top>
           <Left>0.49953cm</Left>
           <Height>0.25in</Height>
-          <Width>1.97194in</Width>
+          <Width>1.64208in</Width>
           <ZIndex>1</ZIndex>
           <Style>
             <Border>
@@ -456,10 +490,45 @@
           </Paragraphs>
           <rd:DefaultName>Textbox44</rd:DefaultName>
           <Top>2.1268cm</Top>
-          <Left>5.50826cm</Left>
+          <Left>4.68276cm</Left>
           <Height>0.25in</Height>
           <Width>1.00694in</Width>
           <ZIndex>2</ZIndex>
+          <Style>
+            <Border>
+              <Color>LightGrey</Color>
+              <Style>Solid</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Textbox48">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Protocolo</Value>
+                  <Style>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox46</rd:DefaultName>
+          <Top>2.1268cm</Top>
+          <Left>7.24039cm</Left>
+          <Height>0.25in</Height>
+          <Width>0.99653in</Width>
+          <ZIndex>3</ZIndex>
           <Style>
             <Border>
               <Color>LightGrey</Color>
@@ -491,10 +560,10 @@
           </Paragraphs>
           <rd:DefaultName>Textbox46</rd:DefaultName>
           <Top>2.1268cm</Top>
-          <Left>8.06589cm</Left>
+          <Left>9.7804cm</Left>
           <Height>0.25in</Height>
           <Width>0.99653in</Width>
-          <ZIndex>3</ZIndex>
+          <ZIndex>4</ZIndex>
           <Style>
             <Border>
               <Color>LightGrey</Color>
@@ -526,10 +595,10 @@
           </Paragraphs>
           <rd:DefaultName>Textbox48</rd:DefaultName>
           <Top>2.1268cm</Top>
-          <Left>10.59707cm</Left>
+          <Left>12.31158cm</Left>
           <Height>0.25in</Height>
           <Width>1.00694in</Width>
-          <ZIndex>4</ZIndex>
+          <ZIndex>5</ZIndex>
           <Style>
             <Border>
               <Color>LightGrey</Color>
@@ -561,10 +630,10 @@
           </Paragraphs>
           <rd:DefaultName>Textbox53</rd:DefaultName>
           <Top>2.1268cm</Top>
-          <Left>13.1547cm</Left>
+          <Left>14.86921cm</Left>
           <Height>0.25in</Height>
-          <Width>1.86111in</Width>
-          <ZIndex>5</ZIndex>
+          <Width>1.53125in</Width>
+          <ZIndex>6</ZIndex>
           <Style>
             <Border>
               <Color>LightGrey</Color>
@@ -596,10 +665,10 @@
           </Paragraphs>
           <rd:DefaultName>Textbox55</rd:DefaultName>
           <Top>2.1268cm</Top>
-          <Left>17.88192cm</Left>
+          <Left>18.75858cm</Left>
           <Height>0.25in</Height>
-          <Width>1.53819in</Width>
-          <ZIndex>6</ZIndex>
+          <Width>1.42224in</Width>
+          <ZIndex>7</ZIndex>
           <Style>
             <Border>
               <Color>LightGrey</Color>
@@ -631,10 +700,10 @@
           </Paragraphs>
           <rd:DefaultName>Textbox57</rd:DefaultName>
           <Top>2.1268cm</Top>
-          <Left>21.78892cm</Left>
+          <Left>22.37107cm</Left>
           <Height>0.25in</Height>
           <Width>1.00694in</Width>
-          <ZIndex>7</ZIndex>
+          <ZIndex>8</ZIndex>
           <Style>
             <Border>
               <Color>LightGrey</Color>
@@ -666,10 +735,10 @@
           </Paragraphs>
           <rd:DefaultName>Textbox59</rd:DefaultName>
           <Top>2.1268cm</Top>
-          <Left>24.34655cm</Left>
+          <Left>24.92864cm</Left>
           <Height>0.25in</Height>
           <Width>0.32986in</Width>
-          <ZIndex>8</ZIndex>
+          <ZIndex>9</ZIndex>
           <Style>
             <Border>
               <Color>LightGrey</Color>
@@ -701,10 +770,10 @@
           </Paragraphs>
           <rd:DefaultName>Textbox61</rd:DefaultName>
           <Top>2.1268cm</Top>
-          <Left>25.1844cm</Left>
+          <Left>25.76654cm</Left>
           <Height>0.25in</Height>
-          <Width>1.00694in</Width>
-          <ZIndex>9</ZIndex>
+          <Width>0.77777in</Width>
+          <ZIndex>10</ZIndex>
           <Style>
             <Border>
               <Color>LightGrey</Color>

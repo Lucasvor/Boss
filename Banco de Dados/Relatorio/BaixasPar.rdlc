@@ -374,7 +374,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>="Baixas não Realizadas no dia: "&amp;convert.ToInt64(Parameters!Data.Value).ToString("00\/00\/0000")</Value>
+                  <Value>="Baixas não Realizadas do dia: "&amp;convert.ToInt64(Parameters!Data.Value).ToString("00\/00\/0000")</Value>
                   <Style>
                     <FontSize>30pt</FontSize>
                     <FontWeight>Bold</FontWeight>

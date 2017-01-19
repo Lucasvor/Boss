@@ -164,6 +164,12 @@ namespace Banco_de_Dados
 
                         try
                         {
+                            if (s.Length > 240 || s.Length < 240)
+                            {
+                                flag_error = 3;
+                                erroTexto = " Linha com caracteres acima de 240 ou abaixo";
+                                throw new Exception(erroTexto);
+                            }
                             if (s.Trim().Length < 210 || s.Substring(9, 226).Equals("                                                                                                                                                                                                                                  "))
                             {
                                 if (fim == s.Substring(0, 8))
@@ -249,6 +255,10 @@ namespace Banco_de_Dados
                                     contador_Error++;
                                 }
                                 else if (flag_error == 2)
+                                {
+                                    MessageBox.Show(ex.Message, "Importação", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                    contador_Error++;
+                                }else if(flag_error == 3)
                                 {
                                     MessageBox.Show(ex.Message, "Importação", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                     contador_Error++;
