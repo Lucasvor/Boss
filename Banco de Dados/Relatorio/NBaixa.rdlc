@@ -50,7 +50,9 @@
                               <Style />
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>nrointimacao</rd:DefaultName>
@@ -80,7 +82,9 @@
                               <Style />
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>protocolo</rd:DefaultName>
@@ -106,11 +110,13 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!prazolimite.Value</Value>
+                              <Value>=Fields!dataprotocolo.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>prazolimite</rd:DefaultName>
@@ -129,21 +135,23 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="dataprotocolo">
+                    <Textbox Name="prazolimite1">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!dataprotocolo.Value</Value>
+                              <Value>=Fields!prazolimite.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>dataprotocolo</rd:DefaultName>
+                      <rd:DefaultName>prazolimite1</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -230,7 +238,9 @@
                               <Style />
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>cidade</rd:DefaultName>
@@ -260,7 +270,9 @@
                               <Style />
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>UF</rd:DefaultName>
@@ -290,7 +302,9 @@
                               <Style />
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>CEP</rd:DefaultName>
@@ -408,7 +422,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>              Baixas não realizada               </Value>
+                  <Value>="Baixas não realizadas Data : "&amp;Parameters!Data.Value</Value>
                   <Style>
                     <FontSize>26pt</FontSize>
                     <TextDecoration>Underline</TextDecoration>
@@ -547,7 +561,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Prazo limite</Value>
+                  <Value>Data Prot.</Value>
                   <Style>
                     <FontWeight>Bold</FontWeight>
                   </Style>
@@ -582,7 +596,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Data Prot.</Value>
+                  <Value>Prazo limite</Value>
                   <Style>
                     <FontWeight>Bold</FontWeight>
                   </Style>
@@ -814,7 +828,7 @@
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>b36dd624-b042-43a8-8464-938543792128</rd:DataSourceID>
+      <rd:DataSourceID>bdac28c4-8a31-43d8-915d-9a97d6db4ad6</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
@@ -874,7 +888,7 @@
         </Field>
         <Field Name="prazolimite">
           <DataField>prazolimite</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="baixa">
           <DataField>baixa</DataField>
@@ -887,14 +901,20 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>DBars</rd:DataSetName>
-        <rd:SchemaPath>D:\Documentos\Visual Studio 2015\Projects\Banco de Dados atualizado\boss\Banco de Dados\DBars.xsd</rd:SchemaPath>
-        <rd:TableName>EntregadorComBaixa</rd:TableName>
+        <rd:SchemaPath>C:\Users\lucasvor\Desktop\boss\Banco de Dados\DBars.xsd</rd:SchemaPath>
+        <rd:TableName>Getdataprazo</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>EntregadorComBaixaTableAdapter</rd:TableAdapterName>
+        <rd:TableAdapterName>GetdataprazoTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
+  <ReportParameters>
+    <ReportParameter Name="Data">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+  </ReportParameters>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:ReportID>a51d6be3-3162-44bf-aab1-6ee5e69a5897</rd:ReportID>
 </Report>

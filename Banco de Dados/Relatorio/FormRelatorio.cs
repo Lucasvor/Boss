@@ -45,6 +45,8 @@ namespace Banco_de_Dados.Relatorio
 
         public string Aux { get; set; }
 
+        public DateTime date { get; set; }
+
         private void FormRelatorio_Load(object sender, EventArgs e)
         {
             if (connectBanco())
@@ -55,9 +57,11 @@ namespace Banco_de_Dados.Relatorio
                     switch (Op)
                     {
                         case 1:
-                            reportDataSource1.Value = this.entregadorComBaixaBindingSource;
+                            reportDataSource1.Value = this.getdataprazoBindingSource;
                             this.reportViewer1.LocalReport.ReportEmbeddedResource = "Banco_de_Dados.Relatorio.NBaixa.rdlc";
-                            this.entregadorComBaixaTableAdapter.Fill(this.dBars.EntregadorComBaixa);
+                            var dataprazo = new Microsoft.Reporting.WinForms.ReportParameter("Data", date.ToString("dd/MM/yyyy"));
+                            this.reportViewer1.LocalReport.SetParameters(dataprazo);
+                            this.getdataprazoTableAdapter.Fill(this.dBars.Getdataprazo,date);
                             break;
                         case 2:
                             reportDataSource1.Value = this.getdatabaixaBindingSource;

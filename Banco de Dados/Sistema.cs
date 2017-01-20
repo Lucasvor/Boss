@@ -164,10 +164,16 @@ namespace Banco_de_Dados
 
                         try
                         {
-                            if (s.Length > 240 || s.Length < 240)
+                            if (s.Length > 240)
                             {
                                 flag_error = 3;
-                                erroTexto = " Linha com caracteres acima de 240 ou abaixo";
+                                erroTexto = " Linha com caracteres acima de 240 ";
+                                throw new Exception(erroTexto);
+                            }
+                            if(s.Length < 240)
+                            {
+                                flag_error = 3;
+                                erroTexto = " Linha com caracteres abaixo de 240";
                                 throw new Exception(erroTexto);
                             }
                             if (s.Trim().Length < 210 || s.Substring(9, 226).Equals("                                                                                                                                                                                                                                  "))
@@ -540,7 +546,8 @@ namespace Banco_de_Dados
                 var rel = new Banco_de_Dados.Relatorio.FormRelatorio
                 {
                     Aux = radioButton3.Checked ? textBox3.Text : radioButton2.Checked ? textBox3.Text : null,
-                    Op = radioButton1.Checked ? 1 : radioButton2.Checked ? 2 : radioButton3.Checked ? 3 : radioButton4.Checked ? 4 : 0
+                    Op = radioButton1.Checked ? 1 : radioButton2.Checked ? 2 : radioButton3.Checked ? 3 : radioButton4.Checked ? 4 : 0,
+                    date = radioButton1.Checked ? dateTimePicker1.Value.Date : dateTimePicker1.Value.Date
                 };
                 if ((radioButton3.Checked && string.IsNullOrWhiteSpace(textBox3.Text)) || radioButton2.Checked && string.IsNullOrWhiteSpace(textBox3.Text))
                 {
@@ -602,6 +609,17 @@ namespace Banco_de_Dados
             }
         }
 
-
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton1.Checked)
+            {
+                PanelRigGRoupBox.Padding = new Padding(0, 25, 0, 0);
+                dateTimePicker1.Visible = true;
+            }
+            else
+            {
+                dateTimePicker1.Visible = false;
+            }
+        }
     }
 }
