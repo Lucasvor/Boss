@@ -103,3 +103,5 @@ D:\Documentos\Visual Studio 2015\Projects\Banco de Dados atualizado\boss\Banco d
 C:\Users\Lucas\Desktop\Git\boss\Banco de Dados\bin\Debug\Banco de Dados.exe.config
 C:\Users\Lucas\Desktop\Git\boss\Banco de Dados\obj\Debug\Banco de Dados.exe
 C:\Users\Lucas\Desktop\Git\boss\Banco de Dados\obj\Debug\Banco de Dados.pdb
+C:\Users\lucasvor\Desktop\boss\Banco de Dados\bin\Debug\Report.exe.config
+C:\Users\lucasvor\Desktop\boss\Banco de Dados\obj\Debug\Report.Properties.Resources.resources

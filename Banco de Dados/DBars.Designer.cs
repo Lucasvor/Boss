@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace Banco_de_Dados {
+namespace Report {
     
     
     /// <summary>
@@ -6058,7 +6058,7 @@ namespace Banco_de_Dados {
         }
     }
 }
-namespace Banco_de_Dados.DBarsTableAdapters {
+namespace Report.DBarsTableAdapters {
     
     
     /// <summary>
@@ -6206,7 +6206,7 @@ namespace Banco_de_Dados.DBarsTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.OleDb.OleDbConnection();
-            this._connection.ConnectionString = global::Banco_de_Dados.Properties.Settings.Default.ConnectionString;
+            this._connection.ConnectionString = global::Report.Properties.Settings.Default.ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6472,7 +6472,7 @@ namespace Banco_de_Dados.DBarsTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.OleDb.OleDbConnection();
-            this._connection.ConnectionString = global::Banco_de_Dados.Properties.Settings.Default.ConnectionString;
+            this._connection.ConnectionString = global::Report.Properties.Settings.Default.ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6825,7 +6825,7 @@ namespace Banco_de_Dados.DBarsTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.OleDb.OleDbConnection();
-            this._connection.ConnectionString = global::Banco_de_Dados.Properties.Settings.Default.ConnectionString;
+            this._connection.ConnectionString = global::Report.Properties.Settings.Default.ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7578,7 +7578,7 @@ namespace Banco_de_Dados.DBarsTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.OleDb.OleDbConnection();
-            this._connection.ConnectionString = global::Banco_de_Dados.Properties.Settings.Default.ConnectionString;
+            this._connection.ConnectionString = global::Report.Properties.Settings.Default.ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7868,7 +7868,7 @@ namespace Banco_de_Dados.DBarsTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.OleDb.OleDbConnection();
-            this._connection.ConnectionString = global::Banco_de_Dados.Properties.Settings.Default.ConnectionString;
+            this._connection.ConnectionString = global::Report.Properties.Settings.Default.ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8590,7 +8590,7 @@ WHERE        (dataentrada = CONVERT(DATE, GETDATE() + 1, 112))";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.OleDb.OleDbConnection();
-            this._connection.ConnectionString = global::Banco_de_Dados.Properties.Settings.Default.ConnectionString;
+            this._connection.ConnectionString = global::Report.Properties.Settings.Default.ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8785,7 +8785,7 @@ WHERE        (dataentrada = CONVERT(DATE, GETDATE() + 1, 112))";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.OleDb.OleDbConnection();
-            this._connection.ConnectionString = global::Banco_de_Dados.Properties.Settings.Default.ConnectionString;
+            this._connection.ConnectionString = global::Report.Properties.Settings.Default.ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

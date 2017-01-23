@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace Banco_de_Dados
+namespace Report
 {
 
     class Connect : IDisposable

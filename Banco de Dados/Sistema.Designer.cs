@@ -1,4 +1,4 @@
-﻿namespace Banco_de_Dados
+﻿namespace Report
 {
     partial class Sistema
     {
@@ -44,6 +44,7 @@
             this.panel9 = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.button7 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -81,10 +82,10 @@
             this.PanelRigGRoupBox = new System.Windows.Forms.Panel();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.RelDir = new System.Windows.Forms.Panel();
             this.RelEsq = new System.Windows.Forms.Panel();
             this.RelTOP = new System.Windows.Forms.Panel();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -279,12 +280,26 @@
             // 
             // panel10
             // 
+            this.panel10.Controls.Add(this.button7);
             this.panel10.Controls.Add(this.label3);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel10.Location = new System.Drawing.Point(3, 453);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(224, 217);
             this.panel10.TabIndex = 4;
+            // 
+            // button7
+            // 
+            this.button7.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button7.BackgroundImage")));
+            this.button7.FlatAppearance.BorderSize = 0;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.Location = new System.Drawing.Point(3, 193);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(24, 24);
+            this.button7.TabIndex = 11;
+            this.button7.UseMnemonic = false;
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // label3
             // 
@@ -708,6 +723,19 @@
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.label1.Visible = false;
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(103)))), ((int)(((byte)(130)))));
+            this.dateTimePicker1.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(46)))), ((int)(((byte)(58)))));
+            this.dateTimePicker1.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(103)))), ((int)(((byte)(130)))));
+            this.dateTimePicker1.CustomFormat = "dd/MM/yyyy";
+            this.dateTimePicker1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dateTimePicker1.Location = new System.Drawing.Point(0, 25);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(359, 26);
+            this.dateTimePicker1.TabIndex = 21;
+            this.dateTimePicker1.Visible = false;
+            // 
             // RelDir
             // 
             this.RelDir.Dock = System.Windows.Forms.DockStyle.Right;
@@ -732,19 +760,6 @@
             this.RelTOP.Name = "RelTOP";
             this.RelTOP.Size = new System.Drawing.Size(675, 192);
             this.RelTOP.TabIndex = 6;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(103)))), ((int)(((byte)(130)))));
-            this.dateTimePicker1.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(46)))), ((int)(((byte)(58)))));
-            this.dateTimePicker1.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(103)))), ((int)(((byte)(130)))));
-            this.dateTimePicker1.CustomFormat = "dd/MM/yyyy";
-            this.dateTimePicker1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dateTimePicker1.Location = new System.Drawing.Point(0, 25);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(359, 26);
-            this.dateTimePicker1.TabIndex = 21;
-            this.dateTimePicker1.Visible = false;
             // 
             // Sistema
             // 
@@ -852,10 +867,11 @@
         private System.Windows.Forms.Panel RelEsq;
         private System.Windows.Forms.Panel RelTOP;
         private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.Panel PanelRigGRoupBox;
         private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Panel BackEmbaixo;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Panel PanelRigGRoupBox;
+        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }

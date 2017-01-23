@@ -1,4 +1,4 @@
-﻿namespace Banco_de_Dados
+﻿namespace Report
 {
     partial class Consulta
     {

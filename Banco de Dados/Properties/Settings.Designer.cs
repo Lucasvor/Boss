@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Banco_de_Dados.Properties {
+namespace Report.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

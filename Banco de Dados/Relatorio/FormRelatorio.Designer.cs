@@ -1,4 +1,4 @@
-﻿namespace Banco_de_Dados.Relatorio
+﻿namespace Report.Relatorio
 {
     partial class FormRelatorio
     {
@@ -31,14 +31,14 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRelatorio));
             this.getdatabaixaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dBars = new Banco_de_Dados.DBars();
+            this.dBars = new Report.DBars(); //.DBars();
             this.EntradaHojeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.getDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.getDataTableAdapter = new Banco_de_Dados.DBarsTableAdapters.GetDataTableAdapter();
-            this.entradaHojeTableAdapter = new Banco_de_Dados.DBarsTableAdapters.EntradaHojeTableAdapter();
-            this.getdatabaixaTableAdapter = new Banco_de_Dados.DBarsTableAdapters.GetdatabaixaTableAdapter();
+            this.getDataTableAdapter = new Report.DBarsTableAdapters.GetDataTableAdapter();
+            this.entradaHojeTableAdapter = new Report.DBarsTableAdapters.EntradaHojeTableAdapter();
+            this.getdatabaixaTableAdapter = new Report.DBarsTableAdapters.GetdatabaixaTableAdapter();
             this.getdataprazoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.getdataprazoTableAdapter = new Banco_de_Dados.DBarsTableAdapters.GetdataprazoTableAdapter();
+            this.getdataprazoTableAdapter = new Report.DBarsTableAdapters.GetdataprazoTableAdapter();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             ((System.ComponentModel.ISupportInitialize)(this.getdatabaixaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBars)).BeginInit();

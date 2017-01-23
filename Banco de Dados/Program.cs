@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Banco_de_Dados
+namespace Report
 {
     static class Program
     {

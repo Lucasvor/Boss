@@ -9,11 +9,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 
-namespace Banco_de_Dados
+namespace Report
 {
     public partial class Consulta : Form
     {
-        //SqlConnection sqlCon = new SqlConnection(Connect.query);
         private readonly Connect conexao = new Connect();//add conexao.Dispose(); to the Dispose method on another file.//add conexao.Dispose(); to the Dispose method on another file.
         DataTable dt;
 
@@ -86,7 +85,7 @@ namespace Banco_de_Dados
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message, "Consulta");
+                    MessageBox.Show(ex.Message, nameof(Consulta));
                 }
                 finally
                 {
@@ -169,10 +168,10 @@ namespace Banco_de_Dados
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            int index = e.RowIndex;
+            var index = e.RowIndex;
             if (e.RowIndex != -1 && e.ColumnIndex != -1)
             {
-                DataGridViewRow selectedRow = dataGridView1.Rows[index];
+                var selectedRow = dataGridView1.Rows[index];
                 dado = selectedRow.Cells[11].Value.ToString();
             }
         }

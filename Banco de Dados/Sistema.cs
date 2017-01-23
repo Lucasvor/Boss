@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.IO;
 
-namespace Banco_de_Dados
+namespace Report
 {
     public partial class Sistema : Form
     {
@@ -255,27 +255,26 @@ namespace Banco_de_Dados
                         catch (Exception ex)
                         {
                             flag = 1;
-                                if (flag_error == 1)
-                                {
+                            switch (flag_error)
+                            {
+                                case 1:
                                     MessageBox.Show(ex.Message, "Importação", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                     contador_Error++;
-                                }
-                                else if (flag_error == 2)
-                                {
+                                    break;
+                                case 2:
                                     MessageBox.Show(ex.Message, "Importação", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                     contador_Error++;
-                                }else if(flag_error == 3)
-                                {
+                                    break;
+                                case 3:
                                     MessageBox.Show(ex.Message, "Importação", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                     contador_Error++;
-                                }
-                                else
-                                {
+                                    break;
+                                default:
                                     MessageBox.Show("Erro! " + ex, "Importação", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                     erroTexto = ex.Message;
-                                    // tran.Rollback();
-                                }
-                                AppendTextBox(" >>  " + erroTexto);
+                                    break;
+                            }
+                            AppendTextBox(" >>  " + erroTexto);
 
                             }
                             AppendTextBox(System.Environment.NewLine);
@@ -495,6 +494,7 @@ namespace Banco_de_Dados
             }
         }
 
+#pragma warning disable CC0068 // Unused Method
         private static void textBox2_KeyPress(object sender, KeyPressEventArgs e)
         {
             if(!char.IsDigit(e.KeyChar) && e.KeyChar != 8 && e.KeyChar != 46)
@@ -502,6 +502,7 @@ namespace Banco_de_Dados
                 e.Handled = true;
             }
         }
+#pragma warning restore CC0068 // Unused Method
         public bool connectBanco()
         {
 
@@ -543,7 +544,7 @@ namespace Banco_de_Dados
                 MessageBox.Show("Escolha pelo menos uma opção!", "Relatório", MessageBoxButtons.OK, MessageBoxIcon.Information);
             } else
             {
-                var rel = new Banco_de_Dados.Relatorio.FormRelatorio
+                var rel = new Report.Relatorio.FormRelatorio
                 {
                     Aux = radioButton3.Checked ? textBox3.Text : radioButton2.Checked ? textBox3.Text : null,
                     Op = radioButton1.Checked ? 1 : radioButton2.Checked ? 2 : radioButton3.Checked ? 3 : radioButton4.Checked ? 4 : 0,
@@ -620,6 +621,13 @@ namespace Banco_de_Dados
             {
                 dateTimePicker1.Visible = false;
             }
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            var a = new Login();
+            a.ShowDialog();
+            a.Dispose();
         }
     }
 }

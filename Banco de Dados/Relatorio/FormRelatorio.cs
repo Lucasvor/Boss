@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Banco_de_Dados.Relatorio
+namespace Report.Relatorio
 {
     public partial class FormRelatorio : Form
     {
@@ -58,28 +58,28 @@ namespace Banco_de_Dados.Relatorio
                     {
                         case 1:
                             reportDataSource1.Value = this.getdataprazoBindingSource;
-                            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Banco_de_Dados.Relatorio.NBaixa.rdlc";
+                            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Report.Relatorio.NBaixa.rdlc";
                             var dataprazo = new Microsoft.Reporting.WinForms.ReportParameter("Data", date.ToString("dd/MM/yyyy"));
                             this.reportViewer1.LocalReport.SetParameters(dataprazo);
                             this.getdataprazoTableAdapter.Fill(this.dBars.Getdataprazo,date);
                             break;
                         case 2:
                             reportDataSource1.Value = this.getdatabaixaBindingSource;
-                            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Banco_de_Dados.Relatorio.BaixaHoje.rdlc";
+                            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Report.Relatorio.BaixaHoje.rdlc";
                             var baixa = new Microsoft.Reporting.WinForms.ReportParameter("dataBaixa", Aux);
                             this.reportViewer1.LocalReport.SetParameters(baixa);
                             this.getdatabaixaTableAdapter.Fill(this.dBars.Getdatabaixa,Aux);
                             break;
                         case 3:
                             reportDataSource1.Value = this.getDataBindingSource;
-                            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Banco_de_Dados.Relatorio.BaixasPar.rdlc";
+                            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Report.Relatorio.BaixasPar.rdlc";
                             var get = new Microsoft.Reporting.WinForms.ReportParameter("Data", Aux);
                             this.reportViewer1.LocalReport.SetParameters(get);
                             this.getDataTableAdapter.Fill(this.dBars.GetData, Aux);
                             break;
                         case 4:
                             reportDataSource1.Value = this.EntradaHojeBindingSource;
-                            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Banco_de_Dados.Relatorio.TitBaixaHoje.rdlc";
+                            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Report.Relatorio.TitBaixaHoje.rdlc";
                             this.entradaHojeTableAdapter.Fill(this.dBars.EntradaHoje);
                             break;
                         default:
