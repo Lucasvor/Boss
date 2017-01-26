@@ -82,7 +82,6 @@
             this.PanelRigGRoupBox = new System.Windows.Forms.Panel();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.RelDir = new System.Windows.Forms.Panel();
             this.RelEsq = new System.Windows.Forms.Panel();
             this.RelTOP = new System.Windows.Forms.Panel();
@@ -650,7 +649,7 @@
             this.radioButton3.Size = new System.Drawing.Size(250, 54);
             this.radioButton3.TabIndex = 0;
             this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "N Baixado com Data";
+            this.radioButton3.Text = "Falta Baixa";
             this.radioButton3.UseVisualStyleBackColor = true;
             this.radioButton3.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
             // 
@@ -678,7 +677,7 @@
             this.radioButton1.Size = new System.Drawing.Size(250, 54);
             this.radioButton1.TabIndex = 0;
             this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Baixas não realizadas";
+            this.radioButton1.Text = "Baixado";
             this.radioButton1.UseVisualStyleBackColor = true;
             this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
@@ -686,11 +685,9 @@
             // 
             this.PanelRigGRoupBox.Controls.Add(this.textBox3);
             this.PanelRigGRoupBox.Controls.Add(this.label1);
-            this.PanelRigGRoupBox.Controls.Add(this.dateTimePicker1);
             this.PanelRigGRoupBox.Dock = System.Windows.Forms.DockStyle.Right;
             this.PanelRigGRoupBox.Location = new System.Drawing.Point(253, 22);
             this.PanelRigGRoupBox.Name = "PanelRigGRoupBox";
-            this.PanelRigGRoupBox.Padding = new System.Windows.Forms.Padding(0, 25, 0, 0);
             this.PanelRigGRoupBox.Size = new System.Drawing.Size(359, 236);
             this.PanelRigGRoupBox.TabIndex = 3;
             // 
@@ -700,7 +697,7 @@
             this.textBox3.Dock = System.Windows.Forms.DockStyle.Top;
             this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox3.ForeColor = System.Drawing.Color.Silver;
-            this.textBox3.Location = new System.Drawing.Point(0, 76);
+            this.textBox3.Location = new System.Drawing.Point(0, 25);
             this.textBox3.MaxLength = 8;
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(359, 29);
@@ -715,26 +712,13 @@
             this.label1.Dock = System.Windows.Forms.DockStyle.Top;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(103)))), ((int)(((byte)(130)))));
-            this.label1.Location = new System.Drawing.Point(0, 51);
+            this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(166, 25);
             this.label1.TabIndex = 20;
             this.label1.Text = "Data Protocolo :";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.label1.Visible = false;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(103)))), ((int)(((byte)(130)))));
-            this.dateTimePicker1.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(46)))), ((int)(((byte)(58)))));
-            this.dateTimePicker1.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(103)))), ((int)(((byte)(130)))));
-            this.dateTimePicker1.CustomFormat = "dd/MM/yyyy";
-            this.dateTimePicker1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dateTimePicker1.Location = new System.Drawing.Point(0, 25);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(359, 26);
-            this.dateTimePicker1.TabIndex = 21;
-            this.dateTimePicker1.Visible = false;
             // 
             // RelDir
             // 
@@ -873,7 +857,6 @@
         private System.Windows.Forms.Panel PanelRigGRoupBox;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }
 

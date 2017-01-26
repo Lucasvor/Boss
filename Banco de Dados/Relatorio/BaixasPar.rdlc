@@ -9,16 +9,13 @@
               <Width>1.00694in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.99653in</Width>
-            </TablixColumn>
-            <TablixColumn>
               <Width>1.00694in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.86111in</Width>
+              <Width>2.35069in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.53819in</Width>
+              <Width>2.04514in</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>1.00694in</Width>
@@ -47,40 +44,12 @@
                               <Style />
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>nrointimacao</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="prazolimite2">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=Fields!prazolimite.Value</Value>
-                              <Style />
-                            </TextRun>
-                          </TextRuns>
-                          <Style />
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>prazolimite</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -103,11 +72,13 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!dataprotocolo.Value</Value>
+                              <Value>=Fields!protocolo.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>dataprotocolo</rd:DefaultName>
@@ -287,7 +258,6 @@
             <TablixMember />
             <TablixMember />
             <TablixMember />
-            <TablixMember />
           </TablixMembers>
         </TablixColumnHierarchy>
         <TablixRowHierarchy>
@@ -352,6 +322,40 @@
           </Border>
         </Style>
       </Tablix>
+      <Textbox Name="Textbox3">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>="Quantidade Não Baixado: "&amp;CountRows("DataSet1").ToString()+" | Baixado: "&amp;Sum(Fields!Baixado.Value, "DataSet2").ToString()+" | Total: "&amp;Sum(Fields!Total.Value, "DataSet2").ToString()+" | Data Protocolo: "&amp;convert.ToInt64(Parameters!Data.Value).ToString("00\/00\/0000")</Value>
+                <Style>
+                  <FontSize>14pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox3</rd:DefaultName>
+        <Top>1.14236in</Top>
+        <Left>0.17126in</Left>
+        <Height>0.29167in</Height>
+        <Width>10.72539in</Width>
+        <ZIndex>1</ZIndex>
+        <Style>
+          <Border>
+            <Style>Solid</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
     </ReportItems>
     <Height>4.19896cm</Height>
     <Style>
@@ -360,7 +364,7 @@
       </Border>
     </Style>
   </Body>
-  <Width>28.1125cm</Width>
+  <Width>28.6512cm</Width>
   <Page>
     <PageHeader>
       <Height>1.024in</Height>
@@ -374,7 +378,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>="Baixas não Realizadas do dia: "&amp;convert.ToInt64(Parameters!Data.Value).ToString("00\/00\/0000")</Value>
+                  <Value>="Faltando Baixa do dia: "&amp;convert.ToInt64(Parameters!Data.Value).ToString("00\/00\/0000")</Value>
                   <Style>
                     <FontSize>30pt</FontSize>
                     <FontWeight>Bold</FontWeight>
@@ -472,41 +476,6 @@
             <PaddingBottom>2pt</PaddingBottom>
           </Style>
         </Textbox>
-        <Textbox Name="Textbox47">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>Prazo limite</Value>
-                  <Style>
-                    <FontWeight>Bold</FontWeight>
-                  </Style>
-                </TextRun>
-              </TextRuns>
-              <Style>
-                <TextAlign>Center</TextAlign>
-              </Style>
-            </Paragraph>
-          </Paragraphs>
-          <rd:DefaultName>Textbox46</rd:DefaultName>
-          <Top>1.96596cm</Top>
-          <Left>8.00136cm</Left>
-          <Height>0.25in</Height>
-          <Width>0.99653in</Width>
-          <ZIndex>3</ZIndex>
-          <Style>
-            <Border>
-              <Color>LightGrey</Color>
-              <Style>Solid</Style>
-            </Border>
-            <PaddingLeft>2pt</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
-            <PaddingTop>2pt</PaddingTop>
-            <PaddingBottom>2pt</PaddingBottom>
-          </Style>
-        </Textbox>
         <Textbox Name="Textbox49">
           <CanGrow>true</CanGrow>
           <KeepTogether>true</KeepTogether>
@@ -514,7 +483,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Data Prot.</Value>
+                  <Value>Protocolo</Value>
                   <Style>
                     <FontWeight>Bold</FontWeight>
                   </Style>
@@ -527,10 +496,10 @@
           </Paragraphs>
           <rd:DefaultName>Textbox48</rd:DefaultName>
           <Top>1.96596cm</Top>
-          <Left>10.53254cm</Left>
+          <Left>8.00136cm</Left>
           <Height>0.25in</Height>
           <Width>1.00694in</Width>
-          <ZIndex>4</ZIndex>
+          <ZIndex>3</ZIndex>
           <Style>
             <Border>
               <Color>LightGrey</Color>
@@ -562,10 +531,10 @@
           </Paragraphs>
           <rd:DefaultName>Textbox53</rd:DefaultName>
           <Top>1.96596cm</Top>
-          <Left>13.09017cm</Left>
+          <Left>10.55898cm</Left>
           <Height>0.25in</Height>
-          <Width>1.86111in</Width>
-          <ZIndex>5</ZIndex>
+          <Width>2.35069in</Width>
+          <ZIndex>4</ZIndex>
           <Style>
             <Border>
               <Color>LightGrey</Color>
@@ -597,10 +566,10 @@
           </Paragraphs>
           <rd:DefaultName>Textbox55</rd:DefaultName>
           <Top>1.96596cm</Top>
-          <Left>17.81739cm</Left>
+          <Left>16.52974cm</Left>
           <Height>0.25in</Height>
-          <Width>1.53819in</Width>
-          <ZIndex>6</ZIndex>
+          <Width>2.04514in</Width>
+          <ZIndex>5</ZIndex>
           <Style>
             <Border>
               <Color>LightGrey</Color>
@@ -635,7 +604,7 @@
           <Left>21.72439cm</Left>
           <Height>0.25in</Height>
           <Width>1.00694in</Width>
-          <ZIndex>7</ZIndex>
+          <ZIndex>6</ZIndex>
           <Style>
             <Border>
               <Color>LightGrey</Color>
@@ -670,7 +639,7 @@
           <Left>24.28202cm</Left>
           <Height>0.25in</Height>
           <Width>0.32986in</Width>
-          <ZIndex>8</ZIndex>
+          <ZIndex>7</ZIndex>
           <Style>
             <Border>
               <Color>LightGrey</Color>
@@ -705,7 +674,7 @@
           <Left>25.11987cm</Left>
           <Height>0.25in</Height>
           <Width>1.00694in</Width>
-          <ZIndex>9</ZIndex>
+          <ZIndex>8</ZIndex>
           <Style>
             <Border>
               <Color>LightGrey</Color>
@@ -826,9 +795,41 @@
         <rd:TableAdapterName>GetDataTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
+    <DataSet Name="DataSet2">
+      <Query>
+        <DataSourceName>DBars</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="NaoBaixado">
+          <DataField>NaoBaixado</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Baixado">
+          <DataField>Baixado</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Total">
+          <DataField>Total</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>DBars</rd:DataSetName>
+        <rd:SchemaPath>C:\Users\lucasvor\Desktop\boss\Banco de Dados\DBars.xsd</rd:SchemaPath>
+        <rd:TableName>QuantidadeBaixa</rd:TableName>
+        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
+        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
+        <rd:TableAdapterName>QuantidadeBaixaTableAdapter</rd:TableAdapterName>
+      </rd:DataSetInfo>
+    </DataSet>
   </DataSets>
   <ReportParameters>
     <ReportParameter Name="Data">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Quantidade">
       <DataType>String</DataType>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>

@@ -99,6 +99,7 @@ namespace Report
             BackImporta.Visible = false;
             Baixa.Visible = true;
             BackRelatorio.Visible = false;
+            textBox2.Focus();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -546,9 +547,9 @@ namespace Report
             {
                 var rel = new Report.Relatorio.FormRelatorio
                 {
-                    Aux = radioButton3.Checked ? textBox3.Text : radioButton2.Checked ? textBox3.Text : null,
+                    Aux = radioButton3.Checked ? textBox3.Text : radioButton2.Checked ? textBox3.Text : radioButton1.Checked ? textBox3.Text : null,
                     Op = radioButton1.Checked ? 1 : radioButton2.Checked ? 2 : radioButton3.Checked ? 3 : radioButton4.Checked ? 4 : 0,
-                    date = radioButton1.Checked ? dateTimePicker1.Value.Date : dateTimePicker1.Value.Date
+                    
                 };
                 if ((radioButton3.Checked && string.IsNullOrWhiteSpace(textBox3.Text)) || radioButton2.Checked && string.IsNullOrWhiteSpace(textBox3.Text))
                 {
@@ -614,12 +615,19 @@ namespace Report
         {
             if (radioButton1.Checked)
             {
-                PanelRigGRoupBox.Padding = new Padding(0, 25, 0, 0);
-                dateTimePicker1.Visible = true;
+
+                PanelRigGRoupBox.Padding = new Padding(0,0, 0, 0);
+                label1.Text = "Data Protocolo :";
+                label1.Visible = true;
+                textBox3.Visible = true;
+                textBox3.Focus();
+
             }
             else
             {
-                dateTimePicker1.Visible = false;
+                label1.Visible = false;
+                textBox3.Visible = false;
+                textBox3.Clear();
             }
         }
 

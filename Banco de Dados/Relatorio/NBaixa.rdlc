@@ -110,7 +110,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!dataprotocolo.Value</Value>
+                              <Value>=Fields!baixa.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -422,7 +422,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>="Baixas não realizadas Data : "&amp;Parameters!Data.Value</Value>
+                  <Value>="Baixas não realizadas Data : "&amp;convert.ToInt64(Parameters!Data.Value).ToString("00\/00\/0000")+" Quantidade: "+CountRows("DataSet1").ToString()</Value>
                   <Style>
                     <FontSize>26pt</FontSize>
                     <TextDecoration>Underline</TextDecoration>
@@ -561,7 +561,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Data Prot.</Value>
+                  <Value>Baixa</Value>
                   <Style>
                     <FontWeight>Bold</FontWeight>
                   </Style>

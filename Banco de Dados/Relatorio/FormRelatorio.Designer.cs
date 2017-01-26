@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRelatorio));
             this.getdatabaixaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dBars = new Report.DBars(); //.DBars();
+            this.dBars = new Report.DBars();
             this.EntradaHojeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.getDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.getDataTableAdapter = new Report.DBarsTableAdapters.GetDataTableAdapter();
@@ -39,12 +39,15 @@
             this.getdatabaixaTableAdapter = new Report.DBarsTableAdapters.GetdatabaixaTableAdapter();
             this.getdataprazoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.getdataprazoTableAdapter = new Report.DBarsTableAdapters.GetdataprazoTableAdapter();
+            this.quantidadeBaixaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.quantidadeBaixaTableAdapter = new Report.DBarsTableAdapters.QuantidadeBaixaTableAdapter();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             ((System.ComponentModel.ISupportInitialize)(this.getdatabaixaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBars)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.EntradaHojeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.getDataBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.getdataprazoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quantidadeBaixaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // getdatabaixaBindingSource
@@ -88,6 +91,15 @@
             // 
             this.getdataprazoTableAdapter.ClearBeforeFill = true;
             // 
+            // quantidadeBaixaBindingSource
+            // 
+            this.quantidadeBaixaBindingSource.DataMember = "QuantidadeBaixa";
+            this.quantidadeBaixaBindingSource.DataSource = this.dBars;
+            // 
+            // quantidadeBaixaTableAdapter
+            // 
+            this.quantidadeBaixaTableAdapter.ClearBeforeFill = true;
+            // 
             // reportViewer1
             // 
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -112,6 +124,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.EntradaHojeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.getDataBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.getdataprazoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quantidadeBaixaBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -126,6 +139,8 @@
         private DBarsTableAdapters.GetdatabaixaTableAdapter getdatabaixaTableAdapter;
         private System.Windows.Forms.BindingSource getdataprazoBindingSource;
         private DBarsTableAdapters.GetdataprazoTableAdapter getdataprazoTableAdapter;
+        private System.Windows.Forms.BindingSource quantidadeBaixaBindingSource;
+        private DBarsTableAdapters.QuantidadeBaixaTableAdapter quantidadeBaixaTableAdapter;
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
     }
 }

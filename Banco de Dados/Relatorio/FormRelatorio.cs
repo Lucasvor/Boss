@@ -13,6 +13,7 @@ namespace Report.Relatorio
     public partial class FormRelatorio : Form
     {
         Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+        Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource("DataSet2");
 #pragma warning disable CC0033 // Dispose Fields Properly
         private readonly Connect conexao = new Connect();//add conexao.Dispose(); to the Dispose method on another file.
 #pragma warning restore CC0033 // Dispose Fields Properly
@@ -59,9 +60,9 @@ namespace Report.Relatorio
                         case 1:
                             reportDataSource1.Value = this.getdataprazoBindingSource;
                             this.reportViewer1.LocalReport.ReportEmbeddedResource = "Report.Relatorio.NBaixa.rdlc";
-                            var dataprazo = new Microsoft.Reporting.WinForms.ReportParameter("Data", date.ToString("dd/MM/yyyy"));
+                            var dataprazo = new Microsoft.Reporting.WinForms.ReportParameter("Data", Aux);
                             this.reportViewer1.LocalReport.SetParameters(dataprazo);
-                            this.getdataprazoTableAdapter.Fill(this.dBars.Getdataprazo,date);
+                            this.getdataprazoTableAdapter.Fill(this.dBars.Getdataprazo,Aux);
                             break;
                         case 2:
                             reportDataSource1.Value = this.getdatabaixaBindingSource;
@@ -72,10 +73,14 @@ namespace Report.Relatorio
                             break;
                         case 3:
                             reportDataSource1.Value = this.getDataBindingSource;
+                            reportDataSource2.Value = this.quantidadeBaixaBindingSource;
                             this.reportViewer1.LocalReport.ReportEmbeddedResource = "Report.Relatorio.BaixasPar.rdlc";
+                            var qnt = new Microsoft.Reporting.WinForms.ReportParameter("Quantidade", Aux);
                             var get = new Microsoft.Reporting.WinForms.ReportParameter("Data", Aux);
                             this.reportViewer1.LocalReport.SetParameters(get);
+                            this.reportViewer1.LocalReport.SetParameters(qnt);
                             this.getDataTableAdapter.Fill(this.dBars.GetData, Aux);
+                            this.quantidadeBaixaTableAdapter.Fill(this.dBars.QuantidadeBaixa, Aux);
                             break;
                         case 4:
                             reportDataSource1.Value = this.EntradaHojeBindingSource;
@@ -89,6 +94,7 @@ namespace Report.Relatorio
                     }
 
                     this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
+                    this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
                 }
                 catch (Exception ex)
                 {
