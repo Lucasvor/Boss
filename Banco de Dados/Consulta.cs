@@ -97,40 +97,62 @@ namespace Report
 
         private void button2_Click(object sender, EventArgs e)
         {
+            if(dataGridView1.Rows.Count > 0)
             dt.Clear();
+            else
+            MessageBox.Show("Tabela Vazia", "Limpar", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         public void configuraDataGridView()
         {
             dataGridView1.Columns[0].HeaderText = "Num. Cartório";
+            dataGridView1.Columns[0].Width = 50;
             dataGridView1.Columns[1].HeaderText = "Protocolo";
+            dataGridView1.Columns[1].Width = 55;
             dataGridView1.Columns[2].HeaderText = "Data Protocolo";
+            dataGridView1.Columns[2].Width = 60;
             dataGridView1.Columns[3].HeaderText = "Destinatário";
+            dataGridView1.Columns[3].Width = 200;
             dataGridView1.Columns[4].HeaderText = "CPF / CNPJ";
             dataGridView1.Columns[5].HeaderText = "Endereço";
+            dataGridView1.Columns[5].Width = 200;
             dataGridView1.Columns[6].HeaderText = "Complemento";
             dataGridView1.Columns[7].HeaderText = "Bairro";
             dataGridView1.Columns[8].HeaderText = "Cidade";
             dataGridView1.Columns[9].HeaderText = "UF";
+            dataGridView1.Columns[9].Width = 30;
             dataGridView1.Columns[10].HeaderText = "CEP";
+            dataGridView1.Columns[10].Width = 60;
             dataGridView1.Columns[11].HeaderText = "Num. Intimação";
+            dataGridView1.Columns[11].Width = 70;
             dataGridView1.Columns[12].HeaderText = "Prazo Limite";
+            dataGridView1.Columns[12].Width = 70;
             dataGridView1.Columns[13].HeaderText = "Baixa do Título";
             dataGridView1.Columns[14].HeaderText = "Arquivo Gerado Em";
+            dataGridView1.Columns[14].Width = 70;
+            dataGridView1.Columns[15].HeaderText = "Data Chamada";
+            dataGridView1.Columns[15].Width = 70;
 
 
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            scb = new SqlCommandBuilder(da);
-            if(MessageBox.Show("Tem Certeza ?","Confirmação",MessageBoxButtons.YesNo,MessageBoxIcon.Question)== DialogResult.Yes)
+            if (dataGridView1.Rows.Count > 0)
             {
-                da.Update(dt);
-            }
-            else{
-                dt.Clear();
-                da.Fill(dt);
+                scb = new SqlCommandBuilder(da);
+                if (MessageBox.Show("Tem Certeza ?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    da.Update(dt);
+                }
+                else
+                {
+                    dt.Clear();
+                    da.Fill(dt);
+                }
+            }else
+            {
+                MessageBox.Show("Tabela Vazia", "Alterar", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -146,9 +168,10 @@ namespace Report
                     {
                         conexao.SqlCon.Open();
                         cmd.ExecuteNonQuery();
-                        MessageBox.Show("Operação feita com sucesso","Excluir");
+                        MessageBox.Show("Operação feita com sucesso","Excluir",MessageBoxButtons.OK,MessageBoxIcon.Information);
                         dt.Clear();
                         da.Fill(dt);
+                        dataGridView1.DataSource = dt;
 
                     }
                     catch(Exception ed)
@@ -162,7 +185,7 @@ namespace Report
                 }
             }else
             {
-                MessageBox.Show("Viewer Vazio","Alteração");
+                MessageBox.Show("Tabela Vazia","Excluir",MessageBoxButtons.OK,MessageBoxIcon.Information);
             }
         }
 
@@ -204,7 +227,7 @@ namespace Report
             {
                 comboBox2.Visible = true;
                 textBox2.Visible = true;
-                button5.BackgroundImage = (System.Drawing.Bitmap)(Properties.Resources.Minus);
+                button5.BackgroundImage = (Properties.Resources.Minus);
                 flagButton = 1;
             }else
             {
@@ -213,24 +236,16 @@ namespace Report
                 comboBox2.ResetText();
                 flagButton = 0;
                 textBox2.Clear();
-                button5.BackgroundImage = (System.Drawing.Bitmap)(Properties.Resources.Plus);
+                button5.BackgroundImage = Properties.Resources.Plus;
 
             }
         }
-
-        private void Consulta_Load(object sender, EventArgs e)
-        {
-
-        }
         public bool connectBanco()
         {
-
             try
             {
-
                 conexao.SqlCon.Open();
                 return true;
-
             }
             catch (Exception e)
             {

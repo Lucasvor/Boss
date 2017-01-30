@@ -28,26 +28,10 @@ namespace Report
 
         const string queryInsert = "insert into dbo.tb_carta(cartorio, protocolo, dataprotocolo, destinatario, docdestinatario, endereco, complemento, bairro, cidade, UF, CEP, nrointimacao, prazolimite,datachamada, dataentrada) values(@cartorio,@protocolo,@dataprotocolo,@destinatario,@docdestinatario,@endereco,@complemento,@bairro,@cidade,@UF,@CEP,@nrointimacao,@prazolimite,@datachamada,@dataentrada)";
 
-        //public SqlConnection SqlCon
-        //{
-        //    get
-        //    {
-        //        return sqlCon;
-        //    }
-
-        //    set
-        //    {
-        //        sqlCon = value;
-        //    }
-        //}
-
         public Sistema()
         {
             InitializeComponent();
-            //panel13.BringToFront();
-
-
-
+            
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -225,8 +209,8 @@ namespace Report
                             cmd.Parameters.AddWithValue("@UF", parts[9]);
                             cmd.Parameters.AddWithValue("@CEP", parts[10]);
                             cmd.Parameters.AddWithValue("@nrointimacao", parts[11]);
-                            cmd.Parameters.AddWithValue("@prazolimite", DateTime.ParseExact(parts[12], "ddMMyyyy", System.Globalization.CultureInfo.InvariantCulture).ToString("g"));
-                            cmd.Parameters.AddWithValue("@datachamada", DateTime.ParseExact(parts[13], "ddMMyyyy", System.Globalization.CultureInfo.InvariantCulture).ToString("g"));
+                            cmd.Parameters.AddWithValue("@datachamada", DateTime.ParseExact(parts[12], "ddMMyyyy", System.Globalization.CultureInfo.InvariantCulture).ToString("g"));
+                            cmd.Parameters.AddWithValue("@prazolimite", DateTime.ParseExact(parts[13], "ddMMyyyy", System.Globalization.CultureInfo.InvariantCulture).ToString("g"));
                             cmd.Parameters.AddWithValue("@dataentrada", DateTime.ParseExact(dataentrada, "ddMMyyyy", System.Globalization.CultureInfo.InvariantCulture).ToString("g"));
 
                             cmd.ExecuteNonQuery();
@@ -527,19 +511,6 @@ namespace Report
 
         private void button6_Click(object sender, EventArgs e)
         {
-
-            //var checkedButton = groupBox1.Controls.OfType<RadioButton>()
-            //                          .FirstOrDefault(r => r.Checked);
-            //switch (checkedButton.Text)
-            //{
-            //    case "Baixas não realizadas":
-            //        rel.Op = 1;
-            //        break;
-            //    case "Segunda Opção":
-            //        rel.Op = 2;
-            //        break;
-            //}
-
             if ((!radioButton1.Checked) && (!radioButton2.Checked) && (!radioButton3.Checked) && (!radioButton4.Checked))
             {
                 MessageBox.Show("Escolha pelo menos uma opção!", "Relatório", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -549,7 +520,7 @@ namespace Report
                 {
                     Aux = radioButton3.Checked ? textBox3.Text : radioButton2.Checked ? textBox3.Text : radioButton1.Checked ? textBox3.Text : null,
                     Op = radioButton1.Checked ? 1 : radioButton2.Checked ? 2 : radioButton3.Checked ? 3 : radioButton4.Checked ? 4 : 0,
-                    
+
                 };
                 if ((radioButton3.Checked && string.IsNullOrWhiteSpace(textBox3.Text)) || radioButton2.Checked && string.IsNullOrWhiteSpace(textBox3.Text))
                 {
@@ -567,7 +538,6 @@ namespace Report
         {
             if(radioButton3.Checked)
             {
-                //0; 55; 0; 0
                 PanelRigGRoupBox.Padding = new Padding(0, 110, 0, 0);
                 label1.Text = "Data Protocolo :";
                 label1.Visible = true;
@@ -603,7 +573,6 @@ namespace Report
             {
                 if (!string.IsNullOrWhiteSpace(textBox3.Text))
                 {
-
                     button6.PerformClick();
                     textBox3.Clear();
                     button6.Focus();
@@ -615,13 +584,11 @@ namespace Report
         {
             if (radioButton1.Checked)
             {
-
                 PanelRigGRoupBox.Padding = new Padding(0,0, 0, 0);
                 label1.Text = "Data Protocolo :";
                 label1.Visible = true;
                 textBox3.Visible = true;
                 textBox3.Focus();
-
             }
             else
             {

@@ -77,8 +77,7 @@ namespace Report.Relatorio
                             this.reportViewer1.LocalReport.ReportEmbeddedResource = "Report.Relatorio.BaixasPar.rdlc";
                             var qnt = new Microsoft.Reporting.WinForms.ReportParameter("Quantidade", Aux);
                             var get = new Microsoft.Reporting.WinForms.ReportParameter("Data", Aux);
-                            this.reportViewer1.LocalReport.SetParameters(get);
-                            this.reportViewer1.LocalReport.SetParameters(qnt);
+                            this.reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter[] { qnt,get});
                             this.getDataTableAdapter.Fill(this.dBars.GetData, Aux);
                             this.quantidadeBaixaTableAdapter.Fill(this.dBars.QuantidadeBaixa, Aux);
                             break;
@@ -101,17 +100,13 @@ namespace Report.Relatorio
                     MessageBox.Show(ex.Message, "Relatório", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     this.Close();
                 }
-                //this.reportViewer1.
-
                 var pg = new System.Drawing.Printing.PageSettings
                 {
                     Margins = new System.Drawing.Printing.Margins(36, 2, 2, 2),
                     Landscape = true
                 };
-
                 this.reportViewer1.SetPageSettings(pg);
                 this.reportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout);
-
                 this.reportViewer1.RefreshReport();
             }
         }
