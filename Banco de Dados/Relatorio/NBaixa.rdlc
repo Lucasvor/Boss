@@ -390,8 +390,10 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
+        <RepeatColumnHeaders>true</RepeatColumnHeaders>
         <DataSetName>DataSet1</DataSetName>
-        <Left>0.19667in</Left>
+        <Top>1.1377cm</Top>
+        <Left>0.20153in</Left>
         <Height>0.25in</Height>
         <Width>10.72541in</Width>
         <Style>
@@ -422,7 +424,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>="Baixas não realizadas Data : "&amp;convert.ToInt64(Parameters!Data.Value).ToString("00\/00\/0000")+" Quantidade: "+CountRows("DataSet1").ToString()</Value>
+                  <Value>="Baixas realizada na Data : "&amp;convert.ToInt64(Parameters!Data.Value).ToString("00\/00\/0000")+" Quantidade: "+CountRows("DataSet1").ToString()</Value>
                   <Style>
                     <FontSize>26pt</FontSize>
                     <TextDecoration>Underline</TextDecoration>
@@ -574,9 +576,9 @@
           </Paragraphs>
           <rd:DefaultName>Textbox46</rd:DefaultName>
           <Top>2.1268cm</Top>
-          <Left>9.7804cm</Left>
+          <Left>9.76805cm</Left>
           <Height>0.25in</Height>
-          <Width>0.99653in</Width>
+          <Width>1.00139in</Width>
           <ZIndex>4</ZIndex>
           <Style>
             <Border>

@@ -37,7 +37,9 @@ namespace Report
         {
             if (connectBanco())
             {
-                if ((!string.IsNullOrWhiteSpace(comboBox1.Text) && !string.IsNullOrWhiteSpace(textBox1.Text)) && string.IsNullOrWhiteSpace(comboBox2.Text))
+                try
+                {
+                    if ((!string.IsNullOrWhiteSpace(comboBox1.Text) && !string.IsNullOrWhiteSpace(textBox1.Text)) && string.IsNullOrWhiteSpace(comboBox2.Text))
                 {
                     query = "select * from dbo.tb_carta where " + comboBox1.Text + " like '" + textBox1.Text + "%'";
                 }
@@ -48,6 +50,11 @@ namespace Report
                 else if ((!string.IsNullOrWhiteSpace(comboBox1.Text) && !string.IsNullOrWhiteSpace(textBox1.Text)) && !string.IsNullOrWhiteSpace(comboBox2.Text))
                 {
                     query = "select * from dbo.tb_carta where " + comboBox1.Text + " = '" + textBox1.Text + "' and " + comboBox2.Text + " like '" + textBox2.Text + "%'";
+                }
+                else if(string.IsNullOrWhiteSpace(comboBox1.Text) && !string.IsNullOrWhiteSpace(textBox1.Text))
+                {
+                    throw new Exception("Box itens não pode ser vazio!");
+                    
                 }
                 /* if (!string.IsNullOrWhiteSpace(textBox1.Text) && !string.IsNullOrWhiteSpace(comboBox1.Text))
                  {
@@ -63,8 +70,7 @@ namespace Report
                 {
                     query = "select top(200) * from dbo.tb_carta";
                 }
-                try
-                {
+                
                     //sqlCon.Open();
                     cmd = new SqlCommand(query, conexao.SqlCon);
                     cmd.ExecuteNonQuery();
@@ -85,7 +91,7 @@ namespace Report
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message, nameof(Consulta));
+                    MessageBox.Show(ex.Message,nameof(Consulta), MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 finally
                 {
@@ -107,31 +113,33 @@ namespace Report
         {
             dataGridView1.Columns[0].HeaderText = "Num. Cartório";
             dataGridView1.Columns[0].Width = 50;
-            dataGridView1.Columns[1].HeaderText = "Protocolo";
-            dataGridView1.Columns[1].Width = 55;
-            dataGridView1.Columns[2].HeaderText = "Data Protocolo";
-            dataGridView1.Columns[2].Width = 60;
-            dataGridView1.Columns[3].HeaderText = "Destinatário";
-            dataGridView1.Columns[3].Width = 200;
-            dataGridView1.Columns[4].HeaderText = "CPF / CNPJ";
-            dataGridView1.Columns[5].HeaderText = "Endereço";
+            dataGridView1.Columns[1].HeaderText = "Num. Intimação";
+            dataGridView1.Columns[1].Width = 70;
+            dataGridView1.Columns[2].HeaderText = "Protocolo";
+            dataGridView1.Columns[2].Width = 55;
+            dataGridView1.Columns[3].HeaderText = "Data Protocolo";
+            dataGridView1.Columns[3].Width = 60;
+            dataGridView1.Columns[4].HeaderText = "Digito Verificador";
+            dataGridView1.Columns[4].Width = 60;
+            dataGridView1.Columns[5].HeaderText = "Destinatário";
             dataGridView1.Columns[5].Width = 200;
-            dataGridView1.Columns[6].HeaderText = "Complemento";
-            dataGridView1.Columns[7].HeaderText = "Bairro";
-            dataGridView1.Columns[8].HeaderText = "Cidade";
-            dataGridView1.Columns[9].HeaderText = "UF";
-            dataGridView1.Columns[9].Width = 30;
-            dataGridView1.Columns[10].HeaderText = "CEP";
-            dataGridView1.Columns[10].Width = 60;
-            dataGridView1.Columns[11].HeaderText = "Num. Intimação";
-            dataGridView1.Columns[11].Width = 70;
-            dataGridView1.Columns[12].HeaderText = "Prazo Limite";
-            dataGridView1.Columns[12].Width = 70;
-            dataGridView1.Columns[13].HeaderText = "Baixa do Título";
-            dataGridView1.Columns[14].HeaderText = "Arquivo Gerado Em";
-            dataGridView1.Columns[14].Width = 70;
-            dataGridView1.Columns[15].HeaderText = "Data Chamada";
+            dataGridView1.Columns[6].HeaderText = "CPF / CNPJ";
+            dataGridView1.Columns[7].HeaderText = "Endereço";
+            dataGridView1.Columns[7].Width = 200;
+            dataGridView1.Columns[8].HeaderText = "Complemento";
+            dataGridView1.Columns[9].HeaderText = "Bairro";
+            dataGridView1.Columns[10].HeaderText = "Cidade";
+            dataGridView1.Columns[11].HeaderText = "UF";
+            dataGridView1.Columns[11].Width = 30;
+            dataGridView1.Columns[12].HeaderText = "CEP";
+            dataGridView1.Columns[12].Width = 60;
+            dataGridView1.Columns[13].HeaderText = "Prazo Limite";
+            dataGridView1.Columns[13].Width = 70;
+            dataGridView1.Columns[14].HeaderText = "Baixa do Título";
+            dataGridView1.Columns[15].HeaderText = "Arquivo Gerado Em";
             dataGridView1.Columns[15].Width = 70;
+            dataGridView1.Columns[16].HeaderText = "Data Chamada";
+            dataGridView1.Columns[16].Width = 70;
 
 
         }

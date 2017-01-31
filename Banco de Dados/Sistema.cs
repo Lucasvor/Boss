@@ -127,7 +127,7 @@ namespace Report
                 var flag = 0;
                 var contador = 2;
                 var contador_Error = 0;
-                var lengths = new[] { 2, 4, 2 ,8, 45, 14, 45, 20, 20, 20, 2, 8, 13, 8, 8};
+                var lengths = new[] { 2, 4 ,8, 2, 45, 14, 45, 20, 20, 20, 2, 8, 13, 8, 8};
                 string dataentrada, erroTexto = null, fim = null;
                 var parts = new string[lengths.Length];
                 var files = File.ReadAllLines((string)e.Argument);
@@ -360,6 +360,7 @@ namespace Report
                                 }
                                 else
                                 {
+                                    
                                     MessageBox.Show("Dado não encontado", nameof(Baixa), MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     textBox2.SelectAll();
                                 }
@@ -486,10 +487,8 @@ namespace Report
 #pragma warning restore CC0068 // Unused Method
         public bool connectBanco()
         {
-
             try
             {
-
                 conexao.SqlCon.Open();
                 return true;
 
