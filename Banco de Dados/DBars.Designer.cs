@@ -1636,6 +1636,10 @@ namespace Report {
             
             private global::System.Data.DataColumn columndataentrada;
             
+            private global::System.Data.DataColumn columndatachamada;
+            
+            private global::System.Data.DataColumn columndigitoProtoloco;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public GetDataDataTable() {
@@ -1791,6 +1795,22 @@ namespace Report {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn datachamadaColumn {
+                get {
+                    return this.columndatachamada;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn digitoProtolocoColumn {
+                get {
+                    return this.columndigitoProtoloco;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1826,7 +1846,24 @@ namespace Report {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public GetDataRow AddGetDataRow(string NomeCompleto, string cartorio, string protocolo, string dataprotocolo, string destinatario, string endereco, string complemento, string bairro, string cidade, string UF, string CEP, string nrointimacao, string prazolimite, string baixa, System.DateTime dataentrada) {
+            public GetDataRow AddGetDataRow(
+                        string NomeCompleto, 
+                        string cartorio, 
+                        string protocolo, 
+                        string dataprotocolo, 
+                        string destinatario, 
+                        string endereco, 
+                        string complemento, 
+                        string bairro, 
+                        string cidade, 
+                        string UF, 
+                        string CEP, 
+                        string nrointimacao, 
+                        string prazolimite, 
+                        string baixa, 
+                        System.DateTime dataentrada, 
+                        string datachamada, 
+                        string digitoProtoloco) {
                 GetDataRow rowGetDataRow = ((GetDataRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         NomeCompleto,
@@ -1843,7 +1880,9 @@ namespace Report {
                         nrointimacao,
                         prazolimite,
                         baixa,
-                        dataentrada};
+                        dataentrada,
+                        datachamada,
+                        digitoProtoloco};
                 rowGetDataRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowGetDataRow);
                 return rowGetDataRow;
@@ -1889,6 +1928,8 @@ namespace Report {
                 this.columnprazolimite = base.Columns["prazolimite"];
                 this.columnbaixa = base.Columns["baixa"];
                 this.columndataentrada = base.Columns["dataentrada"];
+                this.columndatachamada = base.Columns["datachamada"];
+                this.columndigitoProtoloco = base.Columns["digitoProtoloco"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1924,6 +1965,10 @@ namespace Report {
                 base.Columns.Add(this.columnbaixa);
                 this.columndataentrada = new global::System.Data.DataColumn("dataentrada", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndataentrada);
+                this.columndatachamada = new global::System.Data.DataColumn("datachamada", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndatachamada);
+                this.columndigitoProtoloco = new global::System.Data.DataColumn("digitoProtoloco", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndigitoProtoloco);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columncartorio,
                                 this.columnnrointimacao}, true));
@@ -4746,6 +4791,38 @@ namespace Report {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string datachamada {
+                get {
+                    try {
+                        return ((string)(this[this.tableGetData.datachamadaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'datachamada\' in table \'GetData\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGetData.datachamadaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string digitoProtoloco {
+                get {
+                    try {
+                        return ((string)(this[this.tableGetData.digitoProtolocoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'digitoProtoloco\' in table \'GetData\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGetData.digitoProtolocoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsNomeCompletoNull() {
                 return this.IsNull(this.tableGetData.NomeCompletoColumn);
             }
@@ -4898,6 +4975,30 @@ namespace Report {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetdataentradaNull() {
                 this[this.tableGetData.dataentradaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsdatachamadaNull() {
+                return this.IsNull(this.tableGetData.datachamadaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetdatachamadaNull() {
+                this[this.tableGetData.datachamadaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsdigitoProtolocoNull() {
+                return this.IsNull(this.tableGetData.digitoProtolocoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetdigitoProtolocoNull() {
+                this[this.tableGetData.digitoProtolocoColumn] = global::System.Convert.DBNull;
             }
         }
         

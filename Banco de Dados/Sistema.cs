@@ -26,7 +26,7 @@ namespace Report
         int flag_error;
         int cor;
 
-        const string queryInsert = "insert into dbo.tb_carta(cartorio, protocolo, dataprotocolo, destinatario, docdestinatario, endereco, complemento, bairro, cidade, UF, CEP, nrointimacao, prazolimite,datachamada, dataentrada) values(@cartorio,@protocolo,@dataprotocolo,@destinatario,@docdestinatario,@endereco,@complemento,@bairro,@cidade,@UF,@CEP,@nrointimacao,@prazolimite,@datachamada,@dataentrada)";
+        const string queryInsert = "insert into dbo.tb_carta(cartorio, protocolo, dataprotocolo, digitoProtoloco, destinatario, docdestinatario, endereco, complemento, bairro, cidade, UF, CEP, nrointimacao, prazolimite,datachamada, dataentrada) values(@cartorio,@protocolo,@dataprotocolo,@digitoProtoloco,@destinatario,@docdestinatario,@endereco,@complemento,@bairro,@cidade,@UF,@CEP,@nrointimacao,@prazolimite,@datachamada,@dataentrada)";
 
         public Sistema()
         {
@@ -127,7 +127,7 @@ namespace Report
                 var flag = 0;
                 var contador = 2;
                 var contador_Error = 0;
-                var lengths = new[] { 2, 4, 8, 45, 14, 45, 20, 20, 20, 2, 8, 13, 8, 8};
+                var lengths = new[] { 2, 4, 2 ,8, 45, 14, 45, 20, 20, 20, 2, 8, 13, 8, 8};
                 string dataentrada, erroTexto = null, fim = null;
                 var parts = new string[lengths.Length];
                 var files = File.ReadAllLines((string)e.Argument);
@@ -136,17 +136,13 @@ namespace Report
 
                 using (var reader = new StreamReader((string)e.Argument, Encoding.UTF7))
                 {
-
                     dataentrada = reader.ReadLine();
-                    dataentrada = dataentrada.Substring(0, 8);
-                    fim = dataentrada;
+                    fim = dataentrada = dataentrada.Substring(0, 8);
                     while (!reader.EndOfStream)
                     {
                         s = reader.ReadLine();
                         AppendTextBox("Importando Linha: " + (contador));
-                        //textBox1.AppendText("Importando Linha: " + (contador++));
                         var startPos = 0;
-
                         try
                         {
                             if (s.Length > 240)
@@ -189,7 +185,7 @@ namespace Report
                                 parts[i] = s.Substring(startPos, lengths[i]);
                                 startPos += lengths[i];
                             }
-                            if (parts[0].Trim().Length < 2 && parts[11].Trim().Length < 13)
+                            if (parts[0].Trim().Length < 2 && parts[12].Trim().Length < 13)
                             {
                                 flag_error = 2;
                                 erroTexto = " Dado inválido para chave Primária do Banco!";
@@ -197,20 +193,21 @@ namespace Report
                             }
 
                             cmd = new SqlCommand(queryInsert, conexao.SqlCon, tran);
-                            cmd.Parameters.AddWithValue("@cartorio", parts[0]);
-                            cmd.Parameters.AddWithValue("@protocolo", parts[1]);
-                            cmd.Parameters.AddWithValue("@dataprotocolo", parts[2]);
-                            cmd.Parameters.AddWithValue("@destinatario", parts[3]);
-                            cmd.Parameters.AddWithValue("@docdestinatario", parts[4]);
-                            cmd.Parameters.AddWithValue("@endereco", parts[5]);
-                            cmd.Parameters.AddWithValue("@complemento", parts[6]);
-                            cmd.Parameters.AddWithValue("@bairro", parts[7]);
-                            cmd.Parameters.AddWithValue("@cidade", parts[8]);
-                            cmd.Parameters.AddWithValue("@UF", parts[9]);
-                            cmd.Parameters.AddWithValue("@CEP", parts[10]);
-                            cmd.Parameters.AddWithValue("@nrointimacao", parts[11]);
-                            cmd.Parameters.AddWithValue("@datachamada", DateTime.ParseExact(parts[12], "ddMMyyyy", System.Globalization.CultureInfo.InvariantCulture).ToString("g"));
-                            cmd.Parameters.AddWithValue("@prazolimite", DateTime.ParseExact(parts[13], "ddMMyyyy", System.Globalization.CultureInfo.InvariantCulture).ToString("g"));
+                            cmd.Parameters.AddWithValue("@cartorio",                        parts[0]);
+                            cmd.Parameters.AddWithValue("@protocolo",                       parts[1]);
+                            cmd.Parameters.AddWithValue("@dataprotocolo",                   parts[2]);
+                            cmd.Parameters.AddWithValue("@digitoProtoloco",                 parts[3]);
+                            cmd.Parameters.AddWithValue("@destinatario",                    parts[4]);
+                            cmd.Parameters.AddWithValue("@docdestinatario",                 parts[5]);
+                            cmd.Parameters.AddWithValue("@endereco",                        parts[6]);
+                            cmd.Parameters.AddWithValue("@complemento",                     parts[7]);
+                            cmd.Parameters.AddWithValue("@bairro",                          parts[8]);
+                            cmd.Parameters.AddWithValue("@cidade",                          parts[9]);
+                            cmd.Parameters.AddWithValue("@UF",                              parts[10]);
+                            cmd.Parameters.AddWithValue("@CEP",                             parts[11]);
+                            cmd.Parameters.AddWithValue("@nrointimacao",                    parts[12]);
+                            cmd.Parameters.AddWithValue("@datachamada", DateTime.ParseExact(parts[13], "ddMMyyyy", System.Globalization.CultureInfo.InvariantCulture).ToString("g"));
+                            cmd.Parameters.AddWithValue("@prazolimite", DateTime.ParseExact(parts[14], "ddMMyyyy", System.Globalization.CultureInfo.InvariantCulture).ToString("g"));
                             cmd.Parameters.AddWithValue("@dataentrada", DateTime.ParseExact(dataentrada, "ddMMyyyy", System.Globalization.CultureInfo.InvariantCulture).ToString("g"));
 
                             cmd.ExecuteNonQuery();
@@ -278,7 +275,6 @@ namespace Report
                     contadorError = contador_Error;
                     error = flag;
                     backgroundWorker1.ReportProgress(100);
-
             }
         }
 
