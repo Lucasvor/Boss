@@ -46,7 +46,7 @@ namespace Report.Relatorio
 
         public string Aux { get; set; }
 
-        public DateTime date { get; set; }
+        public string Nome { get; set; }
 
         private void FormRelatorio_Load(object sender, EventArgs e)
         {
@@ -66,11 +66,14 @@ namespace Report.Relatorio
                             this.getdataprazoTableAdapter.Fill(this.dBars.Getdataprazo,Aux);
                             break;
                         case 2:
-                            reportDataSource1.Value = this.getdatabaixaBindingSource;
+                            reportDataSource1.Value = this.getnomebaixaBindingSource;
+                            reportDataSource2.Value = this.quantidadeBaixaBindingSource;
                             this.reportViewer1.LocalReport.ReportEmbeddedResource = "Report.Relatorio.BaixaHoje.rdlc";
-                            var baixa = new Microsoft.Reporting.WinForms.ReportParameter("dataBaixa", Aux);
-                            this.reportViewer1.LocalReport.SetParameters(baixa);
-                            this.getdatabaixaTableAdapter.Fill(this.dBars.Getdatabaixa,Aux);
+                            var baixa = new Microsoft.Reporting.WinForms.ReportParameter("Data", Aux);
+                            var nome = new Microsoft.Reporting.WinForms.ReportParameter(nameof(Nome), Nome);
+                            this.reportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter[] { baixa, nome });
+                            this.getnomebaixaTableAdapter.Fill(this.dBars.Getnomebaixa,Aux,Nome);
+                            this.quantidadeBaixaTableAdapter.Fill(this.dBars.QuantidadeBaixa, Aux);
                             break;
                         case 3:
                             reportDataSource1.Value = this.getDataBindingSource;

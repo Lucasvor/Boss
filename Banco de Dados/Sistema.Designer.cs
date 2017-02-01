@@ -80,6 +80,8 @@
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.PanelRigGRoupBox = new System.Windows.Forms.Panel();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.RelDir = new System.Windows.Forms.Panel();
@@ -663,7 +665,7 @@
             this.radioButton2.Size = new System.Drawing.Size(250, 54);
             this.radioButton2.TabIndex = 1;
             this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Baixa c/ Data";
+            this.radioButton2.Text = "Entregadores";
             this.radioButton2.UseVisualStyleBackColor = true;
             this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
@@ -685,11 +687,41 @@
             // 
             this.PanelRigGRoupBox.Controls.Add(this.textBox3);
             this.PanelRigGRoupBox.Controls.Add(this.label1);
+            this.PanelRigGRoupBox.Controls.Add(this.comboBox1);
+            this.PanelRigGRoupBox.Controls.Add(this.label4);
             this.PanelRigGRoupBox.Dock = System.Windows.Forms.DockStyle.Right;
             this.PanelRigGRoupBox.Location = new System.Drawing.Point(253, 22);
             this.PanelRigGRoupBox.Name = "PanelRigGRoupBox";
             this.PanelRigGRoupBox.Size = new System.Drawing.Size(359, 236);
             this.PanelRigGRoupBox.TabIndex = 3;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(46)))), ((int)(((byte)(58)))));
+            this.comboBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.ForeColor = System.Drawing.Color.Silver;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(0, 25);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(359, 32);
+            this.comboBox1.TabIndex = 22;
+            this.comboBox1.Visible = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(103)))), ((int)(((byte)(130)))));
+            this.label4.Location = new System.Drawing.Point(0, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(192, 25);
+            this.label4.TabIndex = 21;
+            this.label4.Text = "Nome Entregador :";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label4.Visible = false;
             // 
             // textBox3
             // 
@@ -697,7 +729,7 @@
             this.textBox3.Dock = System.Windows.Forms.DockStyle.Top;
             this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox3.ForeColor = System.Drawing.Color.Silver;
-            this.textBox3.Location = new System.Drawing.Point(0, 25);
+            this.textBox3.Location = new System.Drawing.Point(0, 82);
             this.textBox3.MaxLength = 8;
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(359, 29);
@@ -712,7 +744,7 @@
             this.label1.Dock = System.Windows.Forms.DockStyle.Top;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(103)))), ((int)(((byte)(130)))));
-            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Location = new System.Drawing.Point(0, 57);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(166, 25);
             this.label1.TabIndex = 20;
@@ -857,6 +889,8 @@
         private System.Windows.Forms.Panel PanelRigGRoupBox;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
 

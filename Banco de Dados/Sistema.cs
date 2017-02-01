@@ -31,6 +31,7 @@ namespace Report
         public Sistema()
         {
             InitializeComponent();
+            GetdatabaseList();
             
         }
 
@@ -515,6 +516,7 @@ namespace Report
                 {
                     Aux = radioButton3.Checked ? textBox3.Text : radioButton2.Checked ? textBox3.Text : radioButton1.Checked ? textBox3.Text : null,
                     Op = radioButton1.Checked ? 1 : radioButton2.Checked ? 2 : radioButton3.Checked ? 3 : radioButton4.Checked ? 4 : 0,
+                    Nome = radioButton2.Checked ? comboBox1.Text : null
 
                 };
                 if ((radioButton3.Checked && string.IsNullOrWhiteSpace(textBox3.Text)) || radioButton2.Checked && string.IsNullOrWhiteSpace(textBox3.Text))
@@ -534,6 +536,7 @@ namespace Report
             if(radioButton3.Checked)
             {
                 PanelRigGRoupBox.Padding = new Padding(0, 110, 0, 0);
+                
                 label1.Text = "Data Protocolo :";
                 label1.Visible = true;
                 textBox3.Visible = true;
@@ -550,12 +553,16 @@ namespace Report
             if (radioButton2.Checked)
             {
                 PanelRigGRoupBox.Padding = new Padding(0, 55, 0, 0);
-                label1.Text = "Data Baixa :";
+                label1.Text = "Data Protocolo:";
                 label1.Visible = true;
+                label4.Visible = true;
+                comboBox1.Visible = true;
                 textBox3.Visible = true;
                 textBox3.Focus();
             }else
             {
+                label4.Visible = false;
+                comboBox1.Visible = false;
                 label1.Visible = false;
                 textBox3.Visible = false;
                 textBox3.Clear();
@@ -598,6 +605,35 @@ namespace Report
             var a = new Login();
             a.ShowDialog();
             a.Dispose();
+        }
+        public void GetdatabaseList()
+        {
+            try
+            {
+                if (connectBanco())
+                {
+                    using (SqlCommand cmd = new SqlCommand("select NomeCompleto from cad_entregador", conexao.SqlCon))
+                    {
+
+                        using (IDataReader dr = cmd.ExecuteReader())
+                        {
+                            while (dr.Read())
+                            {
+                                comboBox1.Items.Add(dr[0].ToString());
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Preencher combo Box", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                conexao.SqlCon.Close();
+            }
+            
         }
     }
 }
