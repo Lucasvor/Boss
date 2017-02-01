@@ -3122,6 +3122,10 @@ namespace Report {
             
             private global::System.Data.DataColumn columndataentrada;
             
+            private global::System.Data.DataColumn columndatachamada;
+            
+            private global::System.Data.DataColumn columndigitoProtoloco;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public GetdataprazoDataTable() {
@@ -3277,6 +3281,22 @@ namespace Report {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn datachamadaColumn {
+                get {
+                    return this.columndatachamada;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn digitoProtolocoColumn {
+                get {
+                    return this.columndigitoProtoloco;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -3312,7 +3332,24 @@ namespace Report {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public GetdataprazoRow AddGetdataprazoRow(string NomeCompleto, string cartorio, string protocolo, string dataprotocolo, string destinatario, string endereco, string complemento, string bairro, string cidade, string UF, string CEP, string nrointimacao, string prazolimite, string baixa, System.DateTime dataentrada) {
+            public GetdataprazoRow AddGetdataprazoRow(
+                        string NomeCompleto, 
+                        string cartorio, 
+                        string protocolo, 
+                        string dataprotocolo, 
+                        string destinatario, 
+                        string endereco, 
+                        string complemento, 
+                        string bairro, 
+                        string cidade, 
+                        string UF, 
+                        string CEP, 
+                        string nrointimacao, 
+                        string prazolimite, 
+                        string baixa, 
+                        System.DateTime dataentrada, 
+                        System.DateTime datachamada, 
+                        string digitoProtoloco) {
                 GetdataprazoRow rowGetdataprazoRow = ((GetdataprazoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         NomeCompleto,
@@ -3329,7 +3366,9 @@ namespace Report {
                         nrointimacao,
                         prazolimite,
                         baixa,
-                        dataentrada};
+                        dataentrada,
+                        datachamada,
+                        digitoProtoloco};
                 rowGetdataprazoRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowGetdataprazoRow);
                 return rowGetdataprazoRow;
@@ -3375,6 +3414,8 @@ namespace Report {
                 this.columnprazolimite = base.Columns["prazolimite"];
                 this.columnbaixa = base.Columns["baixa"];
                 this.columndataentrada = base.Columns["dataentrada"];
+                this.columndatachamada = base.Columns["datachamada"];
+                this.columndigitoProtoloco = base.Columns["digitoProtoloco"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3410,6 +3451,10 @@ namespace Report {
                 base.Columns.Add(this.columnbaixa);
                 this.columndataentrada = new global::System.Data.DataColumn("dataentrada", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndataentrada);
+                this.columndatachamada = new global::System.Data.DataColumn("datachamada", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndatachamada);
+                this.columndigitoProtoloco = new global::System.Data.DataColumn("digitoProtoloco", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndigitoProtoloco);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columncartorio,
                                 this.columnnrointimacao}, true));
@@ -3430,6 +3475,7 @@ namespace Report {
                 this.columnprazolimite.ReadOnly = true;
                 this.columnprazolimite.MaxLength = 10;
                 this.columnbaixa.MaxLength = 50;
+                this.columndigitoProtoloco.MaxLength = 4;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6078,6 +6124,38 @@ namespace Report {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime datachamada {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableGetdataprazo.datachamadaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'datachamada\' in table \'Getdataprazo\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGetdataprazo.datachamadaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string digitoProtoloco {
+                get {
+                    try {
+                        return ((string)(this[this.tableGetdataprazo.digitoProtolocoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'digitoProtoloco\' in table \'Getdataprazo\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGetdataprazo.digitoProtolocoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsNomeCompletoNull() {
                 return this.IsNull(this.tableGetdataprazo.NomeCompletoColumn);
             }
@@ -6230,6 +6308,30 @@ namespace Report {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetdataentradaNull() {
                 this[this.tableGetdataprazo.dataentradaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsdatachamadaNull() {
+                return this.IsNull(this.tableGetdataprazo.datachamadaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetdatachamadaNull() {
+                this[this.tableGetdataprazo.datachamadaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsdigitoProtolocoNull() {
+                return this.IsNull(this.tableGetdataprazo.digitoProtolocoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetdigitoProtolocoNull() {
+                this[this.tableGetdataprazo.digitoProtolocoColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -9325,6 +9427,8 @@ WHERE        (dataentrada = CONVERT(DATE, GETDATE() + 1, 112))";
             tableMapping.ColumnMappings.Add("prazolimite", "prazolimite");
             tableMapping.ColumnMappings.Add("baixa", "baixa");
             tableMapping.ColumnMappings.Add("dataentrada", "dataentrada");
+            tableMapping.ColumnMappings.Add("datachamada", "datachamada");
+            tableMapping.ColumnMappings.Add("digitoProtoloco", "digitoProtoloco");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -9344,7 +9448,7 @@ WHERE        (dataentrada = CONVERT(DATE, GETDATE() + 1, 112))";
             this._commandCollection[0].CommandText = "\"dbo\".\"Getdataprazo\"";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[0].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("@RETURN_VALUE", global::System.Data.OleDb.OleDbType.Integer, 2147483647, global::System.Data.ParameterDirection.ReturnValue, ((byte)(10)), ((byte)(255)), null, global::System.Data.DataRowVersion.Current, false, null));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("@Data", global::System.Data.OleDb.OleDbType.Char, 2147483647, global::System.Data.ParameterDirection.Input, ((byte)(255)), ((byte)(255)), null, global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("@Data", global::System.Data.OleDb.OleDbType.Char, 8, global::System.Data.ParameterDirection.Input, ((byte)(255)), ((byte)(255)), null, global::System.Data.DataRowVersion.Current, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

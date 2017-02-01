@@ -103,7 +103,7 @@ namespace Report.Relatorio
                 }
                 var pg = new System.Drawing.Printing.PageSettings
                 {
-                    Margins = new System.Drawing.Printing.Margins(36, 2, 2, 2),
+                    Margins = new System.Drawing.Printing.Margins(36, 2, 10, 2),
                     Landscape = true
                 };
                 this.reportViewer1.SetPageSettings(pg);
