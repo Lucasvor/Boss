@@ -18,6 +18,7 @@ namespace Report
 #pragma warning disable CC0033 // Dispose Fields Properly
         private readonly Connect conexao = new Connect();//add conexao.Dispose(); to the Dispose method on another file.
 #pragma warning restore CC0033 // Dispose Fields Properly
+        //variáveis do sistema
         SqlTransaction tran;
         SqlCommand cmd;
         int error;
@@ -25,15 +26,20 @@ namespace Report
         int j;
         int flag_error;
         int cor;
+        //variáveis do sistema
 
+        //string de insirir valores
         const string queryInsert = "insert into dbo.tb_carta(cartorio, protocolo, dataprotocolo, digitoProtoloco, destinatario, docdestinatario, endereco, complemento, bairro, cidade, UF, CEP, nrointimacao, prazolimite,datachamada, dataentrada) values(@cartorio,@protocolo,@dataprotocolo,@digitoProtoloco,@destinatario,@docdestinatario,@endereco,@complemento,@bairro,@cidade,@UF,@CEP,@nrointimacao,@prazolimite,@datachamada,@dataentrada)";
+        //string de insirir valores
 
         public Sistema()
         {
             InitializeComponent();
+            //Pega nome dos entregadores e preencher combo box
             GetdatabaseList();
-            
+            //
         }
+        //Botões da coluna da esquerda
 
         private void button1_Click_1(object sender, EventArgs e)
         {
@@ -45,8 +51,7 @@ namespace Report
             BackImporta.Visible = true;
             Baixa.Visible = false;
             BackRelatorio.Visible = false;
-
-            //panel14.BringToFront();
+            
 
         }
 
@@ -102,6 +107,7 @@ namespace Report
             progressBar1.Value = 0;
         }
 
+        //Botões da coluna da esquerda
         private void button5_Click(object sender, EventArgs e)
         {
             textBox1.Clear();
@@ -116,12 +122,11 @@ namespace Report
             }
         }
 
+       
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {  /// Connect database
-            //sqlCon.Open();
             if (connectBanco())
             {
-
                 tran = conexao.SqlCon.BeginTransaction();
                 // Váriavel
                 string s;
@@ -132,7 +137,6 @@ namespace Report
                 string dataentrada, erroTexto = null, fim = null;
                 var parts = new string[lengths.Length];
                 var files = File.ReadAllLines((string)e.Argument);
-                //
 
 
                 using (var reader = new StreamReader((string)e.Argument, Encoding.UTF7))
@@ -222,7 +226,6 @@ namespace Report
                                 {
                                     MessageBox.Show("Há Valores Repetidos nas chaves primarias ou AR já consta no banco. ", "Importação", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                     erroTexto = "Valor repetido / Já consta no banco";
-                                    // tran.Rollback();
                                 }
                                 erroTexto = "Valor repetido / Já consta no banco";
                                 contador_Error++;
@@ -231,7 +234,6 @@ namespace Report
                             {
                                 MessageBox.Show("Erro! " + exq, "Importação", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                 erroTexto = exq.Message;
-                                // tran.Rollback();
                             }
                             AppendTextBox(" >>  " + erroTexto);
                         }
@@ -354,7 +356,7 @@ namespace Report
                                         }
                                     }
                                     else
-                                    { 
+                                    {
                                             MessageBox.Show("Valor já baixado", nameof(Baixa), MessageBoxButtons.OK, MessageBoxIcon.Information);
                                             textBox2.SelectAll();
                                     }
@@ -541,7 +543,7 @@ namespace Report
             if(radioButton3.Checked)
             {
                 PanelRigGRoupBox.Padding = new Padding(0, 110, 0, 0);
-                
+
                 label1.Text = "Data Protocolo :";
                 label1.Visible = true;
                 textBox3.Visible = true;
@@ -605,7 +607,7 @@ namespace Report
             }
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        private static void button7_Click(object sender, EventArgs e)
         {
             var a = new Login();
             a.ShowDialog();
@@ -638,7 +640,7 @@ namespace Report
             {
                 conexao.SqlCon.Close();
             }
-            
+
         }
     }
 }

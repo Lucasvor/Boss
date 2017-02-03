@@ -410,6 +410,7 @@
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
+                        <BackgroundColor>=IIf(Fields!dataprotocolo.Value.ToString() = Fields!dataentrada.Value.ToString(),"Transparent",IIf(Fields!dataprotocolo.Value.ToString() &lt;&gt; Fields!dataentrada.Value.ToString(),"DimGray","Red"))</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>

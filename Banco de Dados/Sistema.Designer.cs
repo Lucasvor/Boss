@@ -300,7 +300,7 @@
             this.button7.TabIndex = 11;
             this.button7.UseMnemonic = false;
             this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
+            this.button7.Click += new System.EventHandler(Sistema.button7_Click);
             // 
             // label3
             // 

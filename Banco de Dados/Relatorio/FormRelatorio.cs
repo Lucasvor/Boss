@@ -50,7 +50,7 @@ namespace Report.Relatorio
 
         private void FormRelatorio_Load(object sender, EventArgs e)
         {
-         
+
             if (connectBanco())
             {
                 try

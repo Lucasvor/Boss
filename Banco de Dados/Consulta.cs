@@ -54,7 +54,7 @@ namespace Report
                 else if(string.IsNullOrWhiteSpace(comboBox1.Text) && !string.IsNullOrWhiteSpace(textBox1.Text))
                 {
                     throw new Exception("Box itens não pode ser vazio!");
-                    
+
                 }
                 /* if (!string.IsNullOrWhiteSpace(textBox1.Text) && !string.IsNullOrWhiteSpace(comboBox1.Text))
                  {
@@ -70,7 +70,7 @@ namespace Report
                 {
                     query = "select top(200) * from dbo.tb_carta";
                 }
-                
+
                     //sqlCon.Open();
                     cmd = new SqlCommand(query, conexao.SqlCon);
                     cmd.ExecuteNonQuery();

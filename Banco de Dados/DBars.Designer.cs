@@ -1826,7 +1826,7 @@ namespace Report {
                         string nrointimacao, 
                         string prazolimite, 
                         string baixa, 
-                        System.DateTime dataentrada, 
+                        string dataentrada, 
                         string datachamada, 
                         string digitoProtoloco) {
                 GetDataRow rowGetDataRow = ((GetDataRow)(this.NewRow()));
@@ -1928,7 +1928,7 @@ namespace Report {
                 base.Columns.Add(this.columnprazolimite);
                 this.columnbaixa = new global::System.Data.DataColumn("baixa", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnbaixa);
-                this.columndataentrada = new global::System.Data.DataColumn("dataentrada", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                this.columndataentrada = new global::System.Data.DataColumn("dataentrada", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndataentrada);
                 this.columndatachamada = new global::System.Data.DataColumn("datachamada", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndatachamada);
@@ -3137,7 +3137,7 @@ namespace Report {
                         string nrointimacao, 
                         string prazolimite, 
                         string baixa, 
-                        System.DateTime dataentrada, 
+                        string dataentrada, 
                         System.DateTime datachamada, 
                         string digitoProtoloco) {
                 GetnomebaixaRow rowGetnomebaixaRow = ((GetnomebaixaRow)(this.NewRow()));
@@ -3239,7 +3239,7 @@ namespace Report {
                 base.Columns.Add(this.columnprazolimite);
                 this.columnbaixa = new global::System.Data.DataColumn("baixa", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnbaixa);
-                this.columndataentrada = new global::System.Data.DataColumn("dataentrada", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                this.columndataentrada = new global::System.Data.DataColumn("dataentrada", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndataentrada);
                 this.columndatachamada = new global::System.Data.DataColumn("datachamada", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndatachamada);
@@ -4333,10 +4333,10 @@ namespace Report {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime dataentrada {
+            public string dataentrada {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tableGetData.dataentradaColumn]));
+                        return ((string)(this[this.tableGetData.dataentradaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dataentrada\' in table \'GetData\' is DBNull.", e);
@@ -5346,10 +5346,10 @@ namespace Report {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime dataentrada {
+            public string dataentrada {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tableGetnomebaixa.dataentradaColumn]));
+                        return ((string)(this[this.tableGetnomebaixa.dataentradaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'dataentrada\' in table \'Getnomebaixa\' is DBNull.", e);
