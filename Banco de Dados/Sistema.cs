@@ -107,7 +107,7 @@ namespace Report
             textBox1.Clear();
             progressBar1.Value = 0;
             j = 0;
-            using (OpenFileDialog ofd = new OpenFileDialog { Title = "Escolha um Arquivo TXT", Filter = "All Files|*.*" })
+            using (OpenFileDialog ofd = new OpenFileDialog { Title = "Escolha um Arquivo TXT", Filter = "Arquivo Texto (*.txt)|*.txt|All Files(*.*)|*.*" })
             {
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
@@ -354,16 +354,21 @@ namespace Report
                                         }
                                     }
                                     else
-                                    {
-                                        MessageBox.Show("Valor já baixado", nameof(Baixa), MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                        textBox2.SelectAll();
+                                    { 
+                                            MessageBox.Show("Valor já baixado", nameof(Baixa), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                            textBox2.SelectAll();
                                     }
                                 }
                                 else
                                 {
-                                    
-                                    MessageBox.Show("Dado não encontado", nameof(Baixa), MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                    textBox2.SelectAll();
+                                    myCommand.Dispose();
+                                    myReader.Close();
+                                    using (var log = new SqlCommand("insert into dbo.Log (Descricao,Numerointimacao,Data) values('Dado não encontrado','"+textBox2.Text+"','"+DateTime.Now+"')",conexao.SqlCon))
+                                    {
+                                        log.ExecuteNonQuery();
+                                        MessageBox.Show("Dado não encontado", nameof(Baixa), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        textBox2.SelectAll();
+                                    }
                                 }
 
                             }

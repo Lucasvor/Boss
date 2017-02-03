@@ -86,9 +86,11 @@ namespace Report.Relatorio
                             this.quantidadeBaixaTableAdapter.Fill(this.dBars.QuantidadeBaixa, Aux);
                             break;
                         case 4:
-                            reportDataSource1.Value = this.EntradaHojeBindingSource;
+                            reportDataSource1.Value = this.getdataprazoBindingSource;
                             this.reportViewer1.LocalReport.ReportEmbeddedResource = "Report.Relatorio.TitBaixaHoje.rdlc";
-                            this.entradaHojeTableAdapter.Fill(this.dBars.EntradaHoje);
+                            var Data = new Microsoft.Reporting.WinForms.ReportParameter("Data", Aux);
+                            this.reportViewer1.LocalReport.SetParameters(Data);
+                            this.getDataTableAdapter.Fill(this.dBars.GetData,Aux);
                             break;
                         default:
                             this.Dispose();

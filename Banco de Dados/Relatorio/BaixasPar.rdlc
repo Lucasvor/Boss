@@ -41,7 +41,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>="Faltando Baixa do dia: "&amp;convert.ToInt64(Parameters!Data.Value).ToString("00\/00\/0000")</Value>
+                <Value>="Baixa em falta Dia: "&amp;convert.ToInt64(Parameters!Data.Value).ToString("00\/00\/0000")</Value>
                 <Style>
                   <FontSize>30pt</FontSize>
                   <FontWeight>Bold</FontWeight>
@@ -759,7 +759,6 @@
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
         <Top>0.56955in</Top>
-        <Left>0in</Left>
         <Height>0.5in</Height>
         <Width>10.83997in</Width>
         <ZIndex>2</ZIndex>

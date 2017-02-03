@@ -31,10 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRelatorio));
             this.dBars = new Report.DBars();
-            this.EntradaHojeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.getDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.getDataTableAdapter = new Report.DBarsTableAdapters.GetDataTableAdapter();
-            this.entradaHojeTableAdapter = new Report.DBarsTableAdapters.EntradaHojeTableAdapter();
             this.getdataprazoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.getdataprazoTableAdapter = new Report.DBarsTableAdapters.GetdataprazoTableAdapter();
             this.quantidadeBaixaBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -43,7 +41,6 @@
             this.getnomebaixaTableAdapter = new Report.DBarsTableAdapters.GetnomebaixaTableAdapter();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             ((System.ComponentModel.ISupportInitialize)(this.dBars)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.EntradaHojeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.getDataBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.getdataprazoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.quantidadeBaixaBindingSource)).BeginInit();
@@ -55,11 +52,6 @@
             this.dBars.DataSetName = "DBars";
             this.dBars.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // EntradaHojeBindingSource
-            // 
-            this.EntradaHojeBindingSource.DataMember = "EntradaHoje";
-            this.EntradaHojeBindingSource.DataSource = this.dBars;
-            // 
             // getDataBindingSource
             // 
             this.getDataBindingSource.DataMember = "GetData";
@@ -68,10 +60,6 @@
             // getDataTableAdapter
             // 
             this.getDataTableAdapter.ClearBeforeFill = true;
-            // 
-            // entradaHojeTableAdapter
-            // 
-            this.entradaHojeTableAdapter.ClearBeforeFill = true;
             // 
             // getdataprazoBindingSource
             // 
@@ -120,7 +108,6 @@
             this.Text = "FormRelatorio";
             this.Load += new System.EventHandler(this.FormRelatorio_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dBars)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.EntradaHojeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.getDataBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.getdataprazoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.quantidadeBaixaBindingSource)).EndInit();
@@ -133,8 +120,6 @@
         private DBars dBars;
         private System.Windows.Forms.BindingSource getDataBindingSource;
         private DBarsTableAdapters.GetDataTableAdapter getDataTableAdapter;
-        private System.Windows.Forms.BindingSource EntradaHojeBindingSource;
-        private DBarsTableAdapters.EntradaHojeTableAdapter entradaHojeTableAdapter;
         private System.Windows.Forms.BindingSource getdataprazoBindingSource;
         private DBarsTableAdapters.GetdataprazoTableAdapter getdataprazoTableAdapter;
         private System.Windows.Forms.BindingSource quantidadeBaixaBindingSource;
