@@ -51,7 +51,7 @@ namespace Report
             BackImporta.Visible = true;
             Baixa.Visible = false;
             BackRelatorio.Visible = false;
-            
+
 
         }
 
@@ -122,7 +122,7 @@ namespace Report
             }
         }
 
-       
+
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {  /// Connect database
             if (connectBanco())
@@ -162,7 +162,7 @@ namespace Report
                                 erroTexto = " Linha com caracteres abaixo de 240";
                                 throw new Exception(erroTexto);
                             }
-                            if (s.Trim().Length < 210 || s.Substring(9, 226).Equals("                                                                                                                                                                                                                                  "))
+                            if (s.Trim().Length < 210 || s.Substring(9, 226).Equals("                                                                                                                                                                                                                                  ") || s.Substring(17, 218).Equals("                                                                                                                                                                                                                          "))
                             {
                                 if (fim == s.Substring(0, 8))
                                 {
@@ -329,9 +329,6 @@ namespace Report
                     {
                         try
                         {
-                            //richTextBox1.Text += textBox2.Text+System.Environment.NewLine;
-                            //richTextBox1.AppendText(textBox2.Text + System.Environment.NewLine);
-
                             using (var myCommand = new SqlCommand("select baixa from db_ARS.dbo.tb_carta where nrointimacao = '" + textBox2.Text + "'", conexao.SqlCon))
                             {
                                 myCommand.ExecuteNonQuery();
@@ -357,8 +354,10 @@ namespace Report
                                     }
                                     else
                                     {
-                                            MessageBox.Show("Valor já baixado", nameof(Baixa), MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                            textBox2.SelectAll();
+                                        textBox2.SelectAll();
+                                        throw new Exception("Valor já baixado");
+                                            //MessageBox.Show("Valor já baixado", nameof(Baixa), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                            
                                     }
                                 }
                                 else
@@ -368,8 +367,10 @@ namespace Report
                                     using (var log = new SqlCommand("insert into dbo.Log (Descricao,Numerointimacao,Data) values('Dado não encontrado','"+textBox2.Text+"','"+DateTime.Now+"')",conexao.SqlCon))
                                     {
                                         log.ExecuteNonQuery();
-                                        MessageBox.Show("Dado não encontado", nameof(Baixa), MessageBoxButtons.OK, MessageBoxIcon.Information);
                                         textBox2.SelectAll();
+                                        throw new Exception("Dado não encontado");
+                                        //MessageBox.Show("Dado não encontado", nameof(Baixa), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        
                                     }
                                 }
 
@@ -377,13 +378,12 @@ namespace Report
 
                         }catch(Exception ex)
                         {
-                            MessageBox.Show(ex.Message);
+                            MessageBox.Show(ex.Message, nameof(Baixa), MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         finally
                         {
                             conexao.SqlCon.Close();
                         }
-
                     }
                 }
             }
@@ -526,9 +526,10 @@ namespace Report
                     Nome = radioButton2.Checked ? comboBox1.Text : null
 
                 };
-                if ((radioButton3.Checked && string.IsNullOrWhiteSpace(textBox3.Text)) || radioButton2.Checked && string.IsNullOrWhiteSpace(textBox3.Text))
+                if ((radioButton3.Checked && string.IsNullOrWhiteSpace(textBox3.Text)) || radioButton2.Checked && string.IsNullOrWhiteSpace(textBox3.Text) && string.IsNullOrWhiteSpace(comboBox1.Text) || radioButton2.Checked && string.IsNullOrWhiteSpace(textBox3.Text) || radioButton2.Checked && string.IsNullOrWhiteSpace(comboBox1.Text) || radioButton1.Checked && string.IsNullOrWhiteSpace(textBox3.Text))
                 {
                     MessageBox.Show("Coloque um dado valido", nameof(Baixa), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    textBox3.Focus();
                 }
                 else
                 {
@@ -634,7 +635,7 @@ namespace Report
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message, "Preencher combo Box", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(e.Message + "Fechando o Programa", "Preencher ComboBox", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
