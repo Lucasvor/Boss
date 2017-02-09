@@ -610,11 +610,13 @@ namespace Report
             }
         }
 
-        private static void button7_Click(object sender, EventArgs e)
+        private void button7_Click(object sender, EventArgs e)
         {
             var a = new Login();
             a.ShowDialog();
             a.Dispose();
+            conexao.Dispose();
+            
         }
         public void GetdatabaseList()
         {
@@ -661,5 +663,6 @@ namespace Report
             }
 
         }
+        
     }
 }
