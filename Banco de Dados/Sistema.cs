@@ -519,11 +519,13 @@ namespace Report
                 MessageBox.Show("Escolha pelo menos uma opção!", "Relatório", MessageBoxButtons.OK, MessageBoxIcon.Information);
             } else
             {
+                // : radioButton4.Checked ? dateTimePicker1.Value.Date.ToString("dd/MM/yyyy")
                 var rel = new Report.Relatorio.FormRelatorio
                 {
                     Aux = radioButton3.Checked ? textBox3.Text : radioButton2.Checked ? textBox3.Text : radioButton1.Checked ? textBox3.Text : null,
                     Op = radioButton1.Checked ? 1 : radioButton2.Checked ? 2 : radioButton3.Checked ? 3 : radioButton4.Checked ? 4 : 0,
-                    Nome = radioButton2.Checked ? comboBox1.Text : null
+                    Nome = radioButton2.Checked ? comboBox1.Text : null,
+                    data = radioButton4.Checked ? dateTimePicker1.Value : dateTimePicker1.Value
 
                 };
                 if ((radioButton3.Checked && string.IsNullOrWhiteSpace(textBox3.Text)) || radioButton2.Checked && string.IsNullOrWhiteSpace(textBox3.Text) && string.IsNullOrWhiteSpace(comboBox1.Text) || radioButton2.Checked && string.IsNullOrWhiteSpace(textBox3.Text) || radioButton2.Checked && string.IsNullOrWhiteSpace(comboBox1.Text) || radioButton1.Checked && string.IsNullOrWhiteSpace(textBox3.Text))
@@ -640,6 +642,22 @@ namespace Report
             finally
             {
                 conexao.SqlCon.Close();
+            }
+
+        }
+
+        private void radioButton4_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton4.Checked)
+            {
+                PanelRigGRoupBox.Padding = new Padding(0, 170, 0, 0);
+                label1.Text = "Data da Importação:";
+                label1.Visible = true;
+                dateTimePicker1.Visible = true;
+            }else
+            {
+                label1.Visible = false;
+                dateTimePicker1.Visible = false;
             }
 
         }

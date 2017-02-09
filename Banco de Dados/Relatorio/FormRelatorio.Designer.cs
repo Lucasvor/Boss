@@ -39,12 +39,15 @@
             this.quantidadeBaixaTableAdapter = new Report.DBarsTableAdapters.QuantidadeBaixaTableAdapter();
             this.getnomebaixaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.getnomebaixaTableAdapter = new Report.DBarsTableAdapters.GetnomebaixaTableAdapter();
+            this.getImportaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.getImportaTableAdapter = new Report.DBarsTableAdapters.GetImportaTableAdapter();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             ((System.ComponentModel.ISupportInitialize)(this.dBars)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.getDataBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.getdataprazoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.quantidadeBaixaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.getnomebaixaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.getImportaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dBars
@@ -88,6 +91,15 @@
             // 
             this.getnomebaixaTableAdapter.ClearBeforeFill = true;
             // 
+            // getImportaBindingSource
+            // 
+            this.getImportaBindingSource.DataMember = "GetImporta";
+            this.getImportaBindingSource.DataSource = this.dBars;
+            // 
+            // getImportaTableAdapter
+            // 
+            this.getImportaTableAdapter.ClearBeforeFill = true;
+            // 
             // reportViewer1
             // 
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -112,6 +124,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.getdataprazoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.quantidadeBaixaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.getnomebaixaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.getImportaBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -126,6 +139,8 @@
         private DBarsTableAdapters.QuantidadeBaixaTableAdapter quantidadeBaixaTableAdapter;
         private System.Windows.Forms.BindingSource getnomebaixaBindingSource;
         private DBarsTableAdapters.GetnomebaixaTableAdapter getnomebaixaTableAdapter;
+        private System.Windows.Forms.BindingSource getImportaBindingSource;
+        private DBarsTableAdapters.GetImportaTableAdapter getImportaTableAdapter;
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
     }
 }

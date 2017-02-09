@@ -87,6 +87,7 @@
             this.RelDir = new System.Windows.Forms.Panel();
             this.RelEsq = new System.Windows.Forms.Panel();
             this.RelTOP = new System.Windows.Forms.Panel();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -300,7 +301,6 @@
             this.button7.TabIndex = 11;
             this.button7.UseMnemonic = false;
             this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(Sistema.button7_Click);
             // 
             // label3
             // 
@@ -638,8 +638,9 @@
             this.radioButton4.Size = new System.Drawing.Size(250, 54);
             this.radioButton4.TabIndex = 0;
             this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "Imp. Hj / Entrada Amanhã";
+            this.radioButton4.Text = "Relatório Importação";
             this.radioButton4.UseVisualStyleBackColor = true;
+            this.radioButton4.CheckedChanged += new System.EventHandler(this.radioButton4_CheckedChanged);
             // 
             // radioButton3
             // 
@@ -685,6 +686,7 @@
             // 
             // PanelRigGRoupBox
             // 
+            this.PanelRigGRoupBox.Controls.Add(this.dateTimePicker1);
             this.PanelRigGRoupBox.Controls.Add(this.textBox3);
             this.PanelRigGRoupBox.Controls.Add(this.label1);
             this.PanelRigGRoupBox.Controls.Add(this.comboBox1);
@@ -776,6 +778,19 @@
             this.RelTOP.Name = "RelTOP";
             this.RelTOP.Size = new System.Drawing.Size(675, 192);
             this.RelTOP.TabIndex = 6;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CalendarForeColor = System.Drawing.Color.Silver;
+            this.dateTimePicker1.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(46)))), ((int)(((byte)(58)))));
+            this.dateTimePicker1.CalendarTitleForeColor = System.Drawing.Color.Silver;
+            this.dateTimePicker1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(0, 111);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(359, 26);
+            this.dateTimePicker1.TabIndex = 23;
+            this.dateTimePicker1.Visible = false;
             // 
             // Sistema
             // 
@@ -891,6 +906,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }
 
