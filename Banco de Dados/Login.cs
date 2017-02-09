@@ -9,6 +9,7 @@ namespace Report
         public Login()
         {
             InitializeComponent();
+
         }
         private static void UpdateSetting(string key, string value)
         {
@@ -53,5 +54,45 @@ namespace Report
             }
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            this.Dispose();
+        }
+
+        private void textBox1_Enter(object sender, EventArgs e)
+        {
+            if(textBox1.Text == nameof(Login))
+            {
+                textBox1.Text = "";
+                textBox1.ForeColor = System.Drawing.SystemColors.WindowText;
+            }
+        }
+       private void textBox1_Leave(object sender, EventArgs e)
+        {
+            if(textBox1.Text.Length == 0)
+            {
+                textBox1.Text = nameof(Login);
+                textBox1.ForeColor = System.Drawing.SystemColors.GrayText;
+            }
+        }
+
+        private void textBox3_Enter(object sender, EventArgs e)
+        {
+            if (textBox3.Text == "Senha")
+            {
+                textBox3.Text = "";
+                textBox3.ForeColor = System.Drawing.SystemColors.WindowText;
+            }
+        }
+
+        private void textBox3_Leave(object sender, EventArgs e)
+        {
+            if (textBox3.Text.Length == 0)
+            {
+                textBox3.Text = "Senha";
+                textBox3.ForeColor = System.Drawing.SystemColors.GrayText;
+            }
+        }
     }
 }

@@ -157,9 +157,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icone.ico" />
+    <None Include="Images\Loc.png" />
     <None Include="Images\rsz_settings.png" />
     <None Include="Images\Settings.png" />
-    <None Include="Images\text-plus-icon.png" />
     <None Include="Images\+.png" />
     <None Include="Images\-.png" />
   </ItemGroup>
