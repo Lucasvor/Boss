@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
 
 namespace Report
 {
@@ -43,7 +43,11 @@ namespace Report
                 {
                     query = "select * from dbo.tb_carta where " + comboBox1.Text + " like '" + textBox1.Text + "%'";
                 }
-                else if ((!string.IsNullOrWhiteSpace(comboBox1.Text) && string.IsNullOrWhiteSpace(textBox1.Text)) && string.IsNullOrWhiteSpace(comboBox2.Text))
+                else if (!string.IsNullOrWhiteSpace(comboBox1.Text) && string.IsNullOrWhiteSpace(textBox1.Text))
+                {
+                    throw new Exception("Campo não pode ser vazio");
+                }
+                    else if ((!string.IsNullOrWhiteSpace(comboBox1.Text) && string.IsNullOrWhiteSpace(textBox1.Text)) && string.IsNullOrWhiteSpace(comboBox2.Text))
                 {
                     query = "select " + comboBox1.Text + " from dbo.tb_carta";
                 }
@@ -51,11 +55,12 @@ namespace Report
                 {
                     query = "select * from dbo.tb_carta where " + comboBox1.Text + " = '" + textBox1.Text + "' and " + comboBox2.Text + " like '" + textBox2.Text + "%'";
                 }
-                else if(string.IsNullOrWhiteSpace(comboBox1.Text) && !string.IsNullOrWhiteSpace(textBox1.Text))
+                    else if (string.IsNullOrWhiteSpace(comboBox1.Text) && !string.IsNullOrWhiteSpace(textBox1.Text))
                 {
                     throw new Exception("Box itens não pode ser vazio!");
 
-                }
+                 }
+
                 /* if (!string.IsNullOrWhiteSpace(textBox1.Text) && !string.IsNullOrWhiteSpace(comboBox1.Text))
                  {
                      query = "select * from dbo.tb_carta where nrointimacao = '" + textBox1.Text + "' AND cartorio = '"+comboBox1.Text+"'";

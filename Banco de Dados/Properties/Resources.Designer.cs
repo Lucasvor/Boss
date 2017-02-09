@@ -63,9 +63,9 @@ namespace Report.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Key_48 {
+        internal static System.Drawing.Bitmap database_icon {
             get {
-                object obj = ResourceManager.GetObject("Key_48", resourceCulture);
+                object obj = ResourceManager.GetObject("database_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace Report.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Loc {
+        internal static System.Drawing.Bitmap Key_48 {
             get {
-                object obj = ResourceManager.GetObject("Loc", resourceCulture);
+                object obj = ResourceManager.GetObject("Key_48", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
