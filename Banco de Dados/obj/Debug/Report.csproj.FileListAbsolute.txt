@@ -50,3 +50,8 @@ D:\Documentos\Visual Studio 2015\Projects\Banco de Dados atualizado\boss\Banco d
 D:\Documentos\Visual Studio 2015\Projects\Banco de Dados atualizado\boss\Banco de Dados\obj\Debug\Report.csproj.GenerateResource.Cache
 D:\Documentos\Visual Studio 2015\Projects\Banco de Dados atualizado\boss\Banco de Dados\obj\Debug\RdlCompile.cache
 D:\Documentos\Visual Studio 2015\Projects\Banco de Dados atualizado\boss\Banco de Dados\obj\Debug\RdlCompile.compiled
+D:\Documentos\Visual Studio 2015\Projects\Banco de Dados atualizado\boss\Banco de Dados\bin\Debug\Report.exe.manifest
+D:\Documentos\Visual Studio 2015\Projects\Banco de Dados atualizado\boss\Banco de Dados\bin\Debug\Report.application
+D:\Documentos\Visual Studio 2015\Projects\Banco de Dados atualizado\boss\Banco de Dados\obj\Debug\Report.TrustInfo.xml
+D:\Documentos\Visual Studio 2015\Projects\Banco de Dados atualizado\boss\Banco de Dados\obj\Debug\Report.exe.manifest
+D:\Documentos\Visual Studio 2015\Projects\Banco de Dados atualizado\boss\Banco de Dados\obj\Debug\Report.application

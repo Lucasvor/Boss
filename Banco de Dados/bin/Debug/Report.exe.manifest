@@ -4,7 +4,7 @@
   <description asmv2:iconFile="Icone.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="Report" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="Report" version="1.0.0.2" language="neutral" processorArchitecture="msil" />
     <commandLine file="Report.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -224,13 +224,13 @@
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Report.exe" size="580576">
-      <assemblyIdentity name="Report" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <assemblyIdentity name="Report" version="1.0.0.2" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>SSIOrTMARq9895W3R+VfMtqnedGm4wTqTAvWUNV12Oo=</dsig:DigestValue>
+        <dsig:DigestValue>7tIRJ/XgQZD+/EuFaiPuHCvBoqWRzerDxiuZhjmqNx4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

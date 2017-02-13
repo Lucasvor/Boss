@@ -88,6 +88,7 @@
             this.RelDir = new System.Windows.Forms.Panel();
             this.RelEsq = new System.Windows.Forms.Panel();
             this.RelTOP = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -282,6 +283,7 @@
             // 
             // panel10
             // 
+            this.panel10.Controls.Add(this.label7);
             this.panel10.Controls.Add(this.button7);
             this.panel10.Controls.Add(this.label3);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -793,6 +795,16 @@
             this.RelTOP.Size = new System.Drawing.Size(675, 192);
             this.RelTOP.TabIndex = 6;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Silver;
+            this.label7.Location = new System.Drawing.Point(93, 191);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(0, 24);
+            this.label7.TabIndex = 12;
+            // 
             // Sistema
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -908,6 +920,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label label7;
     }
 }
 

@@ -36,10 +36,14 @@ namespace Report
         {
             InitializeComponent();
             //Pega nome dos entregadores e preencher combo box
+            label7.Text = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
             GetdatabaseList();
             //
         }
         //Botões da coluna da esquerda
+
+    
+
 
         private void button1_Click_1(object sender, EventArgs e)
         {
