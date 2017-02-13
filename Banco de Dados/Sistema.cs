@@ -106,9 +106,7 @@ namespace Report
             BackImporta.Visible = false;
             Baixa.Visible = false;
             BackRelatorio.Visible = false;
-            textBox1.Clear();
-            textBox2.Clear();
-            progressBar1.Value = 0;
+            limpaAbas();
         }
 
         //Botões da coluna da esquerda
@@ -666,6 +664,15 @@ namespace Report
                 dateTimePicker1.Visible = false;
             }
 
+        }
+
+        private void limpaAbas()
+        {
+            textBox1.Clear();
+            progressBar1.Value = 0;
+            textBox2.Clear();
+            richTextBox1.Clear();
+            textBox3.Clear();
         }
         
     }

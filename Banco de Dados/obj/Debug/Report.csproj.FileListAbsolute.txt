@@ -55,3 +55,8 @@ D:\Documentos\Visual Studio 2015\Projects\Banco de Dados atualizado\boss\Banco d
 D:\Documentos\Visual Studio 2015\Projects\Banco de Dados atualizado\boss\Banco de Dados\obj\Debug\Report.TrustInfo.xml
 D:\Documentos\Visual Studio 2015\Projects\Banco de Dados atualizado\boss\Banco de Dados\obj\Debug\Report.exe.manifest
 D:\Documentos\Visual Studio 2015\Projects\Banco de Dados atualizado\boss\Banco de Dados\obj\Debug\Report.application
+C:\Users\lucasvor\Desktop\boss\Banco de Dados\bin\Debug\Report.exe.manifest
+C:\Users\lucasvor\Desktop\boss\Banco de Dados\bin\Debug\Report.application
+C:\Users\lucasvor\Desktop\boss\Banco de Dados\obj\Debug\Report.TrustInfo.xml
+C:\Users\lucasvor\Desktop\boss\Banco de Dados\obj\Debug\Report.exe.manifest
+C:\Users\lucasvor\Desktop\boss\Banco de Dados\obj\Debug\Report.application
